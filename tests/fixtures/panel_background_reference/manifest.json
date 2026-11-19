@@ -1,0 +1,171 @@
+{
+  "scope": "Unmodified real camera frames: unlit stationary references and visibly lit down/4 buttons rejected by the old bezel background check",
+  "scenes": [
+    {
+      "run": "20261015_182913",
+      "label": "down",
+      "before": [
+        {
+          "file": "20261015_182913_before_1259300.jpg",
+          "sequence": 1259300,
+          "time": 1792060163.5261152,
+          "box": [
+            291.730224609375,
+            141.7218780517578,
+            366.92144775390625,
+            216.00299072265625
+          ],
+          "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261015_182913/paired_light_evidence/attempt_1_before_1259300_full.jpg"
+        },
+        {
+          "file": "20261015_182913_before_1259302.jpg",
+          "sequence": 1259302,
+          "time": 1792060163.66115,
+          "box": [
+            291.78839111328125,
+            142.4853057861328,
+            366.4827575683594,
+            216.0125732421875
+          ],
+          "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261015_182913/paired_light_evidence/attempt_1_before_1259302_full.jpg"
+        }
+      ],
+      "after": [
+        {
+          "file": "20261015_182913_after_1259411.jpg",
+          "sequence": 1259411,
+          "time": 1792060170.9236243,
+          "box": [
+            291.224365234375,
+            141.24391174316406,
+            366.85748291015625,
+            215.98532104492188
+          ],
+          "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_182913/paired_light_evidence/attempt_1_after_1259411_full.jpg"
+        },
+        {
+          "file": "20261015_182913_after_1259415.jpg",
+          "sequence": 1259415,
+          "time": 1792060171.2069275,
+          "box": [
+            290.8103942871094,
+            142.75790405273438,
+            365.8233642578125,
+            216.58856201171875
+          ],
+          "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_182913/paired_light_evidence/attempt_1_after_1259415_full.jpg"
+        }
+      ]
+    },
+    {
+      "run": "20261015_185934",
+      "label": "4",
+      "before": [
+        {
+          "file": "20261015_185934_before_1286671.jpg",
+          "sequence": 1286671,
+          "time": 1792061987.6638014,
+          "box": [
+            284.12200927734375,
+            151.76841735839844,
+            353.8615417480469,
+            220.3931427001953
+          ],
+          "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261015_185934/paired_light_evidence/attempt_1_before_1286671_full.jpg"
+        },
+        {
+          "file": "20261015_185934_before_1286674.jpg",
+          "sequence": 1286674,
+          "time": 1792061987.872297,
+          "box": [
+            284.1217956542969,
+            151.8588409423828,
+            353.6865234375,
+            220.4320068359375
+          ],
+          "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261015_185934/paired_light_evidence/attempt_1_before_1286674_full.jpg"
+        }
+      ],
+      "after": [
+        {
+          "file": "20261015_185934_after_1286797.jpg",
+          "sequence": 1286797,
+          "time": 1792061996.0596917,
+          "box": [
+            284.1886291503906,
+            151.23202514648438,
+            354.3171691894531,
+            219.74867248535156
+          ],
+          "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_185934/paired_light_evidence/attempt_1_after_1286797_full.jpg"
+        },
+        {
+          "file": "20261015_185934_after_1286802.jpg",
+          "sequence": 1286802,
+          "time": 1792061996.3922248,
+          "box": [
+            283.8420715332031,
+            150.13841247558594,
+            353.7335510253906,
+            219.8731689453125
+          ],
+          "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_185934/paired_light_evidence/attempt_1_after_1286802_full.jpg"
+        }
+      ]
+    }
+  ],
+  "unlit_glare_pairs": [
+    {
+      "before": {
+        "file": "unlit_glare_34437.jpg",
+        "sequence": 34437,
+        "time": 1791950514.6786025,
+        "box": [
+          193.9744873046875,
+          38.09266662597656,
+          226.53627014160156,
+          71.86048889160156
+        ],
+        "source": "/home/qianjue/contral_test/artifacts/diagnostics/20261014_down_glare_source/live_34437.jpg"
+      },
+      "after": {
+        "file": "unlit_glare_34440.jpg",
+        "sequence": 34440,
+        "time": 1791950514.8600957,
+        "box": [
+          193.76779174804688,
+          38.289485931396484,
+          226.41732788085938,
+          71.99288940429688
+        ],
+        "source": "/home/qianjue/contral_test/artifacts/diagnostics/20261014_down_glare_source/live_34440.jpg"
+      }
+    },
+    {
+      "before": {
+        "file": "unlit_glare_34442.jpg",
+        "sequence": 34442,
+        "time": 1791950515.0113041,
+        "box": [
+          194.2770233154297,
+          39.09586715698242,
+          226.5248565673828,
+          72.61941528320312
+        ],
+        "source": "/home/qianjue/contral_test/artifacts/diagnostics/20261014_down_glare_source/live_34442.jpg"
+      },
+      "after": {
+        "file": "unlit_glare_34445.jpg",
+        "sequence": 34445,
+        "time": 1791950515.189741,
+        "box": [
+          194.16372680664062,
+          39.0500373840332,
+          226.64247131347656,
+          72.47282409667969
+        ],
+        "source": "/home/qianjue/contral_test/artifacts/diagnostics/20261014_down_glare_source/live_34445.jpg"
+      }
+    }
+  ]
+}

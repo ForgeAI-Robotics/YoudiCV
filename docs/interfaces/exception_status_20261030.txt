@@ -1,0 +1,37 @@
+异常状态码接口补充｜2026-10-30
+
+一、范围
+仅增加机械臂任务报告/终态事件中的异常字段，不新增运动、归位、断电、清停止锁或底盘放行指令。原任务 outcome、phase、reason_code、原始 journal 和已有安全处理保持。
+本补充不等于已经实现需求文档中全部三级异常处置。故障后的底盘同步停机、断电及人工处理闭环仍须由整机调度与甲方接口确认，不能仅凭新增状态码宣布完成。
+
+二、普通任务
+有明确归位失败或通信失联证据时，报告包含：
+exception_level: 1
+exception_status_code: MANUAL_INTERVENTION_REQUIRED
+production_exception_status_code: MANUAL_INTERVENTION_REQUIRED
+manual_intervention_required: true
+recovery_owner: robot_supervisor_and_operator
+report_only: true
+exception_reason_code: ARM_ORIGIN_RETURN_FAILED 或 COMMUNICATION_LOST
+
+三、循环测试
+既有循环父进程已设置 YOUXIAOMEI_CYCLE_PARENT_RECOVERY=1 时：
+exception_status_code: TEST_RECOVERY_PENDING
+manual_intervention_required: false
+recovery_owner: existing_cycle_test_parent
+其余生产异常类别仍保留，便于检索。本补充不绕过恢复前的急停、反馈、停止代号、碰撞及归位检查，不修改原无人值守恢复策略。
+
+四、识别依据
+归位失败：明确 failure_recovery_error、ARM_ORIGIN_RETURN_FAILED/ORIGIN_RETURN_FAILED，或归位阶段有 verified=false 证据。
+通信失联：明确 ARM_COMMUNICATION_LOST、VISION_COMMUNICATION_LOST、ARM_FEEDBACK_LOST、ROBOT_STATE_TIMEOUT、COMMUNICATION_LOST；或 ConnectionRefusedError、ConnectionResetError、BrokenPipeError。
+普通缺框、定位采样失败、单独 TimeoutError、无归位证据不自动推断为一级异常。未归类故障继续使用原 reason_code；没有证据时不制造“已经归位”或“通信正常”的结论。
+
+五、输出位置
+run_button_light_closed_loop 的报告 exception_report；终态事件的同名字段及 evidence.exception_report。通道仍为既有任务报告和 mission_status outbox；本次未新增厂商UDP命令或导航接口。
+旧消费者可忽略新增字段；需要显示人工处理状态的消费者应优先读取 exception_status_code，同时保留原失败原因。没有修改厂商协议的 command/value 含义。
+
+六、初始已亮
+button_already_on 对应 BUTTON_ALREADY_TRIGGERED；phase 仍为 button_on_confirmed，outcome 仍为 active。仅表示按钮已触发，不表示楼层已到或整段任务完成，仍由原流程等待有效 OFF 并归位。
+
+七、后续接口边界
+短距离/小角度导航微调请求尚未打通，需要甲方提供并配合接口、执行结果和停稳确认。本文不宣称新增了该功能。

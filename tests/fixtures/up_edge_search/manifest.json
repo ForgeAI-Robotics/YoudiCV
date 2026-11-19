@@ -1,0 +1,29 @@
+{
+  "provenance": "Original failure capture, no image edits; single observed frame. Additional timestamps/sequences in tests are simulated fresh frames, not an archived two-frame replay.",
+  "source_directory": "missing_button_captures/20261021_093256_296145",
+  "source_run": "20261021_093252",
+  "reason": "target_switch_visibility_timeout",
+  "frame_sequence": 811292,
+  "capture_time_unix_sec": 1792546376.057879,
+  "image_size": [
+    640,
+    360
+  ],
+  "detections": [
+    {
+      "label": "up",
+      "confidence": 0.9332668781280518,
+      "bbox_xyxy": [
+        170.69085693359375,
+        3.9515533447265625,
+        204.74156188964844,
+        40.19046401977539
+      ],
+      "center_xy": [
+        187.7162094116211,
+        22.071008682250977
+      ]
+    }
+  ],
+  "camera_sha256": "39bb27d7a2708ef70ff34c8ad047c4fb461b9c8ff1b1a4f0d29ce118e596f55a"
+}

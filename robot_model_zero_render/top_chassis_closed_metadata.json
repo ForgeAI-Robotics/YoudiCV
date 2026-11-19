@@ -1,0 +1,21 @@
+{
+  "closed_component_count": 7,
+  "closed_faces": 130378,
+  "output": "/home/qianjue/contral_test/robot_model_zero_render/piper_description/meshes/top_chassis_closed.STL",
+  "removed_open_slide_bounds_m": [
+    [
+      -0.17728638648986816,
+      0.08099722117185593,
+      0.29880622029304504
+    ],
+    [
+      0.17728565633296967,
+      0.4929710328578949,
+      0.6123770475387573
+    ]
+  ],
+  "removed_open_slide_faces": 47964,
+  "source": "/home/qianjue/contral_test/robot_model_zero_render/piper_description/meshes/top_chassis.STL",
+  "source_component_count": 8,
+  "source_faces": 178342
+}

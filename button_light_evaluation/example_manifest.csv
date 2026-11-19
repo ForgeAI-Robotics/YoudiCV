@@ -1,0 +1,3 @@
+image,target,state,gt_x1,gt_y1,gt_x2,gt_y2
+../button_light_snapshots/example_off.jpg,10,OFF,,,,
+../dataset/example_on.jpg,10,ON,100,80,150,130

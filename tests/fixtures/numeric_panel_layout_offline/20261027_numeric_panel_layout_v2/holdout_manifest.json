@@ -1,0 +1,639 @@
+{
+  "schema": 1,
+  "scope": "Five task-disjoint saved-image holdouts evaluated AFTER freezing v2 source. Visual annotations by assistant (~2 px), no independent human verification. Same physical panel/setup/session, not domain-independent.",
+  "annotation": "Assistant visually read original numerals and rim centres (~2 px uncertainty); not independent human verified ground truth. Clipped/occluded/ambiguous buttons omitted, no light-state labels.",
+  "template": {
+    "coordinates": {
+      "1": [
+        0,
+        0
+      ],
+      "2": [
+        0,
+        -1
+      ],
+      "3": [
+        0,
+        -2
+      ],
+      "4": [
+        0,
+        -3
+      ],
+      "5": [
+        0,
+        -4
+      ],
+      "6": [
+        0,
+        -5
+      ],
+      "7": [
+        0,
+        -6
+      ],
+      "8": [
+        0,
+        -7
+      ],
+      "9": [
+        1,
+        -1
+      ],
+      "10": [
+        1,
+        -2
+      ],
+      "11": [
+        1,
+        -3
+      ],
+      "12": [
+        1,
+        -4
+      ],
+      "13": [
+        1,
+        -5
+      ],
+      "14": [
+        1,
+        -6
+      ],
+      "15": [
+        1,
+        -7
+      ],
+      "16": [
+        1,
+        -8
+      ]
+    },
+    "units": "Relative column/row units, not metres; equal row pitch is a tested planar-grid assumption, not physical calibration.",
+    "observed_row_pairs": [
+      "2/9",
+      "3/10",
+      "4/11",
+      "5/12",
+      "6/13",
+      "7/14",
+      "8/15"
+    ],
+    "note": "16 verified above 15 in wide reference. No asserted button at left of 16; 1 has no asserted right partner. B1/open/close excluded."
+  },
+  "protocol": {
+    "min_anchors": 5,
+    "confidence": 0.7,
+    "max_extrapolation_rows": 1,
+    "reference_validation_task_split": true,
+    "target_mask": "Remove target label AND every detection near its annotated physical centre, including wrong labels.",
+    "provisional_error_tolerance": "min(5 px, 15% annotated diameter), for offline 2D only",
+    "threshold_policy": "Geometric gates set before validation. No tuning on held-out results."
+  },
+  "frames": [
+    {
+      "id": "reference_lower",
+      "task": "diagnostic_20261021_193454",
+      "split": "reference",
+      "source": "artifacts/diagnostics/20261021_193454_button4_reproduction/frame_1353457/input_path.jpg",
+      "image": "../20261027_numeric_panel_layout/dataset/reference_lower.jpg",
+      "sha256": "44b051de3b582b5ccf8668da6474fd3746c0874df9a8d7f5b89a9a1a4f183f96",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [],
+      "buttons": {
+        "1": {
+          "center": [
+            312,
+            119
+          ],
+          "diameter": 24
+        },
+        "2": {
+          "center": [
+            312,
+            87
+          ],
+          "diameter": 24
+        },
+        "3": {
+          "center": [
+            311,
+            56
+          ],
+          "diameter": 24
+        },
+        "4": {
+          "center": [
+            310,
+            23
+          ],
+          "diameter": 24
+        },
+        "9": {
+          "center": [
+            349,
+            86
+          ],
+          "diameter": 24
+        },
+        "10": {
+          "center": [
+            350,
+            55
+          ],
+          "diameter": 24
+        },
+        "11": {
+          "center": [
+            350,
+            22
+          ],
+          "diameter": 24
+        }
+      }
+    },
+    {
+      "id": "reference_upper",
+      "task": "20261026_174137",
+      "split": "reference",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_before_251873_full.jpg",
+      "image": "../20261027_numeric_panel_layout/dataset/reference_upper.jpg",
+      "sha256": "fe8339e7eb8b10f266b0cb6f17d38a3a1bfb8a04eeba9e38bb0937f1142311ec",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [],
+      "buttons": {
+        "5": {
+          "center": [
+            326,
+            263
+          ],
+          "diameter": 60
+        },
+        "6": {
+          "center": [
+            326,
+            177
+          ],
+          "diameter": 60
+        },
+        "7": {
+          "center": [
+            326,
+            102
+          ],
+          "diameter": 60
+        },
+        "8": {
+          "center": [
+            326,
+            36
+          ],
+          "diameter": 60
+        },
+        "12": {
+          "center": [
+            434,
+            265
+          ],
+          "diameter": 60
+        },
+        "13": {
+          "center": [
+            427,
+            176
+          ],
+          "diameter": 60
+        },
+        "14": {
+          "center": [
+            423,
+            102
+          ],
+          "diameter": 60
+        },
+        "15": {
+          "center": [
+            420,
+            34
+          ],
+          "diameter": 60
+        }
+      }
+    },
+    {
+      "id": "reference_wide",
+      "task": "capture_20261026_160126",
+      "split": "reference",
+      "source": "artifacts/captures/camera_snapshots/20261026_160126_454488.jpg",
+      "image": "../20261027_numeric_panel_layout/dataset/reference_wide.jpg",
+      "sha256": "e74660b501b5efc54818cbb14369a72a30b27b4f376bd97ae03d679ce471dd80",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [],
+      "buttons": {
+        "2": {
+          "center": [
+            336,
+            282
+          ],
+          "diameter": 23
+        },
+        "3": {
+          "center": [
+            336,
+            246
+          ],
+          "diameter": 23
+        },
+        "4": {
+          "center": [
+            336,
+            211
+          ],
+          "diameter": 23
+        },
+        "5": {
+          "center": [
+            336,
+            178
+          ],
+          "diameter": 23
+        },
+        "6": {
+          "center": [
+            336,
+            145
+          ],
+          "diameter": 23
+        },
+        "7": {
+          "center": [
+            336,
+            113
+          ],
+          "diameter": 23
+        },
+        "8": {
+          "center": [
+            336,
+            81
+          ],
+          "diameter": 23
+        },
+        "9": {
+          "center": [
+            379,
+            282
+          ],
+          "diameter": 23
+        },
+        "10": {
+          "center": [
+            378,
+            246
+          ],
+          "diameter": 23
+        },
+        "11": {
+          "center": [
+            378,
+            211
+          ],
+          "diameter": 23
+        },
+        "12": {
+          "center": [
+            377,
+            177
+          ],
+          "diameter": 23
+        },
+        "13": {
+          "center": [
+            377,
+            145
+          ],
+          "diameter": 23
+        },
+        "14": {
+          "center": [
+            376,
+            113
+          ],
+          "diameter": 23
+        },
+        "15": {
+          "center": [
+            375,
+            81
+          ],
+          "diameter": 23
+        },
+        "16": {
+          "center": [
+            375,
+            50
+          ],
+          "diameter": 23
+        }
+      }
+    },
+    {
+      "id": "holdout_2",
+      "task": "20261026_184915",
+      "split": "validation",
+      "image": "dataset/holdout_2.jpg",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_184915/paired_light_evidence/attempt_1_before_312662_full.jpg",
+      "sha256": "6d9bb731e679e76cbae6bf937808e09d0d0c90e838907a406a5431c56ecd6916",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "1",
+        "2",
+        "3"
+      ],
+      "buttons": {
+        "1": {
+          "center": [
+            320,
+            265
+          ],
+          "diameter": 69
+        },
+        "2": {
+          "center": [
+            323,
+            178
+          ],
+          "diameter": 69
+        },
+        "3": {
+          "center": [
+            324,
+            82
+          ],
+          "diameter": 69
+        },
+        "9": {
+          "center": [
+            438,
+            180
+          ],
+          "diameter": 69
+        },
+        "10": {
+          "center": [
+            444,
+            84
+          ],
+          "diameter": 69
+        }
+      }
+    },
+    {
+      "id": "holdout_3",
+      "task": "20261026_184948",
+      "split": "validation",
+      "image": "dataset/holdout_3.jpg",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_184948/paired_light_evidence/attempt_1_before_313192_full.jpg",
+      "sha256": "cd2ea552d98133abce9d70e8db4ba01dedad933a4a949834a6d64c339b7557fd",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "2",
+        "3",
+        "4"
+      ],
+      "buttons": {
+        "2": {
+          "center": [
+            320,
+            270
+          ],
+          "diameter": 67
+        },
+        "3": {
+          "center": [
+            322,
+            181
+          ],
+          "diameter": 67
+        },
+        "4": {
+          "center": [
+            323,
+            88
+          ],
+          "diameter": 67
+        },
+        "9": {
+          "center": [
+            432,
+            274
+          ],
+          "diameter": 67
+        },
+        "10": {
+          "center": [
+            437,
+            185
+          ],
+          "diameter": 67
+        },
+        "11": {
+          "center": [
+            440,
+            90
+          ],
+          "diameter": 67
+        }
+      }
+    },
+    {
+      "id": "holdout_4",
+      "task": "20261026_185025",
+      "split": "validation",
+      "image": "dataset/holdout_4.jpg",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_185025/paired_light_evidence/attempt_1_before_313783_full.jpg",
+      "sha256": "ae131337d5dfd07bd22b904ec4a9c63643d7a265a45cd3ff77dd9297333ac7f4",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "3",
+        "4",
+        "5"
+      ],
+      "buttons": {
+        "3": {
+          "center": [
+            310,
+            269
+          ],
+          "diameter": 67
+        },
+        "4": {
+          "center": [
+            318,
+            180
+          ],
+          "diameter": 67
+        },
+        "5": {
+          "center": [
+            327,
+            89
+          ],
+          "diameter": 67
+        },
+        "10": {
+          "center": [
+            419,
+            279
+          ],
+          "diameter": 67
+        },
+        "11": {
+          "center": [
+            431,
+            188
+          ],
+          "diameter": 67
+        },
+        "12": {
+          "center": [
+            440,
+            96
+          ],
+          "diameter": 67
+        }
+      }
+    },
+    {
+      "id": "holdout_5",
+      "task": "20261026_185104",
+      "split": "validation",
+      "image": "dataset/holdout_5.jpg",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_185104/paired_light_evidence/attempt_1_before_314392_full.jpg",
+      "sha256": "091d17a639fda582723bb127538b75bbb4fab33c8a593658ffb3bb894ae4dcb9",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "4",
+        "5"
+      ],
+      "buttons": {
+        "4": {
+          "center": [
+            321,
+            267
+          ],
+          "diameter": 62
+        },
+        "5": {
+          "center": [
+            324,
+            182
+          ],
+          "diameter": 62
+        },
+        "6": {
+          "center": [
+            326,
+            101
+          ],
+          "diameter": 62
+        },
+        "7": {
+          "center": [
+            326,
+            32
+          ],
+          "diameter": 62
+        },
+        "11": {
+          "center": [
+            440,
+            268
+          ],
+          "diameter": 62
+        },
+        "12": {
+          "center": [
+            433,
+            181
+          ],
+          "diameter": 62
+        },
+        "13": {
+          "center": [
+            428,
+            101
+          ],
+          "diameter": 62
+        },
+        "14": {
+          "center": [
+            421,
+            32
+          ],
+          "diameter": 62
+        }
+      }
+    },
+    {
+      "id": "holdout_1",
+      "task": "20261023_155141",
+      "split": "validation",
+      "image": "dataset/holdout_1.jpg",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261023_155141/paired_light_evidence/attempt_1_before_1250847_full.jpg",
+      "sha256": "0a211abb279705f592ee9d6f21920ae54013c0146139306de7c1ad4da12047c0",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "1",
+        "2"
+      ],
+      "buttons": {
+        "1": {
+          "center": [
+            323,
+            178
+          ],
+          "diameter": 74
+        },
+        "2": {
+          "center": [
+            327,
+            76
+          ],
+          "diameter": 74
+        },
+        "9": {
+          "center": [
+            454,
+            78
+          ],
+          "diameter": 74
+        }
+      }
+    }
+  ]
+}

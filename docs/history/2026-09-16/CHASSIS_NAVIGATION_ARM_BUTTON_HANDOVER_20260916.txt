@@ -1,0 +1,686 @@
+机械臂电梯按钮系统与底盘导航对接技术交接说明
+版本：2026-09-16
+项目目录：/home/qianjue/contral_test
+用途：提供给负责底盘导航系统的开发公司，用于理解机械臂按键系统、数据流、接口边界和联调要求。
+
+======================================================================
+1. 文档范围和当前结论
+======================================================================
+
+本系统完成的任务是：接收目标楼层 1～16，识别对应电梯按钮，控制 Piper 六轴
+机械臂接近按钮，通过电机电流和运动学估算接触力，完成按压，再通过摄像机判断
+按钮是否点亮；按压成功后持续观察，按钮由 ON 变为 OFF 时认为电梯到达目标楼层，
+最后把机械臂返回记录的原始位置。
+
+当前机械臂按钮系统与底盘导航系统是两个控制域：
+
+  底盘 ROS Master： http://192.168.168.100:11311
+  机械臂 ROS Master：http://192.168.168.120:11311
+  上位计算机/视觉主机：192.168.168.130
+  OrangePi/机械臂控制机：192.168.168.120
+  底盘 Jetson：192.168.168.100
+
+当前尚未建立正式的“底盘导航完成 -> 机械臂获得控制权 -> 按键完成 -> 底盘恢复
+导航”的跨系统仲裁协议。底盘公司需要配合定义该接口，不能依靠多个 ROS 发布者
+在 /cmd_vel 上竞争。
+
+当前按钮定位使用 YOLO；按钮亮灭识别使用 OpenCV 单按钮内部亮度对比。
+Qwen/Qwen+LoRA 不在当前生产链中，已不用于按钮亮灭判断。
+
+======================================================================
+2. 硬件和运行节点
+======================================================================
+
+2.1 上位计算机 192.168.168.130
+
+- 运行任务状态机、YOLO 按钮检测、OpenCV 亮灭检测、RGB-D 安全检测、IK、
+  轨迹生成、GUI、语音识别和手柄输入。
+- 连接 Orbbec DaBai DCW2 RGB-D 相机，VID/PID 2BC5:06A0。
+- 使用两个主要 Python 环境：
+  - piper-handeye：控制、运动学、状态机；
+  - elevator-yolo26：YOLO/OpenCV 视觉服务。
+
+2.2 OrangePi 192.168.168.120
+
+- 运行 ROS Noetic、Piper 驱动、MoveIt、ros_control 和关节轨迹控制器。
+- 通过 CAN 接收六个关节的电机电流反馈。
+- 接收上位机发来的经过认证的 UDP JSON 请求，并在本机执行轨迹、碰撞检查、
+  安全停止和带力反馈的按压。
+
+2.3 底盘 Jetson 192.168.168.100
+
+- 运行 ROS Melodic 和厂商定制 velocity_smoother、chassis_server_node。
+- 当前底盘数据流：
+
+  导航/手动速度 geometry_msgs/Twist
+      -> /cmd_vel
+      -> velocity_smoother
+      -> /plt_cmd_vel (geometry_msgs/TwistStamped)
+      -> chassis_server_node
+      -> /dev/udbot
+      -> 轮电机
+
+- /robot_cmd_vel 是 velocity_smoother 的反馈输入，不是已验证的手柄命令入口。
+- 当前手柄试验中，输入峰值 0.250 m/s，但 /plt_cmd_vel 峰值仅约 0.015 m/s，
+  反向输出为 0，底盘里程计无运动。已确认不是发布超时，也不是其他节点持续覆盖。
+  厂商需要检查定制 velocity_smoother 的安全限幅逻辑。
+
+======================================================================
+3. 按钮任务的完整运行逻辑
+======================================================================
+
+3.1 正常流程
+
+1. 接收目标楼层，检查必须为整数 1～16。
+2. 确认机器人硬件、视觉服务、轨迹桥、停止桥和按压桥健康。
+3. 读取当前关节编码器并确认任务起点。
+4. YOLO 在实时 RGB 图像中检测数字按钮，输出标签、置信度和边界框。
+5. 利用与 RGB 对齐的深度、相机内参和手眼标定：
+   - 在目标按钮周围拟合面板平面；
+   - 将按钮中心像素射线与平面求交；
+   - 得到相机坐标系下的按钮三维位置和面板法向；
+   - 用实时关节编码器把目标变换到机械臂基座坐标系。
+6. 生成粗接近轨迹。机械臂运动期间继续采集 RGB-D，并重新估计按钮位置。
+7. 在未来的轨迹交接点重新求 IK，把新目标轨迹平滑拼接到现有接近轨迹。
+8. 到达预按压位置后执行力反馈按压：
+   - 速度 0.010 m/s；
+   - 最大前进行程 0.022 m，只作为几何硬边界；
+   - 不是按固定距离完成按压；
+   - 根据六关节电流、Jacobian、滚动自由运动基线和 Kalman 力估计判断接触；
+   - 法向接触需要持续 0.40 s；
+   - 切向滑动达到门限会停止并撤回；
+   - 反馈过期、超时、碰撞、视觉安全停止或达到最大行程均按失败处理。
+9. 接触确认后立即撤回到按压路径上的近距观测点，并快速获取新鲜 RGB 图像。
+10. OpenCV 对同一个按钮框内部进行自对比，输出 ON、OFF 或 UNCERTAIN：
+    - 按钮中心平均亮度与外环平均亮度的差值；
+    - 中心高亮像素比例；
+    - ON 当前要求中心/外环对比度 >= 15，且高亮比例 >= 0.25；
+    - OFF 当前要求对比度 <= 5 或高亮比例 <= 0.15；
+    - 中间区域为 UNCERTAIN，不直接当作 OFF。
+11. 若确认 ON，说明按压成功：
+    - 返回适合长期观察的抬起/等待位置；
+    - 持续观察该按钮；
+    - 按钮保持 ON 时允许无限等待，因为表示电梯尚未到达；
+    - 按钮转为 OFF 后认为到达目标楼层，机械臂返回原始位置。
+12. 若确认 OFF，说明本次按压未生效：
+    - 输出 retry_required/“尝试再次按压”；
+    - 最多重试 2 次，总尝试次数最多 3 次；
+    - 每次重试先重新获取按钮位置；
+    - 从约 5 cm 的近距观测位直接规划到预按压位，不重复首次远距接近控制。
+13. 三次都未点亮，任务失败并返回原始位置。
+
+3.2 初始按钮已经亮起
+
+如果首次观察就确认按钮为 ON，不再按压。在观察位置持续等待；按钮变为 OFF 时
+认为电梯到达，随后返回原始位置。
+
+3.3 遮挡物和传感器异常
+
+- RGB-D 检测到新的近距离大物体时，调用独立停止桥，状态为 safety_paused。
+- GUI 输出“检测到异物，暂停任务”。
+- 障碍消除且安全监督允许恢复后，任务从被暂停阶段继续，不重新开始整条任务。
+- 深度覆盖在靠近面板时可能变差；系统在限定距离内启用受约束的降级策略，
+  仍保留 RGB 仿射配准入侵检测、编码器新鲜度、超时、MoveIt 碰撞检查和独立停止。
+- 回退方向的运动显式解除近面板视觉取消锁存，避免机械臂已在撤离时再次被面板
+  深度噪声卡住。
+
+3.4 成功和失败出口
+
+进程成功状态：
+
+- arrived_after_initial_on
+- arrived_after_verified_press
+
+以上状态进程退出码为 0。其他业务状态退出码为 2；程序异常为非零退出码。
+每次任务生成 closed_loop_report.yaml 和按时间排序的 journal/checkpoint。
+
+======================================================================
+4. 机械臂按键系统的全部输入
+======================================================================
+
+4.1 任务输入
+
+- target_label：字符串形式楼层按钮，允许 "1"～"16"。
+- config：piper_button_pose.yaml 的绝对或相对路径。
+- hold_report：记录原始关节位置、抬起位置等基准位姿的报告路径。
+- execute/acknowledge 标志：真实运动必须显式开启。
+- abort/stop：来自 GUI、SIGINT/SIGTERM 或独立安全停止请求。
+
+4.2 视觉输入
+
+- RGB 图像：640 x 360 BGR 帧。
+- 与 RGB 对齐的深度矩阵：单位米；原始诊断图可保存为毫米 PNG。
+- 相机时间戳、颜色/深度时间戳、帧序号和接收时间。
+- 相机内参矩阵、畸变参数、标定分辨率。
+- TCP 到相机的 4x4 手眼标定矩阵。
+- YOLO 输出：
+  - 数字标签；
+  - confidence；
+  - bbox_xyxy；
+  - 同帧其他按钮检测，用于面板几何支持。
+- 深度几何输出作为后续输入：
+  - p_camera_m；
+  - normal_camera；
+  - camera_to_button 4x4 变换；
+  - plane_rms_m、plane_inliers；
+  - 样本年龄和处理时间。
+
+4.3 机械臂状态输入
+
+- 六个关节编码器位置，单位 rad。
+- 关节状态时间戳和 hardware_ok。
+- 关节速度/控制器状态。
+- 轨迹执行状态：accepted、running、succeeded、preempted、aborted、rejected 等。
+- MoveIt 规划场景和碰撞检查结果。
+
+4.4 电流和接触反馈输入
+
+- CAN 接口上的 Piper 高速电机帧，CAN ID 0x251～0x256。
+- 每个电流值由数据字节 2～3 解码，单位 0.001 A。
+- 六轴完整电流样本约 200 Hz；最大允许时间偏差 20 ms。
+- 当前关节位置，用于实时计算 TCP 线速度 Jacobian。
+- 面板法向，用于把关节外力矩残差映射为法向力。
+- 滚动电流基线、噪声 MAD、Kalman 状态、持续时间和最大位移。
+
+4.5 安全输入
+
+- RGB-D 帧覆盖率、有效深度比例、预测深度残差。
+- 由实时关节位姿预测的相机位姿和面板深度矩阵。
+- RGB 相邻帧仿射配准后的连通区域变化。
+- MoveIt 的真实 top_chassis_link 碰撞模型，带 5 mm 间隙。
+- 相机下方的 piper_camera_base_link 碰撞模型继续保留。
+- 控制器、视觉 RPC、编码器和电流反馈的健康状态及数据新鲜度。
+
+4.6 可选的人机输入
+
+- GUI 手动输入：如 15、十五楼、送外卖到15楼。
+- 本地语音：唤醒词“一二三”，命令“送外卖到十五楼”，取消唤醒“没事了”。
+- DualSense：当前仅底盘输出已连接；机械臂 Servo、夹爪和 Y 键语音请求仍为
+  预留接口，不属于当前自动按键生产输入。
+
+======================================================================
+5. 机械臂按键系统的全部输出
+======================================================================
+
+5.1 运动控制输出
+
+- 到 OrangePi 的 UDP JSON 任务请求。
+- ROS FollowJointTrajectoryAction 关节轨迹目标。
+- 轨迹点包括六关节 position、velocity、acceleration、time_from_start。
+- ros_control 控制器切换请求：joint_group_position_controller 与
+  joint_trajectory_controller 之间切换。
+- 轨迹取消、保护保持和预验证的撤回轨迹。
+- Piper 原生 UDP 控制/状态数据：控制端口 5001，结果端口 5002，状态端口 5004。
+
+5.2 视觉和几何输出
+
+- YOLO 检测框、标签和置信度。
+- 按钮三维点、面板法向、相机到按钮变换、平面拟合质量。
+- OpenCV 灯态：ON、OFF、UNCERTAIN。
+- 灯态诊断：center_ring_contrast、center_bright_fraction、阈值、处理时间。
+- 安全状态：clear、blocked、unavailable、degraded、safety_paused。
+- RGB、深度图、危险残差图和快照文件。
+
+5.3 力反馈输出
+
+- estimated_normal_force_n、normal_force_sigma_n、normal_force_score。
+- normal_force_alignment。
+- estimated_tangential_force_n 及其 sigma/score。
+- 六轴电流、滚动预测值、电流残差、接触持续时间、前进行程。
+- contact_retracted、feedback_contact_confirmed 和停止原因。
+- OrangePi 上保存完整 guarded_press trace JSONL。
+
+5.4 任务状态和事件输出
+
+- initializing、running、phase、attempt_number。
+- task_started / 正在执行。
+- safety_paused / 检测到异物，暂停任务。
+- safety_resumed / 异物已移除，继续任务。
+- retry_required / 尝试再次按压。
+- press_verified_on。
+- waiting_for_light_off。
+- arrived_after_initial_on。
+- arrived_after_verified_press。
+- returned_to_origin、origin_verification。
+- failed、failure_reason、exception、cleanup_errors。
+- GUI 最终显示：任务已完成或任务失败。
+
+5.5 文件输出
+
+- button_light_closed_loop_runs/<时间>/closed_loop_report.yaml
+- button_light_snapshots/<时间>.jpg
+- camera_snapshots/<时间>_depth_mm.png 和 depth_color.png
+- depth_hazard_snapshots/<时间>/metadata.yaml、actual_depth_mm.png、
+  predicted/residual 调试数据。
+- OrangePi guarded_press_traces/<task_id>.jsonl
+- voice_gui_runs/<时间>.jsonl
+
+======================================================================
+6. 网络接口和端口
+======================================================================
+
+上位机 192.168.168.130 -> OrangePi 192.168.168.120：
+
+- UDP 5001：Piper 任务/控制请求。
+- UDP 5002：Piper 任务结果返回到上位机。
+- UDP 5004：Piper 状态/编码器返回到上位机。
+- UDP 5010：定时关节轨迹桥。
+- UDP 5011：预生成轨迹拼接桥。
+- UDP 5013：独立视觉安全停止桥。
+- UDP 5014：带电流/力反馈的按压桥。
+
+上位机本机：
+
+- TCP 5020：按钮视觉 RPC 服务，带令牌认证，只允许受控客户端。
+- OpenCV 灯态 worker：父子进程 stdin/stdout JSON，不开放网络端口。
+
+ROS：
+
+- OrangePi ROS Master：192.168.168.120:11311。
+- 底盘 ROS Master：192.168.168.100:11311。
+- 两个 ROS Master 不应直接混用环境变量；跨域通信由明确的网关/仲裁器完成。
+
+本交接文件不包含通信令牌、SSH 密码或其他秘密。
+
+======================================================================
+7. 当前生产链使用的程序文件及用途
+======================================================================
+
+7.1 任务入口和状态机
+
+- run_button_batch.py
+  生产批处理入口；检查楼层 1～16，按顺序启动完整闭环，每个按钮最多三次按压。
+
+- run_button_light_closed_loop.py
+  自动按键主控制器；连接视觉、机器人、IK、轨迹、安全、按压和灯态状态机，
+  生成最终报告并负责异常清理和回原位。
+
+- piper_handeye/button_light_flow.py
+  与硬件解耦的按钮状态机；定义 ON/OFF/UNCERTAIN、重试、等待到达和成功/失败出口。
+
+- piper_handeye/button_light_hardware.py
+  把状态机绑定到真实视觉、分段运动、视觉安全、按压和撤回执行器。
+
+- piper_handeye/button_light_runtime.py
+  构造状态机运行时对象和真实硬件适配关系。
+
+7.2 按钮视觉定位
+
+- run_button_vision_server.py
+  常驻 Orbbec/YOLO/RGB-D TCP 服务；缓存实时帧、切换目标、输出按钮位姿和安全状态。
+
+- piper_handeye/orbbec_v1_stream.py
+  管理 Orbbec SDK v1 常驻 RGB-D 数据流和共享内存/进程通信。
+
+- piper_handeye/live_button.py
+  连续处理最新帧，维护新鲜的 YOLO/深度样本窗口。
+
+- piper_handeye/button_pose.py
+  YOLO 检测封装、目标选择、按钮周围面板平面拟合和三维按钮位姿估计。
+
+- piper_handeye/geometry.py
+  SE(3) 变换、多个相机/按钮位姿的稳健平均及公共几何运算。
+
+- piper_handeye/vision_rpc.py
+  上位控制程序访问视觉服务的认证 TCP JSON 客户端。
+
+- piper_handeye/visual_search.py
+  当目标不在初始画面时，根据实时按钮排列推断搜索方向并生成相机指向动作。
+
+7.3 按钮亮灭检测
+
+- tools/opencv_light_worker.py
+  常驻 OpenCV 单按钮相对亮度检测器；不比较不同按钮，不加载 Qwen。
+
+- piper_handeye/button_light_process.py
+  控制进程到 OpenCV worker 的请求/响应、超时和生命周期管理。
+
+7.4 运动学、IK 和在线轨迹
+
+- piper_handeye/kinematics.py
+  Piper 正运动学、解析/数值 Jacobian 和批量运动学。
+
+- piper_handeye/realtime_planner.py
+  有界姿态 IK、快速固定 roll IK、时间同步目标变换、机器人位姿历史和轨迹求解。
+
+- piper_handeye/rolling_speed.py
+  首次接近时的滚动/预测轨迹速度规划。
+
+- piper_handeye/segmented_button_motion.py
+  规划接近、预按压、按压、撤回、近距观测和等待位置的分段动作。
+
+- piper_handeye/timed_trajectory.py
+  生成带速度/加速度和时间戳的关节轨迹，并实现 UDP 客户端协议。
+
+- piper_handeye/trajectory_splice.py
+  选择未来交接点，把运动中重新定位得到的新轨迹与正在执行的轨迹连续拼接。
+
+- run_online_replan_no_contact.py
+  历史大型执行脚本；当前主链仍复用其中的稳定采样、平面约束、路径解析、
+  独立按压 IK 和终态等待函数。它不是当前生产入口。
+
+7.5 机器人通信和按压力反馈
+
+- piper_handeye/robot.py
+  Piper UDP 命令、结果和状态接收，缓存实时关节状态并管理接收线程。
+
+- piper_handeye/guarded_press.py
+  六轴电流解码、滚动自由运动模型、MAD 噪声估计、Jacobian 力映射、
+  Cartesian Kalman 法向/切向力估计、持续接触判定和撤回轨迹生成。
+
+- tools/orangepi_guarded_press_bridge.py
+  OrangePi 本机按压执行器；读取 CAN 电流和 ROS 关节状态，验证 MoveIt 碰撞，
+  发送 FollowJointTrajectory，检测接触后立即取消并撤回。
+
+- tools/orangepi_timed_trajectory_bridge.py
+  OrangePi 本机定时轨迹执行和碰撞验证桥，UDP 5010。
+
+- tools/orangepi_prepared_splice_bridge.py
+  OrangePi 本机轨迹预加载和无缝拼接桥，UDP 5011。
+
+- tools/piper_moveit_collision.py
+  使用当前 MoveIt planning scene 验证轨迹与真实底盘/相机结构的碰撞。
+
+- tools/piper_action_watchdog.py
+  监督 FollowJointTrajectory action 状态，处理超时、取消和保护保持。
+
+- tools/piper_trajectory_resume.py
+  在视觉暂停解除后，根据已确认的轨迹所有权恢复尚未完成的动作。
+
+7.6 视觉安全
+
+- piper_handeye/depth_safety.py
+  面板前景检测、深度矩阵安全监督、相机运动补偿、RGB 配准降级检测和危险快照。
+
+- piper_handeye/depth_matrix_safety.py
+  建立安全深度参考矩阵，利用相机位姿预测当前安全深度并计算残差。
+
+- piper_handeye/near_button_depth_pause.py
+  靠近按钮时受编码器、距离、时间和健康状态限制的深度降级租约。
+
+- piper_handeye/safety_stop.py
+  视觉安全监督器及独立停止 UDP 客户端；管理暂停、恢复和停止锁存。
+
+- tools/orangepi_visual_safety_stop_bridge.py
+  OrangePi 本机独立轨迹取消和保持桥，UDP 5013。
+
+7.7 原位检查、恢复和报告维护
+
+- run_origin_position_check.py
+  只读关节编码器，比较记录的原始位置并输出误差和硬件状态。
+
+- run_button_recovery_to_origin.py
+  从近按钮停止状态沿已验证撤离方向恢复并返回原位。
+
+- run_clearance_return_to_origin.py
+  使用 MoveIt 真实碰撞模型检查并执行安全回原位。
+
+- run_direct_return_to_origin.py
+  已知安全场景下的直接回原位入口；生产异常恢复优先使用带净空检查的入口。
+
+- piper_handeye/retention.py
+  限制运行报告和快照数量，不删除源码、标定或配置。
+
+7.8 语音和 GUI（可选上层入口，最终仍调用同一按键主链）
+
+- run_voice_assistant_gui.py
+  “用户/优小妹”中文 GUI，支持手动楼层、语音开关、任务中止和回原位状态。
+
+- run_voice_streaming.py
+  Silero VAD + SenseVoiceSmall 本地流式语音后端。
+
+- run_voice_command_gateway.py
+  把允许列表中的识别文本转换为结构化任务，执行互斥和安全停止。
+
+- piper_handeye/sherpa_streaming.py
+  sherpa-onnx SenseVoiceSmall 常驻识别器封装。
+
+- piper_handeye/voice_audio.py
+  PulseAudio/PCM 麦克风采集和音频帧队列。
+
+- piper_handeye/voice_command.py
+  中文唤醒、楼层命令、取消、停止和返回意图解析。
+
+- piper_handeye/voice_runtime.py
+  唤醒窗口、静默超时、命令执行期间关闭监听和 JSON 事件输出。
+
+- piper_handeye/assistant_gui_events.py
+  把生产事件映射为稳定的中文对话文本。
+
+7.9 DualSense 和底盘试验接口
+
+- tools/dualsense_input_gui.py
+  手柄输入 GUI 和两次确认控制门；当前只连接底盘 /cmd_vel。
+
+- piper_handeye/dualsense_evdev.py
+  Linux evdev DualSense 按键、摇杆、扳机、触控板和 IMU 输入适配。
+
+- piper_handeye/gamepad_teleop.py
+  底盘/机械臂双模式映射和模式互锁；机械臂输出目前仍未接通。
+
+- piper_handeye/rospy_twist.py
+  使用标准 rospy 向底盘 /cmd_vel 发布 geometry_msgs/Twist。
+
+- piper_handeye/ros1_topic_monitor.py
+  只读监听 /plt_cmd_vel 和 /odom，用于判断指令是否通过底盘平滑器。
+
+- tools/analyze_gamepad_journal.py
+  对比手柄输入、已发布 Twist、平滑器输出和里程计；可识别严重限幅。
+
+======================================================================
+8. 配置、模型、标定和服务文件
+======================================================================
+
+- piper_button_pose.yaml
+  生产主配置：主机、端口、相机、YOLO、RGB-D 几何、安全、轨迹和力反馈参数。
+
+- ik_handeye_refine_output/handeye.yaml
+  相机内参、畸变和机械臂 TCP 到相机的手眼标定。
+
+- ik_target_profiles.yaml
+  已验证按钮的目标/TCP 姿态和粗接近 IK 分支缓存。
+
+- button_fast_chain_runs/20260826_150725/chain_report.yaml
+  当前默认原始位置、抬起/等待位置及历史基准轨迹报告。
+
+- gamepad_teleop.yaml
+  DualSense 映射、速度限制、底盘 ROS 接口和机械臂预留接口。
+
+- tools/piper_arm_controllers.visual_safety.yaml
+  ros_control 关节轨迹/位置/夹爪控制器和保护停止参数。
+
+- ../button_recognition/models/elevator_button_yolo26m_best.pt
+  当前 YOLO 数字按钮检测模型。
+
+- tools/orbbec_v1_stream
+  由 Orbbec SDK v1 构建的 ARM64 常驻 RGB-D 采集可执行文件。
+
+- tools/button-vision.service
+  上位机按钮视觉常驻服务。
+
+- deployment/systemd/orangepi/piper-ros-bringup.service
+  OrangePi ROS、Piper 和 MoveIt 开机启动服务。
+
+- tools/piper-timed-trajectory-bridge.service
+- tools/piper-prepared-splice-bridge.service
+- tools/piper-visual-safety-stop-bridge.service
+- tools/piper-guarded-press-bridge.service
+  OrangePi 四个用户级桥服务；依赖 ROS bringup 后启动。
+
+======================================================================
+9. 使用的主要技术
+======================================================================
+
+- ROS 1：Jetson 使用 Melodic；OrangePi 使用 Noetic。
+- MoveIt：规划场景、关节限位、真实安装面碰撞模型和 5 mm 安全间隙。
+- ros_control / FollowJointTrajectoryAction：关节轨迹执行与取消。
+- Piper CAN/UDP 协议：机械臂控制、编码器和六轴电机电流反馈。
+- YOLO26m/Ultralytics：数字按钮目标检测和边界框。
+- Orbbec SDK v1：DaBai DCW2 RGB-D 连续采集和深度对齐。
+- OpenCV：单按钮中心/外环亮度对比、RGB 仿射配准、形态学和连通区域检测。
+- NumPy/SciPy：矩阵运算、空间旋转、滤波和图像连通域辅助处理。
+- 手眼标定与坐标变换：TCP、相机、按钮、面板和基座之间的 SE(3) 变换。
+- 平面拟合与像素射线求交：从 YOLO 2D 框和深度恢复按钮 3D 位姿。
+- 有界 IK 与 Jacobian：固定 roll 快速 IK、姿态容差 IK、TCP Jacobian。
+- 滚动时域/轨迹拼接：机械臂运动时重新感知并在未来时间点替换剩余轨迹。
+- Cartesian 力观测：参考 DOI 10.1109/TASE.2017.2691136 的结构，使用
+  Jacobian 将关节力矩残差映射为 TCP 法向/切向力，并以 Kalman 估计和持续时间
+  门限确认接触。由于当前没有完整辨识的摩擦和电机动力学模型，本实现使用滚动
+  自由运动电流预测代替缺失模型项，不宣称是论文完整算法。
+- 鲁棒统计：滑动中位数、MAD 噪声估计、因果基线冻结和连续样本门限。
+- 深度预测安全：依据实时机械臂位姿重投影安全面板深度，检测更近的未知前景。
+- RGB 降级安全：ECC 仿射配准、曝光归一化、MAD 自适应差分和连通区域门限。
+- 本地语音：sherpa-onnx、SenseVoiceSmall int8、Silero VAD；当前无 Whisper 后备。
+- Linux evdev/BlueZ：DualSense 输入与蓝牙；手柄机械臂控制仍是预留接口。
+- TCP/UDP JSON RPC：跨 Python 环境和跨主机的轻量认证通信。
+- systemd user/system services：机器人和视觉组件的依赖启动及故障重启。
+- YAML/JSONL：配置、运行报告、逐帧/逐阶段日志和诊断记录。
+
+======================================================================
+10. 建议导航公司提供或共同确认的接口
+======================================================================
+
+10.1 控制权仲裁
+
+必须有唯一控制权管理器，至少包含以下状态：
+
+  NAVIGATION_CONTROL
+  CHASSIS_STATIONARY_FOR_ARM
+  ARM_BUTTON_TASK
+  ARM_RETURNING
+  FAULT_OR_ESTOP
+
+进入 ARM_BUTTON_TASK 前，底盘应：
+
+- 取消或暂停 move_base 当前速度输出；
+- 发布并确认零速度；
+- 确认 /odom 实际线速度和角速度均低于约定阈值；
+- 保持制动/驻车，不因局部规划器恢复而突然移动；
+- 提供 chassis_control_state、chassis_work_mode、/emergency 和故障状态。
+
+机械臂返回原位并验证成功后，才允许把控制权交还导航。
+
+10.2 建议的任务请求
+
+建议使用 ROS action 或等价带 task_id 的 RPC，不建议只使用无状态 topic。
+
+请求字段：
+
+- task_id：全局唯一字符串。
+- command：PRESS_ELEVATOR_BUTTON / ABORT_AND_RETURN / CHECK_ORIGIN。
+- target_floor：1～16，仅 PRESS 命令需要。
+- deadline/timeouts：可选。
+- chassis_stationary_confirmed：底盘侧确认值。
+- panel_side/door_id：如果未来支持多个电梯或不同面板，必须提供。
+
+10.3 建议的状态反馈
+
+- ACCEPTED
+- REJECTED_BUSY
+- LOCALIZING_BUTTON
+- APPROACHING
+- PRESSING，包含 attempt 1～3
+- PRESS_CONFIRMED_ON
+- RETRYING
+- WAITING_FOR_LIGHT_OFF
+- OBSTACLE_PAUSED
+- OBSTACLE_CLEARED_RESUMING
+- ARRIVED_LIGHT_OFF
+- RETURNING_ARM
+- COMPLETED_ORIGIN_VERIFIED
+- FAILED，包含结构化 reason_code 和可读文本
+- ABORTED_RETURNED 或 ABORT_FAILED
+
+10.4 底盘定位和机械臂工作空间条件
+
+底盘导航需要把机器人停在经过标定的面板工作位，使按钮面板处于机械臂和相机
+共同可达区域。建议共同定义：
+
+- map/base_link 到电梯面板的目标位姿和容差；
+- 底盘位置/偏航容差；
+- 是否允许机械臂请求底盘小幅对齐；当前系统尚未实现该能力；
+- 车体停止后的稳定等待时间；
+- 电梯内外不同面板的 ID、方向和按钮布局；
+- 门状态、急停、碰撞条、激光雷达和人员检测如何参与任务许可。
+
+10.5 底盘速度接口需要厂商确认的项目
+
+- 定制 velocity_smoother 中 use_limit_speedup、use_limit_back、
+  ud_min_plt_x_vel_thresd、ud_min_x_vel_thresd 等参数的真实代码语义。
+- 为什么持续 +0.250 m/s 仅输出约 +0.012～0.015 m/s。
+- 为什么持续 -0.250 m/s 输出为 0。
+- 手动控制应该进入哪个受仲裁的话题或 action。
+- 手动控制与 move_base 的优先级、超时、急停和恢复机制。
+- /plt_cmd_vel 不应由上位手柄直接绕过平滑器发布，除非厂商提供正式安全接口。
+
+======================================================================
+11. 联调验收建议
+======================================================================
+
+第一阶段：只读接口
+
+- 读取底盘状态、急停、工作模式、里程计和导航任务状态。
+- 读取机械臂 origin check、视觉 health 和所有桥 health。
+- 验证两个 ROS Master 不会因环境变量混用而串联错误话题。
+
+第二阶段：无运动仲裁测试
+
+- 模拟导航完成，申请机械臂控制权。
+- 验证 move_base 不再输出有效速度。
+- 验证手柄和机械臂任务不能同时获得底盘控制权。
+- 模拟机械臂成功、失败、暂停、恢复和中止事件。
+
+第三阶段：底盘低速测试
+
+- 架空轮或清空场地；从 0.05 m/s 开始。
+- 同时记录 /cmd_vel、/plt_cmd_vel、/odom、左右轮速、急停和控制模式。
+- 验证松开扳机/心跳丢失后立即发送零速，底盘在规定距离内停止。
+- 验证正向、反向、转向和摇杆回中。
+
+第四阶段：机械臂与静止底盘联调
+
+- 底盘到达固定面板工作位并明确驻车。
+- 先只执行按钮定位和轨迹碰撞验证，不接触面板。
+- 再执行单次按压并检查 OFF -> ON。
+- 最后执行完整 ON 等待 -> OFF -> 回原位流程。
+
+第五阶段：异常测试
+
+- 人手遮挡、深度丢帧、相机断连、编码器过期、电流反馈丢失。
+- MoveIt 碰撞拒绝、按压三次失败、按钮一直 ON、GUI 中止。
+- 底盘导航节点意外恢复发布、网络断开、任一 ROS Master 重启。
+
+======================================================================
+12. 已知限制
+======================================================================
+
+- 当前自动按键已在多个按钮上测试，但不能因此假定所有电梯面板、光照、按钮
+  材质和机械阻尼均已覆盖；应进行系统化数据集评估和现场验收。
+- OpenCV 灯态是单按钮内部对比，可适应整体曝光变化，但强反光、中心图案、
+  坏灯和极低对比按钮仍可能进入 UNCERTAIN。
+- YOLO 的训练正确率不能直接代表现场整条任务成功率；三维深度、遮挡、IK、
+  接触力和灯态均是独立误差源。
+- 当前 Cartesian 力估计是基于电机电流和简化动力学的工程实现，不是六维力传感器。
+- 深度相机的近距离有效范围有限，因此近面板阶段必须保留受约束的降级安全策略。
+- 当前 DualSense 机械臂 Servo 输出、夹爪控制和 Y 键语音模式仍未接通。
+- 底盘手柄不动的根因位于厂商定制 velocity_smoother/控制模式，尚未修改远端源码。
+- 任何正式部署都必须保留物理急停；语音、GUI 和网络停止不能替代安全认证急停。
+
+======================================================================
+13. 可用于问题追踪的基线文件
+======================================================================
+
+- MILESTONE_CURRENT.md：当前机械臂闭环、力反馈和实机验证基线。
+- STRUCTURAL_AUDIT_20260914.md：状态机和重试结构审计。
+- JOURNAL_LOGIC_AUDIT_20260915.md：日志与实际动作一致性审计。
+- GUARDED_PRESS_FEEDBACK_20260910.md：电流接触检测设计演进。
+- MILESTONE_TASE_CARTESIAN_FORCE.md：Cartesian 力观测实现与限制。
+- POST_PRESS_FAST_OBSERVATION_20260915.md：按压后快速灯态观测。
+- MOVEIT_TOP_CHASSIS_PADDING_20260915.md：真实底盘碰撞模型与 5 mm 间隙。
+- README_gamepad_teleop.md：手柄模式、映射和安全门。
+- XBOX_CONTROLLER_FEASIBILITY_20260915.md：底盘/机械臂双 ROS Master 调研；其中早期
+  关于 /robot_cmd_vel 作为手动入口的建议已被后续实测否定，应以本文件为准。
+- backups/chassis_velocity_smoother_20260916_143000.json：底盘平滑器当前参数备份。
+- gamepad_control_runs/20260916_141106_100926/comparison_report.json：底盘严重限幅证据。
+
+文档结束。

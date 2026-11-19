@@ -1,0 +1,11 @@
+{
+  "root": "artifacts/captures/missing_button_captures",
+  "keep_unpinned_groups": 256,
+  "max_groups_per_pass": 32,
+  "archive_root": "archives/diagnostics",
+  "protected_manifests": [
+    "artifacts/diagnostics/20261030_visual_supplement400/selected400.json",
+    "artifacts/diagnostics/20261030_visual_supplement720/selected720.json"
+  ],
+  "policy": "Archive with CRC/SHA verification before removing old unpinned diagnostics; skip when motion lock is held; never prune task results, cycle CSVs, force traces or datasets."
+}

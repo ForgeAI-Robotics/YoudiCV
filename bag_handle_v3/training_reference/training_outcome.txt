@@ -1,0 +1,12 @@
+v7c困难不可抓样本2倍采样实验完成：16轮，最佳第6轮。
+v7b超参数、v6初始化、原始数据和标签均不变。只改变分层采样：60张训练图每轮2次，同组等量少采普通图。
+逐轮实采验收：1280张=500正常+250遮挡+250形变+280纯负样本；每轮1220个不同图，60张困难图共120次。
+固定检测置信度0.65、点置信度0.5；框IoU>=0.5且点在归一化长边225时误差<=10像素计正确。
+v6: 正常图正确点33/40，点输出精确率80.5%；遮挡3/22；形变17/23；纯负样本错误绿点0/100；无效/不确定袋子被标绿2，未匹配或重复绿框1。
+v7b: 正常图正确点34/40，点输出精确率75.6%；遮挡16/22；形变17/23；纯负样本错误绿点0/100；无效/不确定袋子被标绿4，未匹配或重复绿框3。
+v7c: 正常图正确点35/40，点输出精确率83.3%；遮挡14/22；形变19/23；纯负样本错误绿点0/100；无效/不确定袋子被标绿3，未匹配或重复绿框1。
+旧模型重新测试结果与上次一致。未改原图、标签、测试集、阈值或Jetson。
+测试图已在历史实验中查看，不是新盲测；合成压力测试来源有重复，不是实际抓取成功率。
+新权重：/home/fq/Documents/ChatGPT/优地/bag-handle-inspection/manual500/training_runs/yolo26m_mix25_25_50_hardinvalid_v7c/weights/best.pt
+原图对照：/home/fq/Documents/ChatGPT/优地/bag-handle-inspection/manual500/expansion_v7/hard_invalid_v7c/new_rule_conf065/index.html
+遮挡形变对照：/home/fq/Documents/ChatGPT/优地/bag-handle-inspection/manual500/expansion_v7/hard_invalid_v7c/new_rule_conf065/stress.html

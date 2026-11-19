@@ -1,0 +1,4 @@
+从底盘 Ubuntu Jetson 192.168.168.100 只读复制。
+源文件：/home/ubuntu/ud_ws/install/lib/python2.7/dist-packages/custom_msgs_srvs/srv/_SendGoal.py
+SHA256：96f715d9f403f4fe11361db3eafc0fca7c1323b841dddbda347b7ea99ae91e6b
+保持厂商自动生成的服务定义原样；未修改底盘任何文件。

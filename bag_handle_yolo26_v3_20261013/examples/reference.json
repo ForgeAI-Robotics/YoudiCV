@@ -1,0 +1,55 @@
+{
+  "test_index": 2,
+  "source": "/home/fq/Documents/ChatGPT/优地/bag-handle-inspection/qwen_remaining/images/train/images/paper_bag_packaging_0215_jpg.rf.zaEKtwE13CJ3Umiy7SKl.jpg",
+  "id": 812,
+  "objects": [
+    [
+      [
+        8,
+        24,
+        110,
+        180
+      ],
+      "valid",
+      [
+        50,
+        29
+      ]
+    ],
+    [
+      [
+        86,
+        57,
+        148,
+        180
+      ],
+      "valid",
+      [
+        114,
+        59
+      ]
+    ],
+    [
+      [
+        129,
+        35,
+        214,
+        178
+      ],
+      "valid",
+      [
+        180,
+        38
+      ]
+    ]
+  ],
+  "human_approved": false,
+  "provenance": "assistant_original_image_visual_review_v2",
+  "front_handle_review": {
+    "scope": "existing valid grasp points only",
+    "result": "corrected",
+    "front_back_pending": false,
+    "pending_changes_training_eligibility": false,
+    "human_approved": false
+  }
+}

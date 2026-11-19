@@ -1,0 +1,45 @@
+{
+  "source_run": "20261027_161357",
+  "note": "Existing saved same-frame evidence, copied for offline regression only. ON image visually inspected by assistant; not independent physical ground truth. No new camera capture.",
+  "frames": [
+    {
+      "file": "attempt_1_before_17258_full.jpg",
+      "sequence": 17258,
+      "box": [
+        281.676513671875,
+        137.11376953125,
+        355.6259765625,
+        208.60157775878906
+      ],
+      "captured": 1793088859.8260522,
+      "absolute_state": "OFF",
+      "sha256": "44db5b6b0ccf4f2e2f6e049f4af9ab9e0324e2df12122801cdbd6054a97c7689"
+    },
+    {
+      "file": "attempt_1_after_17376_full.jpg",
+      "sequence": 17376,
+      "box": [
+        282.37176513671875,
+        132.60911560058594,
+        356.7491149902344,
+        204.18511962890625
+      ],
+      "captured": 1793088867.731824,
+      "absolute_state": "ON",
+      "sha256": "93bf7beedfb0e10df34332222e7df477f51bae987f920060b7794b1bb6d76167"
+    },
+    {
+      "file": "attempt_1_after_17402_full.jpg",
+      "sequence": 17402,
+      "box": [
+        281.6785583496094,
+        136.92771911621094,
+        355.7217712402344,
+        207.93539428710938
+      ],
+      "captured": 1793088869.4225378,
+      "absolute_state": "OFF",
+      "sha256": "5960a61197cccaeca11e3d447d663ff6da14a2650d8b165f2266491f71442c3f"
+    }
+  ]
+}

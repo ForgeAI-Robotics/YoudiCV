@@ -1,0 +1,114 @@
+{
+  "target_label": "down",
+  "samples": [
+    {
+      "sequence": 2191326,
+      "accepted": false,
+      "reason": "captured_before_stationary_pose"
+    },
+    {
+      "sequence": 2191328,
+      "accepted": false,
+      "reason": "captured_before_stationary_pose"
+    },
+    {
+      "sequence": 2191341,
+      "accepted": true,
+      "sample_age_sec": 0.28087878227233887,
+      "confidence": 0.7275281548500061,
+      "plane_rms_m": 0.0012444577105269973,
+      "base_to_button_position_m": [
+        0.5732587626817196,
+        0.12236577189596999,
+        0.3124960982025481
+      ],
+      "bbox_xyxy": [
+        202.43283081054688,
+        88.54460144042969,
+        233.6974334716797,
+        120.45022583007812
+      ]
+    },
+    {
+      "sequence": 2191347,
+      "accepted": true,
+      "sample_age_sec": 0.33805346488952637,
+      "confidence": 0.7663565278053284,
+      "plane_rms_m": 0.0011741077044851453,
+      "base_to_button_position_m": [
+        0.5728453938180281,
+        0.12232378266031586,
+        0.31257125762682164
+      ],
+      "bbox_xyxy": [
+        202.4842987060547,
+        88.6072998046875,
+        233.5500030517578,
+        120.23979949951172
+      ]
+    },
+    {
+      "sequence": 2191354,
+      "accepted": true,
+      "sample_age_sec": 0.26915812492370605,
+      "confidence": 0.8349887728691101,
+      "plane_rms_m": 0.001314520940638184,
+      "base_to_button_position_m": [
+        0.5729613899833123,
+        0.12215696840281164,
+        0.3123995745960528
+      ],
+      "bbox_xyxy": [
+        202.56536865234375,
+        88.58577728271484,
+        233.77133178710938,
+        120.53095245361328
+      ]
+    },
+    {
+      "sequence": 2191361,
+      "accepted": true,
+      "sample_age_sec": 0.25610804557800293,
+      "confidence": 0.7416727542877197,
+      "plane_rms_m": 0.0012284611275165571,
+      "base_to_button_position_m": [
+        0.5725659809722689,
+        0.1221891677243864,
+        0.3123834302448052
+      ],
+      "bbox_xyxy": [
+        202.3838653564453,
+        88.62753295898438,
+        233.7583465576172,
+        120.48036193847656
+      ]
+    },
+    {
+      "sequence": 2191372,
+      "accepted": true,
+      "sample_age_sec": 0.29740214347839355,
+      "confidence": 0.8334235548973083,
+      "plane_rms_m": 0.0012878755212398835,
+      "base_to_button_position_m": [
+        0.5729561564859029,
+        0.12236343846289335,
+        0.31242367409579813
+      ],
+      "bbox_xyxy": [
+        202.4166259765625,
+        88.63771057128906,
+        233.60861206054688,
+        120.44103240966797
+      ]
+    }
+  ],
+  "window_reasons": [
+    "window span 1.677s"
+  ],
+  "source": "/home/qianjue/contral_test/artifacts/diagnostics/20261019_down_no_press_1103/stationary_target_failure.json",
+  "reported_window_span_sec": 1.677,
+  "replay_assumptions": [
+    "Per-frame capture timestamps and full transforms were not preserved in this failure excerpt; use controlled evenly-spaced capture times matching the recorded 1.677 s span.",
+    "Use recorded confidence, plane RMS, positions, ages and sequences; unrecorded rotations stay constant. This is a controlled replay of the observed failure conditions, not raw sensor replay."
+  ]
+}

@@ -1,0 +1,178 @@
+{
+  "review_method": "assistant inspected 13 training disagreement images and enlarged originals; model disagreement alone is not evidence of label error",
+  "unchanged": [
+    "reviewed_new_0187",
+    "reviewed_new_0412",
+    "reviewed_new_0519",
+    "reviewed_new_0396",
+    "original_303",
+    "reviewed_new_0591",
+    "reviewed_new_0580",
+    "reviewed_new_0630"
+  ],
+  "excluded": {
+    "reviewed_new_0755": "Nearest/front handle relation ambiguous and tall handle clipped; preserve v5 record, omit from v6 training"
+  },
+  "replacement_candidate": 889,
+  "replacement_objects": [
+    {
+      "class_id": 1,
+      "bbox": [
+        14,
+        28,
+        224,
+        219
+      ],
+      "point": null
+    }
+  ],
+  "corrections": {
+    "reviewed_new_0498": {
+      "reason": "Side gussets of one pumpkin bag were incorrectly labeled as a second invalid bag; replace with one complete instance",
+      "objects": [
+        {
+          "class_id": 0,
+          "bbox": [
+            43,
+            28,
+            184,
+            201
+          ],
+          "point": [
+            109,
+            33
+          ]
+        }
+      ]
+    },
+    "reviewed_new_0834": {
+      "reason": "Small garden bag has upright visible handles; large lawn sack has none",
+      "objects": [
+        {
+          "class_id": 0,
+          "bbox": [
+            63,
+            84,
+            119,
+            173
+          ],
+          "point": [
+            89,
+            87
+          ]
+        },
+        {
+          "class_id": 1,
+          "bbox": [
+            100,
+            53,
+            164,
+            164
+          ],
+          "point": null
+        }
+      ]
+    },
+    "reviewed_new_0648": {
+      "reason": "Leaning upright handles are still raised above the bag opening, not downward-hanging; old invalid label and box truncation were incorrect",
+      "objects": [
+        {
+          "class_id": 0,
+          "bbox": [
+            54,
+            73,
+            162,
+            214
+          ],
+          "point": [
+            89,
+            78
+          ]
+        }
+      ]
+    },
+    "reviewed_new_0540": {
+      "reason": "Enlarged original reveals faint upright rope handles in all six product examples; old invalid labels and truncated boxes were incorrect",
+      "objects": [
+        {
+          "class_id": 0,
+          "bbox": [
+            21,
+            29,
+            58,
+            76
+          ],
+          "point": [
+            31,
+            32
+          ]
+        },
+        {
+          "class_id": 0,
+          "bbox": [
+            88,
+            30,
+            128,
+            80
+          ],
+          "point": [
+            103,
+            33
+          ]
+        },
+        {
+          "class_id": 0,
+          "bbox": [
+            164,
+            30,
+            205,
+            80
+          ],
+          "point": [
+            176,
+            33
+          ]
+        },
+        {
+          "class_id": 0,
+          "bbox": [
+            20,
+            111,
+            70,
+            171
+          ],
+          "point": [
+            29,
+            114
+          ]
+        },
+        {
+          "class_id": 0,
+          "bbox": [
+            89,
+            117,
+            143,
+            178
+          ],
+          "point": [
+            98,
+            120
+          ]
+        },
+        {
+          "class_id": 0,
+          "bbox": [
+            157,
+            113,
+            216,
+            181
+          ],
+          "point": [
+            172,
+            116
+          ]
+        }
+      ]
+    }
+  }
+}

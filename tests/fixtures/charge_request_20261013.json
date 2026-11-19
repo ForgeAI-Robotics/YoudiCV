@@ -1,0 +1,12 @@
+[
+  {
+    "stamp": 1791871761.43586,
+    "node": "/charging_manager_node",
+    "text": "[/charging_manager_node][getGoalCB][588]: new mode: 9!"
+  },
+  {
+    "stamp": 1791871761.4364119,
+    "node": "/udp_commit_node",
+    "text": "[2026-10-13 14:09:21][/udp_commit_node][clientChargingGoal][984]:call charge goal service OK"
+  }
+]

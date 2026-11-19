@@ -1,0 +1,108 @@
+enabled: true
+execute_enabled: false
+runtime_enable:
+  source: dualsense_input_gui
+  confirmation_clicks: 2
+  first_prompt: 你确认开启测试么？
+  confirmation_timeout_sec: 10.0
+  neutral_required: true
+  disable_clicks: 1
+confirmation:
+  enable_control_input: l1_and_r1_and_l2_and_r2
+  enable_control_presses_required: 2
+  enable_control_trigger_threshold: 0.8
+  enable_control_neutral_after_release: true
+  mode_switch_input: left_stick_click_and_right_stick_click
+  return_origin_input: circle
+  presses_required: 2
+  timeout_sec: 1.5
+chassis_pipeline:
+  behavior: runtime_lease_guarded_mux
+  input_topic: /gamepad/plt_cmd_vel
+  input_message_type: geometry_msgs/TwistStamped
+  runtime_manager: /gamepad_smoother_runtime_manager
+  lease_watchdog_sec: 0.6
+  command_timeout_sec: 0.25
+  smoother_node: /velocity_smoother
+  smoother_output: /plt_cmd_vel
+  driver_node: /chassis_server_node
+  device: /dev/udbot
+  resolved_device: /dev/ttyTHS1
+  baud: 115200
+  vendor_files_modified: false
+initial_mode: chassis
+input:
+  adapter: dualsense_evdev
+  device: auto
+  update_rate_hz: 50
+  disconnect_timeout_sec: 0.1
+limits:
+  deadzone: 0.1
+  chassis_max_linear_m_s: 0.1
+  chassis_max_angular_rad_s: 0.4
+  chassis_linear_accel_m_s2: 0.1
+  chassis_linear_decel_m_s2: 0.12
+  chassis_angular_accel_rad_s2: 0.4
+  chassis_angular_decel_rad_s2: 0.5
+  direction_reversal_zero_hold_sec: 0.3
+  arm_joint_speed_rad_s: 0.18
+mapping:
+  left_stick_click_and_right_stick_click: switch_mode
+  menu: unassigned
+  chassis:
+    left_stick_x: steering_angular_z
+    left_stick_y: unused
+    right_trigger: forward_throttle
+    left_trigger: reverse_throttle
+    both_triggers_released: full_stop
+    both_triggers_pressed: signed_difference
+    linear_y: fixed_zero
+  arm:
+    dpad_left_right: j1_left_right
+    dpad_up_down: j2_up_down
+    left_stick_y: j3_up_down
+    r1_l1: j4_clockwise_counterclockwise
+    right_stick_y: j5_up_down
+    right_trigger_left_trigger: j6_positive_negative
+    right_stick_x: unused
+    circle_hold_3_sec: disable_control_and_return_arm_origin
+    circle_double_press: return_arm_origin_and_resume_control
+    cross: toggle_clamp
+    triangle: toggle_voice_elevator_mode
+mode_transition:
+  confirmation: double_press_both_sticks
+  chassis_to_arm: stop_all_then_return_arm_origin_then_enable_arm
+  arm_to_chassis: stop_all_then_return_arm_origin_then_enable_chassis
+reserved_ports:
+  voice_elevator_mode:
+    action: request_voice_elevator_mode
+    production_entrypoint: run_voice_microphone.py
+    connected: true
+  chassis_output:
+    ros_master: http://192.168.168.100:11311
+    topic: /gamepad/plt_cmd_vel
+    message_type: geometry_msgs/TwistStamped
+    connected: true
+    transport: rospy_tcpros
+    bind_ip: 192.168.168.130
+    default_runtime_enabled: false
+    required_subscriber: /gamepad_smoother_runtime_manager
+    guarded_output: /plt_cmd_vel
+  arm_output:
+    interface: watchdog_udp_single_joint_moveit_checked
+    host: 192.168.168.120
+    port: 5015
+    token: SET_LOCAL_TOKEN
+    collision_service: /check_state_validity
+    collision_link_padding_m: 0.001
+    joint_update_hz: 20
+    max_joint_speed_rad_s: 0.35
+    joint_limit_margin_rad: 0.02
+    command_timeout_sec: 0.2
+    disable_timeout_sec: 0.6
+    connected: true
+  arm_return_origin:
+    action: return_arm_origin
+    completion: complete_arm_return
+    gripper_state: closed_with_live_feedback_verification
+    connected: true

@@ -1,0 +1,30 @@
+{
+  "source_run": "20261015_165749",
+  "description": "Real numeric 4, lamp ON after press; strict panel residual mean12.406/p90 27.434 rejects it. Limited15/35 tolerance recovers it.",
+  "frames": {
+    "reference": {
+      "file": "reference.jpg",
+      "sequence": 1177062,
+      "time": 1792054682.875378,
+      "box": [
+        285.85174560546875,
+        150.03781127929688,
+        355.7521667480469,
+        218.69590759277344
+      ],
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_165749/paired_light_evidence/attempt_1_before_1177062_full.jpg"
+    },
+    "current": {
+      "file": "current.jpg",
+      "sequence": 1177189,
+      "time": 1792054691.3401384,
+      "box": [
+        286.4884033203125,
+        153.9443359375,
+        356.0170593261719,
+        221.86622619628906
+      ],
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_165749/paired_light_evidence/attempt_1_after_1177189_full.jpg"
+    }
+  }
+}

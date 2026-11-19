@@ -1,0 +1,4 @@
+# Reference only. Do NOT blindly pip-install this file into an existing Jetson/robot environment.
+# torch and torchvision must match the Jetson/JetPack environment and are intentionally not pinned here.
+# Existing OpenCV/numpy can be reused after an isolated-environment compatibility check.
+ultralytics==8.4.123

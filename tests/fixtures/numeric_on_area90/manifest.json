@@ -1,0 +1,55 @@
+{
+  "source_run": "20261027_225425",
+  "original_item_number": 11,
+  "scope": "Exact copies of three archived original camera JPEGs. Lit appearance visually reviewed; no image enhancement. Not an independent hardware ground-truth dataset.",
+  "frames": [
+    {
+      "file": "attempt_1_before_press_frame_281415_full.jpg",
+      "sha256": "013e7ea10b3bbcbafc477983d616719d8fe54eecfa76f47290eb669cb090ce97",
+      "sequence": 281415,
+      "captured": 1793112876.662467,
+      "box": [
+        283.79644775390625,
+        131.00149536132812,
+        360.8687744140625,
+        208.73583984375
+      ],
+      "label": "2",
+      "phase": "before",
+      "recorded_state": "OFF",
+      "recorded_absolute_state": "OFF"
+    },
+    {
+      "file": "attempt_1_before_press_frame_281418_full.jpg",
+      "sha256": "f3e0b4914e419ceac48392d9c6626ee48f79f9cd40889d29550a75b3fa9928ce",
+      "sequence": 281418,
+      "captured": 1793112876.85997,
+      "box": [
+        283.8787536621094,
+        130.96124267578125,
+        360.9533386230469,
+        208.788330078125
+      ],
+      "label": "2",
+      "phase": "before",
+      "recorded_state": "OFF",
+      "recorded_absolute_state": "OFF"
+    },
+    {
+      "file": "attempt_1_post_press_frame_281543_full.jpg",
+      "sha256": "3d5bab03fd175b7616f2529c9ea76915ca5b4b9a534aeb3e40552b3a79c9c213",
+      "sequence": 281543,
+      "captured": 1793112885.1925125,
+      "box": [
+        282.61212158203125,
+        130.61717224121094,
+        359.2480163574219,
+        208.69943237304688
+      ],
+      "label": "2",
+      "phase": "after",
+      "recorded_state": "UNCERTAIN",
+      "recorded_absolute_state": "ON"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+[Unit]
+Description=Prepared continuous trajectory splice bridge for Piper arm
+After=network-online.target piper-timed-trajectory-bridge.service
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -lc 'source /opt/ros/noetic/setup.bash && source /home/orangepi/mobile_arm_demo/install/setup.bash && exec python3 /home/orangepi/mobile_arm_demo/tools/orangepi_prepared_splice_bridge.py --bind-ip 192.168.168.120 --port 5011 --allowed-client 192.168.168.130 --token SET_LOCAL_TOKEN'
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=10
+
+[Install]
+WantedBy=default.target

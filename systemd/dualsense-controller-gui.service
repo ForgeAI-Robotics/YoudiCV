@@ -1,0 +1,13 @@
+[Unit]
+Description=Unified elevator task and robot controller GUI
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/home/qianjue/contral_test/tools/launch_dualsense_boot_gui.sh
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,31 @@
+{
+  "release": "v3",
+  "training_revision": "historical_v7c_hardinvalid",
+  "created_at_local": "2026-10-19T16:21:34.132850+08:00",
+  "model": "YOLO26m-Pose",
+  "source_checkpoint": "/home/fq/Documents/ChatGPT/优地/bag-handle-inspection/manual500/training_runs/yolo26m_mix25_25_50_hardinvalid_v7c/weights/best.pt",
+  "checkpoint_sha256": "1c81a05a810f94b73db558068ce967156e658f03f99e3446e4e92996a63faca3",
+  "remote_directory": "/home/qianjue/contral_test/bag_handle_v3",
+  "input_size": 640,
+  "kpt_shape": [
+    1,
+    3
+  ],
+  "classes": {
+    "0": "graspable_bag",
+    "1": "invalid_bag",
+    "2": "uncertain_bag"
+  },
+  "default_confidence": 0.65,
+  "default_keypoint_confidence": 0.5,
+  "ultralytics_training_version": "8.4.123",
+  "coordinates": "original-image pixels; top-left origin",
+  "green_rule": "class0 plus finite, confident keypoint inside both image and predicted box",
+  "otherwise": "red box; null handle_center_xy; grasp_ready_2d=false",
+  "same_inference_script_as_v2": true,
+  "old_versions_overwritten": false,
+  "default_service_switched": false,
+  "depth_included": false,
+  "robot_control_included": false,
+  "jetson_inference_verified_at_packaging": false
+}

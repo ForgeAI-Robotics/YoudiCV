@@ -1,0 +1,17 @@
+[Unit]
+Description=Piper ROS and MoveIt bringup
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+Environment=ROS_IP=192.168.168.120
+Environment=ROS_MASTER_URI=http://192.168.168.120:11311
+ExecStart=/bin/bash -lc 'source /opt/ros/noetic/setup.bash && source /home/orangepi/mobile_arm_demo/install/setup.bash && exec roslaunch mobile_arm_bringup piper_real_launch.launch'
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+KillMode=control-group
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,485 @@
+{
+  "scope": "Historical exact inference JPEGs and same-frame lamp evidence. Frame identity retained; JPEG inference is not live RGB-D or real press verification. UP successes are regression controls; numeric panel/room are negatives.",
+  "frames": [
+    {
+      "name": "20261022_112934_095327",
+      "image": "20261022_112934_095327.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_112934_106762_input_path.jpg",
+      "sha256": "d99f41b7e541f5ee2fe2b3b991ed8f9bad0536df7f2ac5f6f60c62ed6e1ae9fe",
+      "frame_sequence": 7888,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.7130246758460999,
+          "bbox_xyxy": [
+            187.7234344482422,
+            26.88123321533203,
+            218.53639221191406,
+            60.08747863769531
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_112936_608210",
+      "image": "20261022_112936_608210.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_112936_619922_input_path.jpg",
+      "sha256": "ddda78a25781fa589047dd48071a6f0898ff40a775f5fdb523e393dfbc2028d2",
+      "frame_sequence": 7925,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.39755937457084656,
+          "bbox_xyxy": [
+            191.78456115722656,
+            52.20587158203125,
+            221.13107299804688,
+            83.3159408569336
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_112939_122870",
+      "image": "20261022_112939_122870.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_112939_136334_input_path.jpg",
+      "sha256": "c57fc3c06ffadd851ef660c9cf18eba27f3501cd930bbbee2f123301cc37e68b",
+      "frame_sequence": 7963,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.19726212322711945,
+          "bbox_xyxy": [
+            195.0067138671875,
+            76.5338134765625,
+            223.32891845703125,
+            106.8847885131836
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_112941_692409",
+      "image": "20261022_112941_692409.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_112941_702594_input_path.jpg",
+      "sha256": "aab81b73a14cc9dd8947fb18d588128f1517f1a3711d15c9b20da086d14b4c50",
+      "frame_sequence": 8001,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.8460906147956848,
+          "bbox_xyxy": [
+            196.9557342529297,
+            99.37174224853516,
+            225.32740783691406,
+            128.77047729492188
+          ]
+        },
+        {
+          "label": "led",
+          "confidence": 0.7348184585571289,
+          "bbox_xyxy": [
+            190.83694458007812,
+            31.908309936523438,
+            232.16685485839844,
+            74.06723022460938
+          ]
+        },
+        {
+          "label": "open",
+          "confidence": 0.4984929859638214,
+          "bbox_xyxy": [
+            196.89498901367188,
+            133.97348022460938,
+            225.4419403076172,
+            164.00221252441406
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_112958_391747",
+      "image": "20261022_112958_391747.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_112958_402999_input_path.jpg",
+      "sha256": "3cba9556be6482aeab217e2e645f4d2b19fefbf5c15d97f0c65190748799662c",
+      "frame_sequence": 8252,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.9208879470825195,
+          "bbox_xyxy": [
+            187.9149627685547,
+            27.03759002685547,
+            218.4630889892578,
+            60.03376770019531
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_113000_882107",
+      "image": "20261022_113000_882107.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_113000_894261_input_path.jpg",
+      "sha256": "868794849adc21e7a72198d17afc8ebcbe71f37fc724e7cc9fc8e46da6684c27",
+      "frame_sequence": 8290,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.7174720168113708,
+          "bbox_xyxy": [
+            191.43272399902344,
+            52.59785461425781,
+            221.23532104492188,
+            84.37232971191406
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_113003_396360",
+      "image": "20261022_113003_396360.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_113003_407742_input_path.jpg",
+      "sha256": "3d6db481ae6daa2dcc2ed23dcb1d928dff577f6f7b8c7ec90bbcbcd48eafdb11",
+      "frame_sequence": 8327,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.36070388555526733,
+          "bbox_xyxy": [
+            195.25343322753906,
+            76.5965805053711,
+            223.18072509765625,
+            106.64718627929688
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_113005_910510",
+      "image": "20261022_113005_910510.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_113005_921378_input_path.jpg",
+      "sha256": "a2be94077364809c6b2ec0062bde8fbde3ee6d3e68a74fffea4390871aab2d0c",
+      "frame_sequence": 8365,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.9246516227722168,
+          "bbox_xyxy": [
+            196.91970825195312,
+            99.26395416259766,
+            225.30722045898438,
+            128.7697296142578
+          ]
+        },
+        {
+          "label": "led",
+          "confidence": 0.7523215413093567,
+          "bbox_xyxy": [
+            190.9005584716797,
+            31.68878173828125,
+            232.12550354003906,
+            74.23522186279297
+          ]
+        },
+        {
+          "label": "open",
+          "confidence": 0.42299315333366394,
+          "bbox_xyxy": [
+            197.1141357421875,
+            133.99261474609375,
+            225.38453674316406,
+            163.969482421875
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_113407_390245",
+      "image": "20261022_113407_390245.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_113407_400528_input_path.jpg",
+      "sha256": "8b27fb66fcf9bf9ff1eb760e87b06a0211eaea87e9aebacbec1a995752289ce3",
+      "frame_sequence": 11988,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.9011326432228088,
+          "bbox_xyxy": [
+            187.45115661621094,
+            26.828266143798828,
+            218.2886505126953,
+            60.385032653808594
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_113409_897355",
+      "image": "20261022_113409_897355.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_113409_918256_input_path.jpg",
+      "sha256": "ed4b50f00cf8e51648c5b3e8c7ed6b1a2e1180bc692aee4e87c9dbf2d3eda016",
+      "frame_sequence": 12023,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.922451913356781,
+          "bbox_xyxy": [
+            191.8243408203125,
+            52.888641357421875,
+            221.16824340820312,
+            84.6241455078125
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_113412_423404",
+      "image": "20261022_113412_423404.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_113412_432000_input_path.jpg",
+      "sha256": "695dd1e379e28f4af175734ffc36743895c02247a3f00d0e8cd99408f75a2898",
+      "frame_sequence": 12062,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.8349924683570862,
+          "bbox_xyxy": [
+            194.9912109375,
+            76.5607681274414,
+            223.3326416015625,
+            107.42344665527344
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_113414_908974",
+      "image": "20261022_113414_908974.jpg",
+      "target": "down",
+      "kind": "failed_down_search",
+      "source": "/home/qianjue/contral_test/recognition_snapshots/20261022_113414_919341_input_path.jpg",
+      "sha256": "1590525115182b93fc11cc546871e94165e1d37c63e16cfdde58d0510288d0bc",
+      "frame_sequence": 12100,
+      "recorded_raw": [
+        {
+          "label": "up",
+          "confidence": 0.9124369025230408,
+          "bbox_xyxy": [
+            197.06884765625,
+            99.970947265625,
+            225.22239685058594,
+            129.59832763671875
+          ]
+        },
+        {
+          "label": "led",
+          "confidence": 0.2642461657524109,
+          "bbox_xyxy": [
+            191.2256622314453,
+            32.85282897949219,
+            232.1079864501953,
+            74.63653564453125
+          ]
+        }
+      ],
+      "recorded_tile": [
+        0,
+        0,
+        320,
+        320
+      ]
+    },
+    {
+      "name": "20261022_104438_OFF",
+      "image": "20261022_104438_OFF.jpg",
+      "target": "down",
+      "kind": "successful_down_off",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_104438/initial_light_evidence/initial_01_44393.jpg",
+      "sha256": "cfeeea61a6c92d682dc21eae5d86f638ec41da858b15afaf1f329b142094473d",
+      "frame_sequence": 44393
+    },
+    {
+      "name": "20261022_104438_ON",
+      "image": "20261022_104438_ON.jpg",
+      "target": "down",
+      "kind": "successful_down_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_104438/paired_light_evidence/attempt_1_after_44672_full.jpg",
+      "sha256": "59ef46eedca554d3c03494de8a606b3220f841b9cf58b09eac320e3a3d041bd6",
+      "frame_sequence": 44672
+    },
+    {
+      "name": "20261022_110425_OFF",
+      "image": "20261022_110425_OFF.jpg",
+      "target": "down",
+      "kind": "successful_down_off",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_110425/initial_light_evidence/initial_01_2322.jpg",
+      "sha256": "44f71e816f440d17d42fde510a148775006e257e7d2498972ec1ff10fa8cc710",
+      "frame_sequence": 2322
+    },
+    {
+      "name": "20261022_110425_ON",
+      "image": "20261022_110425_ON.jpg",
+      "target": "down",
+      "kind": "successful_down_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_110425/paired_light_evidence/attempt_1_after_2600_full.jpg",
+      "sha256": "0b55343bcdc9e129265b91bb2b39e9cd020ff64ea9b672ce85397511ca9d3930",
+      "frame_sequence": 2600
+    },
+    {
+      "name": "20261022_112527_ON",
+      "image": "20261022_112527_ON.jpg",
+      "target": "up",
+      "kind": "successful_up_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_112527/paired_light_evidence/attempt_1_after_4589_full.jpg",
+      "sha256": "f16d1eabe78ffaa4714dcd3e553e9e4c1c76e438a0a6930dc74cd0556e1e8aa6",
+      "frame_sequence": 4589
+    },
+    {
+      "name": "20261022_112605_ON",
+      "image": "20261022_112605_ON.jpg",
+      "target": "up",
+      "kind": "successful_up_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_112605/paired_light_evidence/attempt_1_after_5131_full.jpg",
+      "sha256": "f78bfcc791e817cb3fb7934412553aa99377bad656eabf0e43a1083f0c9e64a2",
+      "frame_sequence": 5131
+    },
+    {
+      "name": "20261022_112643_ON",
+      "image": "20261022_112643_ON.jpg",
+      "target": "up",
+      "kind": "successful_up_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_112643/paired_light_evidence/attempt_1_after_5699_full.jpg",
+      "sha256": "ad5645e8886ad3bd4d2fcb5729745876076e063c7da01907d4e12b0483056210",
+      "frame_sequence": 5699
+    },
+    {
+      "name": "20261022_112736_ON",
+      "image": "20261022_112736_ON.jpg",
+      "target": "up",
+      "kind": "successful_up_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_112736/paired_light_evidence/attempt_1_after_6464_full.jpg",
+      "sha256": "00e7ae87aebd29f9020f6b0ed3e7315ffee7a713b9397b5a573e6100a136ba9e",
+      "frame_sequence": 6464
+    },
+    {
+      "name": "20261022_112818_ON",
+      "image": "20261022_112818_ON.jpg",
+      "target": "up",
+      "kind": "successful_up_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261022_112818/paired_light_evidence/attempt_1_after_7119_full.jpg",
+      "sha256": "441cfadf8023320605beb7f8d889375f93be2dcfbc78ab013e5247417e0c1bf9",
+      "frame_sequence": 7119
+    },
+    {
+      "name": "numeric_panel_failure",
+      "image": "numeric_panel_failure.jpg",
+      "target": "down",
+      "kind": "no_call_buttons",
+      "source": "/home/qianjue/contral_test/version_snapshots/20261022_111849_before_revert_call_adaptive/source/tests/fixtures/call_adaptive_recheck/numeric_panel_failure.jpg",
+      "sha256": "c50fee168e456154371f6d4d25de1d55ba7825d09c8284ab6401680bc9e7c3f0"
+    },
+    {
+      "name": "numeric_panel_strong4",
+      "image": "numeric_panel_strong4.jpg",
+      "target": "down",
+      "kind": "no_call_buttons",
+      "source": "/home/qianjue/contral_test/version_snapshots/20261022_111849_before_revert_call_adaptive/source/tests/fixtures/call_adaptive_recheck/numeric_panel_strong4.jpg",
+      "sha256": "efebee17d4bc64e53db1ab7c08b451bbda3b8846e104c5da78f15b478c830576"
+    },
+    {
+      "name": "room_without_panel",
+      "image": "room_without_panel.jpg",
+      "target": "down",
+      "kind": "no_call_buttons",
+      "source": "/home/qianjue/contral_test/artifacts/diagnostics/20261022_numeric_visibility_recovery/current_view_no_panel.jpg",
+      "sha256": "2937f6d57d14f686f722c7b2ee83f5645eb94965756c5213795dc97501d1e573"
+    }
+  ],
+  "baseline_source_sha256": "25efa02c287bcdf7b41b7711147a7bf04a02cc093d64e7e0024d18cf878e19f6"
+}

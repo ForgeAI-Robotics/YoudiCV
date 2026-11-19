@@ -1,0 +1,972 @@
+{
+  "schema": 1,
+  "scope": "Offline numeric panel template and cross-task leave-target-out experiment only. No robot interface.",
+  "annotation": "Assistant visually read original numerals and rim centres (~2 px uncertainty); not independent human verified ground truth. Clipped/occluded/ambiguous buttons omitted, no light-state labels.",
+  "template": {
+    "coordinates": {
+      "1": [
+        0,
+        0
+      ],
+      "2": [
+        0,
+        -1
+      ],
+      "3": [
+        0,
+        -2
+      ],
+      "4": [
+        0,
+        -3
+      ],
+      "5": [
+        0,
+        -4
+      ],
+      "6": [
+        0,
+        -5
+      ],
+      "7": [
+        0,
+        -6
+      ],
+      "8": [
+        0,
+        -7
+      ],
+      "9": [
+        1,
+        -1
+      ],
+      "10": [
+        1,
+        -2
+      ],
+      "11": [
+        1,
+        -3
+      ],
+      "12": [
+        1,
+        -4
+      ],
+      "13": [
+        1,
+        -5
+      ],
+      "14": [
+        1,
+        -6
+      ],
+      "15": [
+        1,
+        -7
+      ],
+      "16": [
+        1,
+        -8
+      ]
+    },
+    "units": "Relative column/row units, not metres; equal row pitch is a tested planar-grid assumption, not physical calibration.",
+    "observed_row_pairs": [
+      "2/9",
+      "3/10",
+      "4/11",
+      "5/12",
+      "6/13",
+      "7/14",
+      "8/15"
+    ],
+    "note": "16 verified above 15 in wide reference. No asserted button at left of 16; 1 has no asserted right partner. B1/open/close excluded."
+  },
+  "protocol": {
+    "min_anchors": 5,
+    "confidence": 0.7,
+    "max_extrapolation_rows": 1,
+    "reference_validation_task_split": true,
+    "target_mask": "Remove target label AND every detection near its annotated physical centre, including wrong labels.",
+    "provisional_error_tolerance": "min(5 px, 15% annotated diameter), for offline 2D only",
+    "threshold_policy": "Geometric gates set before validation. No tuning on held-out results."
+  },
+  "frames": [
+    {
+      "id": "reference_lower",
+      "task": "diagnostic_20261021_193454",
+      "split": "reference",
+      "source": "artifacts/diagnostics/20261021_193454_button4_reproduction/frame_1353457/input_path.jpg",
+      "image": "dataset/reference_lower.jpg",
+      "sha256": "44b051de3b582b5ccf8668da6474fd3746c0874df9a8d7f5b89a9a1a4f183f96",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [],
+      "buttons": {
+        "1": {
+          "center": [
+            312,
+            119
+          ],
+          "diameter": 24
+        },
+        "2": {
+          "center": [
+            312,
+            87
+          ],
+          "diameter": 24
+        },
+        "3": {
+          "center": [
+            311,
+            56
+          ],
+          "diameter": 24
+        },
+        "4": {
+          "center": [
+            310,
+            23
+          ],
+          "diameter": 24
+        },
+        "9": {
+          "center": [
+            349,
+            86
+          ],
+          "diameter": 24
+        },
+        "10": {
+          "center": [
+            350,
+            55
+          ],
+          "diameter": 24
+        },
+        "11": {
+          "center": [
+            350,
+            22
+          ],
+          "diameter": 24
+        }
+      }
+    },
+    {
+      "id": "reference_upper",
+      "task": "20261026_174137",
+      "split": "reference",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_before_251873_full.jpg",
+      "image": "dataset/reference_upper.jpg",
+      "sha256": "fe8339e7eb8b10f266b0cb6f17d38a3a1bfb8a04eeba9e38bb0937f1142311ec",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [],
+      "buttons": {
+        "5": {
+          "center": [
+            326,
+            263
+          ],
+          "diameter": 60
+        },
+        "6": {
+          "center": [
+            326,
+            177
+          ],
+          "diameter": 60
+        },
+        "7": {
+          "center": [
+            326,
+            102
+          ],
+          "diameter": 60
+        },
+        "8": {
+          "center": [
+            326,
+            36
+          ],
+          "diameter": 60
+        },
+        "12": {
+          "center": [
+            434,
+            265
+          ],
+          "diameter": 60
+        },
+        "13": {
+          "center": [
+            427,
+            176
+          ],
+          "diameter": 60
+        },
+        "14": {
+          "center": [
+            423,
+            102
+          ],
+          "diameter": 60
+        },
+        "15": {
+          "center": [
+            420,
+            34
+          ],
+          "diameter": 60
+        }
+      }
+    },
+    {
+      "id": "reference_wide",
+      "task": "capture_20261026_160126",
+      "split": "reference",
+      "source": "artifacts/captures/camera_snapshots/20261026_160126_454488.jpg",
+      "image": "dataset/reference_wide.jpg",
+      "sha256": "e74660b501b5efc54818cbb14369a72a30b27b4f376bd97ae03d679ce471dd80",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [],
+      "buttons": {
+        "2": {
+          "center": [
+            336,
+            282
+          ],
+          "diameter": 23
+        },
+        "3": {
+          "center": [
+            336,
+            246
+          ],
+          "diameter": 23
+        },
+        "4": {
+          "center": [
+            336,
+            211
+          ],
+          "diameter": 23
+        },
+        "5": {
+          "center": [
+            336,
+            178
+          ],
+          "diameter": 23
+        },
+        "6": {
+          "center": [
+            336,
+            145
+          ],
+          "diameter": 23
+        },
+        "7": {
+          "center": [
+            336,
+            113
+          ],
+          "diameter": 23
+        },
+        "8": {
+          "center": [
+            336,
+            81
+          ],
+          "diameter": 23
+        },
+        "9": {
+          "center": [
+            379,
+            282
+          ],
+          "diameter": 23
+        },
+        "10": {
+          "center": [
+            378,
+            246
+          ],
+          "diameter": 23
+        },
+        "11": {
+          "center": [
+            378,
+            211
+          ],
+          "diameter": 23
+        },
+        "12": {
+          "center": [
+            377,
+            177
+          ],
+          "diameter": 23
+        },
+        "13": {
+          "center": [
+            377,
+            145
+          ],
+          "diameter": 23
+        },
+        "14": {
+          "center": [
+            376,
+            113
+          ],
+          "diameter": 23
+        },
+        "15": {
+          "center": [
+            375,
+            81
+          ],
+          "diameter": 23
+        },
+        "16": {
+          "center": [
+            375,
+            50
+          ],
+          "diameter": 23
+        }
+      }
+    },
+    {
+      "id": "wide_reflection_wrong3",
+      "task": "20261026_164735",
+      "split": "validation",
+      "source": "artifacts/diagnostics/20261026_button5_wrong_target/01_按压前原图_帧202994.jpg",
+      "image": "dataset/wide_reflection_wrong3.jpg",
+      "sha256": "44746664f019f6e034d1e22a0217dd1473038353f0aa7fc360ebb508113d3daa",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "1",
+        "2",
+        "3"
+      ],
+      "buttons": {
+        "1": {
+          "center": [
+            335,
+            128
+          ],
+          "diameter": 29
+        },
+        "2": {
+          "center": [
+            336,
+            92
+          ],
+          "diameter": 29
+        },
+        "3": {
+          "center": [
+            336,
+            54
+          ],
+          "diameter": 29
+        },
+        "9": {
+          "center": [
+            380,
+            92
+          ],
+          "diameter": 29
+        },
+        "10": {
+          "center": [
+            382,
+            54
+          ],
+          "diameter": 29
+        }
+      }
+    },
+    {
+      "id": "close_lower_23_3",
+      "task": "20261023_155032",
+      "split": "validation",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261023_155032/paired_light_evidence/attempt_1_before_1249798_full.jpg",
+      "image": "dataset/close_lower_23_3.jpg",
+      "sha256": "b6d41fb34916e8baf6df23995e8751818d732d286d3b3dec568f73f475bdcc75",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "2",
+        "3",
+        "4"
+      ],
+      "buttons": {
+        "2": {
+          "center": [
+            324,
+            269
+          ],
+          "diameter": 67
+        },
+        "3": {
+          "center": [
+            325,
+            181
+          ],
+          "diameter": 67
+        },
+        "4": {
+          "center": [
+            327,
+            89
+          ],
+          "diameter": 67
+        },
+        "9": {
+          "center": [
+            435,
+            275
+          ],
+          "diameter": 67
+        },
+        "10": {
+          "center": [
+            440,
+            185
+          ],
+          "diameter": 67
+        },
+        "11": {
+          "center": [
+            445,
+            92
+          ],
+          "diameter": 67
+        }
+      }
+    },
+    {
+      "id": "close_bottom_23_2",
+      "task": "20261023_155215",
+      "split": "validation",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261023_155215/paired_light_evidence/attempt_1_before_1251341_full.jpg",
+      "image": "dataset/close_bottom_23_2.jpg",
+      "sha256": "9953924322c860849c567972eb82426b95b616168e7161520b9478fa73d70697",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "1",
+        "2",
+        "3"
+      ],
+      "buttons": {
+        "1": {
+          "center": [
+            320,
+            264
+          ],
+          "diameter": 71
+        },
+        "2": {
+          "center": [
+            322,
+            173
+          ],
+          "diameter": 71
+        },
+        "3": {
+          "center": [
+            325,
+            79
+          ],
+          "diameter": 71
+        },
+        "9": {
+          "center": [
+            439,
+            175
+          ],
+          "diameter": 71
+        },
+        "10": {
+          "center": [
+            448,
+            79
+          ],
+          "diameter": 71
+        }
+      }
+    },
+    {
+      "id": "close_middle_23_4",
+      "task": "20261023_155301",
+      "split": "validation",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261023_155301/paired_light_evidence/attempt_1_before_1252171_full.jpg",
+      "image": "dataset/close_middle_23_4.jpg",
+      "sha256": "df2e3447cf60b20f98864f09c339cfb634d26791ca82a646547a9e1a4119d701",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "3",
+        "4",
+        "5"
+      ],
+      "buttons": {
+        "3": {
+          "center": [
+            332,
+            261
+          ],
+          "diameter": 69
+        },
+        "4": {
+          "center": [
+            324,
+            173
+          ],
+          "diameter": 69
+        },
+        "5": {
+          "center": [
+            314,
+            77
+          ],
+          "diameter": 69
+        },
+        "10": {
+          "center": [
+            444,
+            253
+          ],
+          "diameter": 69
+        },
+        "11": {
+          "center": [
+            437,
+            159
+          ],
+          "diameter": 69
+        },
+        "12": {
+          "center": [
+            430,
+            65
+          ],
+          "diameter": 69
+        }
+      }
+    },
+    {
+      "id": "close_upper_23_5",
+      "task": "20261023_155345",
+      "split": "validation",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261023_155345/paired_light_evidence/attempt_1_before_1252842_full.jpg",
+      "image": "dataset/close_upper_23_5.jpg",
+      "sha256": "220667d2482c1ae4b15a69f78326b33867ec573eaf128f479b4075cd915c4430",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "4",
+        "5"
+      ],
+      "buttons": {
+        "4": {
+          "center": [
+            321,
+            268
+          ],
+          "diameter": 63
+        },
+        "5": {
+          "center": [
+            324,
+            182
+          ],
+          "diameter": 63
+        },
+        "6": {
+          "center": [
+            326,
+            101
+          ],
+          "diameter": 63
+        },
+        "7": {
+          "center": [
+            327,
+            33
+          ],
+          "diameter": 63
+        },
+        "11": {
+          "center": [
+            438,
+            271
+          ],
+          "diameter": 63
+        },
+        "12": {
+          "center": [
+            431,
+            181
+          ],
+          "diameter": 63
+        },
+        "13": {
+          "center": [
+            428,
+            102
+          ],
+          "diameter": 63
+        },
+        "14": {
+          "center": [
+            423,
+            32
+          ],
+          "diameter": 63
+        }
+      }
+    },
+    {
+      "id": "close_upper_23_6",
+      "task": "20261023_155431",
+      "split": "validation",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261023_155431/paired_light_evidence/attempt_1_before_1253538_full.jpg",
+      "image": "dataset/close_upper_23_6.jpg",
+      "sha256": "96abb49ba468e6bb9df97440345cbbc68b04a56ca2eed2d38b629025a7629fa3",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "5"
+      ],
+      "buttons": {
+        "5": {
+          "center": [
+            325,
+            261
+          ],
+          "diameter": 60
+        },
+        "6": {
+          "center": [
+            325,
+            176
+          ],
+          "diameter": 60
+        },
+        "7": {
+          "center": [
+            327,
+            101
+          ],
+          "diameter": 60
+        },
+        "8": {
+          "center": [
+            330,
+            36
+          ],
+          "diameter": 60
+        },
+        "12": {
+          "center": [
+            434,
+            263
+          ],
+          "diameter": 60
+        },
+        "13": {
+          "center": [
+            428,
+            176
+          ],
+          "diameter": 60
+        },
+        "14": {
+          "center": [
+            424,
+            101
+          ],
+          "diameter": 60
+        },
+        "15": {
+          "center": [
+            424,
+            35
+          ],
+          "diameter": 60
+        }
+      }
+    },
+    {
+      "id": "close_middle_26_4",
+      "task": "20261026_174352",
+      "split": "validation",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_174352/paired_light_evidence/attempt_1_before_253897_full.jpg",
+      "image": "dataset/close_middle_26_4.jpg",
+      "sha256": "1bb1da73a80222ef965939be05cb78f2afe72f79f450c523e3bba872dcd5ab61",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "3",
+        "4",
+        "5"
+      ],
+      "buttons": {
+        "3": {
+          "center": [
+            312,
+            262
+          ],
+          "diameter": 68
+        },
+        "4": {
+          "center": [
+            322,
+            175
+          ],
+          "diameter": 68
+        },
+        "5": {
+          "center": [
+            334,
+            82
+          ],
+          "diameter": 68
+        },
+        "10": {
+          "center": [
+            420,
+            276
+          ],
+          "diameter": 68
+        },
+        "11": {
+          "center": [
+            434,
+            186
+          ],
+          "diameter": 68
+        },
+        "12": {
+          "center": [
+            447,
+            94
+          ],
+          "diameter": 68
+        }
+      }
+    },
+    {
+      "id": "close_lower_26_3",
+      "task": "20261026_174447",
+      "split": "validation",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_174447/paired_light_evidence/attempt_1_before_254619_full.jpg",
+      "image": "dataset/close_lower_26_3.jpg",
+      "sha256": "ed73aa5ac28916b96f332ddfcfa5de436a8a301961efc7e9fdc36567bde4405e",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "2",
+        "3",
+        "4"
+      ],
+      "buttons": {
+        "2": {
+          "center": [
+            318,
+            268
+          ],
+          "diameter": 68
+        },
+        "3": {
+          "center": [
+            321,
+            177
+          ],
+          "diameter": 68
+        },
+        "4": {
+          "center": [
+            321,
+            85
+          ],
+          "diameter": 68
+        },
+        "9": {
+          "center": [
+            431,
+            272
+          ],
+          "diameter": 68
+        },
+        "10": {
+          "center": [
+            433,
+            181
+          ],
+          "diameter": 68
+        },
+        "11": {
+          "center": [
+            437,
+            86
+          ],
+          "diameter": 68
+        }
+      }
+    },
+    {
+      "id": "close_bottom_26_2",
+      "task": "20261026_174521",
+      "split": "validation",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261026_174521/paired_light_evidence/attempt_1_before_255142_full.jpg",
+      "image": "dataset/close_bottom_26_2.jpg",
+      "sha256": "c3f9c08173c6f55fc306a8a6093183a72c3fd74035e6c10a54b7874dba73c98f",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "1",
+        "2",
+        "3"
+      ],
+      "buttons": {
+        "1": {
+          "center": [
+            320,
+            264
+          ],
+          "diameter": 69
+        },
+        "2": {
+          "center": [
+            321,
+            173
+          ],
+          "diameter": 69
+        },
+        "3": {
+          "center": [
+            324,
+            77
+          ],
+          "diameter": 69
+        },
+        "9": {
+          "center": [
+            438,
+            173
+          ],
+          "diameter": 69
+        },
+        "10": {
+          "center": [
+            446,
+            77
+          ],
+          "diameter": 69
+        }
+      }
+    },
+    {
+      "id": "wide_lower_26_1",
+      "task": "20261026_184836",
+      "split": "validation",
+      "source": "artifacts/captures/recognition_snapshots/20261026_184859_531332_input_path.jpg",
+      "image": "dataset/wide_lower_26_1.jpg",
+      "sha256": "28cd638daaa9126d24f0ad88448fabca1bb3b3c15d1607ce2dae48e7e1d323ac",
+      "size": [
+        640,
+        360
+      ],
+      "targets": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "buttons": {
+        "1": {
+          "center": [
+            320,
+            208
+          ],
+          "diameter": 39
+        },
+        "2": {
+          "center": [
+            320,
+            158
+          ],
+          "diameter": 39
+        },
+        "3": {
+          "center": [
+            320,
+            103
+          ],
+          "diameter": 39
+        },
+        "4": {
+          "center": [
+            320,
+            43
+          ],
+          "diameter": 39
+        },
+        "9": {
+          "center": [
+            385,
+            159
+          ],
+          "diameter": 39
+        },
+        "10": {
+          "center": [
+            390,
+            103
+          ],
+          "diameter": 39
+        },
+        "11": {
+          "center": [
+            395,
+            44
+          ],
+          "diameter": 39
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <!-- Define the joint interfaces for controlling the robot arm -->
+
+    <!-- Define Gazebo plugin for controlling with ros_control -->
+    <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/piper_arm</robotNamespace>
+            <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+        </plugin>
+        <plugin name="gripper_mimic_plugin" filename="libgripper_mimic_plugin.so">
+            <robotNamespace>/piper_arm</robotNamespace>
+            <motor_joint>piper_gripper_motor_joint</motor_joint>
+            <finger_joint1>piper_gripper_finger_joint1</finger_joint1>
+            <finger_joint2>piper_gripper_finger_joint2</finger_joint2>
+        </plugin>
+    </gazebo>
+
+    <xacro:macro name="transmission_block" params="tran_name joint_name motor_name">
+        <transmission name="${tran_name}">
+            <type>transmission_interface/SimpleTransmission</type>
+            <joint name="${joint_name}">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+            </joint>
+            <actuator name="${motor_name}">
+                <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+        </transmission>
+    </xacro:macro>
+
+    <xacro:transmission_block tran_name="tran1" joint_name="piper_joint1" motor_name="piper_motor1" />
+    <xacro:transmission_block tran_name="tran2" joint_name="piper_joint2" motor_name="piper_motor2" />
+    <xacro:transmission_block tran_name="tran3" joint_name="piper_joint3" motor_name="piper_motor3" />
+    <xacro:transmission_block tran_name="tran4" joint_name="piper_joint4" motor_name="piper_motor4" />
+    <xacro:transmission_block tran_name="tran5" joint_name="piper_joint5" motor_name="piper_motor5" />
+    <xacro:transmission_block tran_name="tran6" joint_name="piper_joint6" motor_name="piper_motor6" />
+    <xacro:transmission_block tran_name="tran_gripper" joint_name="piper_gripper_motor_joint"
+        motor_name="tran_gripper_motor" />
+    <xacro:transmission_block tran_name="tran_finger1" joint_name="piper_gripper_finger_joint1"
+        motor_name="piper_gripper_finger_motor1" />
+    <xacro:transmission_block tran_name="tran_finger2" joint_name="piper_gripper_finger_joint2"
+        motor_name="piper_gripper_finger_motor2" />
+
+
+</robot>

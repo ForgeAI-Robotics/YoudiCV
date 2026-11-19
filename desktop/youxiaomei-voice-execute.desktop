@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=优小妹语音助手（机器人执行）
+Comment=Production local streaming elevator task GUI
+Exec=/home/qianjue/contral_test/tools/launch_voice_assistant_gui_execute.sh
+Icon=audio-input-microphone
+Terminal=false
+Categories=Utility;
+StartupNotify=true

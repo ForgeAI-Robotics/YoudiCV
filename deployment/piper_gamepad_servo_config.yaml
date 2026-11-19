@@ -1,0 +1,19 @@
+publish_period: 0.01
+incoming_command_timeout: 0.1
+
+move_group_name: piper_arm
+planning_frame: piper_base_link
+ee_frame_name: piper_pressing_eef
+robot_link_command_frame: piper_pressing_eef
+
+joint_topic: /piper_arm/joint_states
+command_out_topic: /piper_arm/joint_group_position_controller/command
+
+# The vendor/button node uses 0.01 and null-space rotation to favour position.
+# Manual teleoperation needs the requested tool attitude to remain visually
+# stable during translation, so it gets a separate node and separate policy.
+lambda_orientation: 0.01
+use_linesearch: false
+use_nullspace_rotation: false
+low_pass_filter_coeff: 5.0
+orientation_adjust_time_max: 2.0

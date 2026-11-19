@@ -1,0 +1,145 @@
+{
+  "scope": "Unmodified real camera frames: user-confirmed unlit sunlight stripe and previously verified lit up/down arrows; labels are limited historical evidence",
+  "fixtures": [
+    {
+      "file": "00_down_OFF.jpg",
+      "target": "down",
+      "bbox": [
+        199.44293212890625,
+        64.5011215209961,
+        232.2233428955078,
+        98.1952133178711
+      ],
+      "expected": "OFF",
+      "group": "sun_stripe_off",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261019_110328/initial_light_evidence/initial_01_2191200.jpg",
+      "sha256": "acd581edc8862c4424d42ef739a85780cdc85e12b3184ad4e0bf83c7d304796f"
+    },
+    {
+      "file": "01_down_OFF.jpg",
+      "target": "down",
+      "bbox": [
+        199.63572692871094,
+        64.68382263183594,
+        232.21226501464844,
+        98.14543151855469
+      ],
+      "expected": "OFF",
+      "group": "sun_stripe_off",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261019_110328/initial_light_evidence/initial_02_2191203.jpg",
+      "sha256": "ddb314e00b8e4521c73af496262eed2b7ea30b79c9d12293986b37c530c74a1a"
+    },
+    {
+      "file": "02_down_OFF.jpg",
+      "target": "down",
+      "bbox": [
+        199.5064239501953,
+        64.6575927734375,
+        232.18153381347656,
+        98.09465026855469
+      ],
+      "expected": "OFF",
+      "group": "sun_stripe_off",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261019_110328/initial_light_evidence/initial_03_2191205.jpg",
+      "sha256": "d42824bfad055228e4913d92968771b66ea6f3b13046b135151cdb9132c668b7"
+    },
+    {
+      "file": "03_down_OFF.jpg",
+      "target": "down",
+      "bbox": [
+        201.13284301757812,
+        76.52010345458984,
+        232.78382873535156,
+        108.31671905517578
+      ],
+      "expected": "OFF",
+      "group": "sun_stripe_off",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261019_110328/initial_light_evidence/initial_04_2191277.jpg",
+      "sha256": "f5a7f68c2a53556e403b89416f5e38991b04a70982ef346d5d4b90126c03d80b"
+    },
+    {
+      "file": "04_down_OFF.jpg",
+      "target": "down",
+      "bbox": [
+        200.98468017578125,
+        76.43600463867188,
+        232.78103637695312,
+        108.35124206542969
+      ],
+      "expected": "OFF",
+      "group": "sun_stripe_off",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261019_110328/initial_light_evidence/initial_05_2191280.jpg",
+      "sha256": "85ccc11279efcf209205a046a8bfe2da5af4204de3b2be512a34121b3d20b88d"
+    },
+    {
+      "file": "05_down_OFF.jpg",
+      "target": "down",
+      "bbox": [
+        200.88702392578125,
+        76.34464263916016,
+        232.76206970214844,
+        108.63223266601562
+      ],
+      "expected": "OFF",
+      "group": "sun_stripe_off",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261019_110328/initial_light_evidence/initial_06_2191284.jpg",
+      "sha256": "3103518c781feee3c533b2dd73b2a2e1ed5fd2a63bc0cf034ca024692ecfa526"
+    },
+    {
+      "file": "06_down_ON.jpg",
+      "target": "down",
+      "bbox": [
+        292.02392578125,
+        141.83218383789062,
+        368.50604248046875,
+        214.1031036376953
+      ],
+      "expected": "ON",
+      "group": "known_press_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261014_115329/paired_light_evidence/attempt_1_after_27151_full.jpg",
+      "sha256": "b5bf37898db022099a2aa3156fe93531c5f8b048141454679c0e952ad1172c9f"
+    },
+    {
+      "file": "07_down_ON.jpg",
+      "target": "down",
+      "bbox": [
+        291.43145751953125,
+        137.4354248046875,
+        366.7382507324219,
+        211.0313720703125
+      ],
+      "expected": "ON",
+      "group": "known_press_on",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261014_115329/paired_light_evidence/attempt_1_after_27152_full.jpg",
+      "sha256": "095a73d19cd94756bdeca2a03005cf2f5dc4b299542ed828b65e98c2874b98e2"
+    },
+    {
+      "file": "08_up_ON.jpg",
+      "target": "up",
+      "bbox": [
+        293.6424560546875,
+        185.33018493652344,
+        371.1281433105469,
+        264.0484619140625
+      ],
+      "expected": "ON",
+      "group": "20261015_174021",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_174021/paired_light_evidence/attempt_1_after_1215490_full.jpg",
+      "sha256": "82e5f5a9b4c0ec62b46ec6b501002001bacd71c92cac811836f82e2249db6451"
+    },
+    {
+      "file": "09_up_ON.jpg",
+      "target": "up",
+      "bbox": [
+        292.6625061035156,
+        177.6305389404297,
+        366.55145263671875,
+        251.68365478515625
+      ],
+      "expected": "ON",
+      "group": "20261015_174021",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_174021/paired_light_evidence/attempt_1_after_1215491_full.jpg",
+      "sha256": "3eb5914a5355312a192175647ca34f274ccb757f00d38abf23ef8a42efe34d73"
+    }
+  ]
+}

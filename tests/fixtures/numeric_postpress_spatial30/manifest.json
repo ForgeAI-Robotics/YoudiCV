@@ -1,0 +1,105 @@
+{
+  "source_report": "button_light_closed_loop_runs/20261028_180414/closed_loop_report.yaml",
+  "source_task_id": "08e253f1-9793-4242-9fc9-1ada39bed8b4",
+  "note": "Archived JPEG replay; simulated fresh time and stationary encoders isolate image decisions, not physical success rate.",
+  "frames": [
+    {
+      "sequence": 189272,
+      "captured": 1793181864.7955246,
+      "file": "attempt_1_before_189272_full.jpg",
+      "sha256": "0239d1f20f1d4c167aee365b50f6aea997bc67621f1b2371791da98dc0829fe0",
+      "box": [
+        284.6222229003906,
+        134.24774169921875,
+        361.2283630371094,
+        212.942626953125
+      ],
+      "absolute_state": "OFF",
+      "phase": "before"
+    },
+    {
+      "sequence": 189276,
+      "captured": 1793181865.067776,
+      "file": "attempt_1_before_189276_full.jpg",
+      "sha256": "ec306956a54fd3d38812b1ecafc18b9f21efd863f5954f503361f49a89c45b2e",
+      "box": [
+        284.6082763671875,
+        134.15414428710938,
+        361.46771240234375,
+        212.91307067871094
+      ],
+      "absolute_state": "OFF",
+      "phase": "before"
+    },
+    {
+      "sequence": 189413,
+      "captured": 1793181874.1866486,
+      "file": "attempt_1_after_189413_full.jpg",
+      "sha256": "10b9166f68cca81b28d2c145b2add144eb6764f864ed47bb338bc9c98556721f",
+      "box": [
+        283.34014892578125,
+        133.7855224609375,
+        359.93017578125,
+        212.28555297851562
+      ],
+      "absolute_state": "ON",
+      "phase": "after"
+    },
+    {
+      "sequence": 189415,
+      "captured": 1793181874.3217702,
+      "file": "attempt_1_after_189415_full.jpg",
+      "sha256": "59e50f6e2f9f2401cdf1f7a332a7e17987ee0c9b0f09ce2f71b6a5bc48ecf667",
+      "box": [
+        283.0337829589844,
+        134.1386260986328,
+        360.2346496582031,
+        212.84857177734375
+      ],
+      "absolute_state": "ON",
+      "phase": "after"
+    },
+    {
+      "sequence": 189419,
+      "captured": 1793181874.5938416,
+      "file": "attempt_1_after_189419_full.jpg",
+      "sha256": "0613ece6b899b00da47c13194020cfa22b5ad638f05b94fe596c118231632308",
+      "box": [
+        283.18963623046875,
+        133.6976318359375,
+        360.1549377441406,
+        212.34031677246094
+      ],
+      "absolute_state": "ON",
+      "phase": "after"
+    },
+    {
+      "sequence": 189420,
+      "captured": 1793181874.6562324,
+      "file": "attempt_1_after_189420_full.jpg",
+      "sha256": "5a0439adc06444725a264ce6e083ebd85dac9f8b2e874ba84e5018b56c23a940",
+      "box": [
+        283.327880859375,
+        133.5396728515625,
+        360.2812194824219,
+        212.47120666503906
+      ],
+      "absolute_state": "ON",
+      "phase": "after"
+    },
+    {
+      "sequence": 189424,
+      "captured": 1793181874.9197361,
+      "file": "attempt_1_after_189424_full.jpg",
+      "sha256": "3defd8e421d098113ae20683febe634ed20ed35c267a326a757776ec2fe97df4",
+      "box": [
+        282.8895263671875,
+        134.00082397460938,
+        360.1210632324219,
+        213.16619873046875
+      ],
+      "absolute_state": "OFF",
+      "phase": "after"
+    }
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "source_report": "button_light_closed_loop_runs/20261028_165307/closed_loop_report.yaml",
+  "scope": "Historical paired OFF collection failure; archived JPEG not raw RGB; no physical truth labels inferred",
+  "frames": [
+    {
+      "file": "frame_125289.jpg",
+      "sha256": "1026dc1dcaa6eb913f7d8e3d77fe99c862bc6ec3bad7c84c0474521d305dedf7",
+      "sequence": 125289,
+      "captured": 1793177600.7224553,
+      "target_detection": {
+        "label": "3",
+        "bbox_xyxy": [
+          285.98406982421875,
+          141.81871032714844,
+          361.6193542480469,
+          216.46405029296875
+        ],
+        "confidence": 0.9067081212997437,
+        "frame_sequence": 125289
+      },
+      "recorded_absolute_state": "OFF",
+      "recorded_comparison": null
+    },
+    {
+      "file": "frame_125293.jpg",
+      "sha256": "799f10f7b7825714104ccd63e499a3b1932903c24dd4b5938f36effba10a9904",
+      "sequence": 125293,
+      "captured": 1793177600.9861517,
+      "target_detection": {
+        "label": "3",
+        "bbox_xyxy": [
+          285.96124267578125,
+          141.25209045410156,
+          362.3383483886719,
+          216.58004760742188
+        ],
+        "confidence": 0.9570198059082031,
+        "frame_sequence": 125293
+      },
+      "recorded_absolute_state": "OFF",
+      "recorded_comparison": {
+        "state": "UNCERTAIN",
+        "reason": "incomparable_background",
+        "reference_sequence": 125289,
+        "current_sequence": 125293,
+        "reference_image": "/home/qianjue/contral_test/button_light_snapshots/20261028_165320_927679.jpg",
+        "reference_crop": null,
+        "reference_box": [
+          285.98406982421875,
+          141.81871032714844,
+          361.6193542480469,
+          216.46405029296875
+        ],
+        "current_box": [
+          285.96124267578125,
+          141.25209045410156,
+          362.3383483886719,
+          216.58004760742188
+        ],
+        "reference_time": 1793177600.7224553,
+        "current_time": 1793177600.9861517,
+        "background_error": 10.406754493713379,
+        "exposure_offset": -1.0,
+        "alignment_px": [
+          0,
+          0
+        ],
+        "background_normalization": "robust_ring_affine_v1",
+        "background_valid_fraction": 0.9984375,
+        "background_max_mean_error": 10.0,
+        "background_max_p90_error": 25.0,
+        "reference_background_span": 124.19999999999999,
+        "background_gain": 0.9414679507051278,
+        "background_offset": 1.9266024647436097,
+        "background_error_p90": 30.24818801879884,
+        "background_inlier_fraction": 0.7765625,
+        "background_inlier_max_error": 15.0,
+        "background_spatial_error": 4.119071960449219,
+        "normalization_rejection": "nonuniform_background_change"
+      }
+    },
+    {
+      "file": "frame_125300.jpg",
+      "sha256": "1662007b732507deea497cc1d47fd28afa8fd5360834987aac979f7b32431f4f",
+      "sequence": 125300,
+      "captured": 1793177601.4490137,
+      "target_detection": {
+        "label": "3",
+        "bbox_xyxy": [
+          285.8455505371094,
+          141.10853576660156,
+          361.8900146484375,
+          216.52578735351562
+        ],
+        "confidence": 0.9195824861526489,
+        "frame_sequence": 125300
+      },
+      "recorded_absolute_state": "OFF",
+      "recorded_comparison": null
+    },
+    {
+      "file": "frame_125303.jpg",
+      "sha256": "6c2d23c5abffda8b51a324dfa1dafe7d1ac9bc74066fe5e033f411f02b34a91a",
+      "sequence": 125303,
+      "captured": 1793177601.6504421,
+      "target_detection": {
+        "label": "3",
+        "bbox_xyxy": [
+          286.17431640625,
+          141.69717407226562,
+          361.0987548828125,
+          216.44674682617188
+        ],
+        "confidence": 0.9439323544502258,
+        "frame_sequence": 125303
+      },
+      "recorded_absolute_state": "OFF",
+      "recorded_comparison": {
+        "state": "UNCERTAIN",
+        "reason": "incomparable_background",
+        "reference_sequence": 125300,
+        "current_sequence": 125303,
+        "reference_image": "/home/qianjue/contral_test/button_light_snapshots/20261028_165321_603977.jpg",
+        "reference_crop": null,
+        "reference_box": [
+          285.8455505371094,
+          141.10853576660156,
+          361.8900146484375,
+          216.52578735351562
+        ],
+        "current_box": [
+          286.17431640625,
+          141.69717407226562,
+          361.0987548828125,
+          216.44674682617188
+        ],
+        "reference_time": 1793177601.4490137,
+        "current_time": 1793177601.6504421,
+        "background_error": 13.361688613891602,
+        "exposure_offset": 2.0,
+        "alignment_px": [
+          0,
+          0
+        ],
+        "background_normalization": "robust_ring_affine_v1",
+        "background_valid_fraction": 0.9984375,
+        "background_max_mean_error": 10.0,
+        "background_max_p90_error": 25.0,
+        "reference_background_span": 116.0,
+        "background_gain": 0.972823131740198,
+        "background_offset": 3.793673305146939,
+        "background_error_p90": 39.1544631958008,
+        "background_inlier_fraction": 0.7109375,
+        "background_inlier_max_error": 15.0,
+        "background_spatial_error": 3.0951194763183594,
+        "normalization_rejection": "nonuniform_background_change"
+      }
+    }
+  ],
+  "pairs": [
+    [
+      125289,
+      125293
+    ],
+    [
+      125300,
+      125303
+    ]
+  ]
+}

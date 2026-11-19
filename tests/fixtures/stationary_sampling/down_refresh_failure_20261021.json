@@ -1,0 +1,184 @@
+{
+  "source_run": "20261021_093752",
+  "provenance": "Original stationary refresh audit, timestamps/XYZ/confidence/depth plane RMS copied verbatim. Original full rotations not archived: temporal/position replay uses a common fixed orientation, not a complete RGB-D/IK replay.",
+  "start_unix_sec": 1792546682.0765765,
+  "target_label": "down",
+  "samples": [
+    {
+      "sequence": 815878,
+      "capture_time_unix_sec": 1792546681.683208,
+      "sample_age_sec": 0.40470004081726074,
+      "timing": {
+        "request_roundtrip_sec": 0.010677427999326028,
+        "response_received_unix_sec": 1792546682.087908,
+        "server_time_unix_sec": 1792546682.0854144,
+        "source_processing_sec": 0.25967876299546333,
+        "age_outside_processing_sec": 0.1450212778217974,
+        "capture_interval_sec": null,
+        "consumed_interval_sec": null,
+        "source_valid_rate_hz": 4.698299748170315
+      },
+      "accepted": false,
+      "reason": "captured_before_stationary_pose"
+    },
+    {
+      "sequence": 815896,
+      "capture_time_unix_sec": 1792546682.8795183,
+      "sample_age_sec": 0.30806875228881836,
+      "timing": {
+        "request_roundtrip_sec": 0.004590203003317583,
+        "response_received_unix_sec": 1792546683.1873164,
+        "server_time_unix_sec": 1792546683.1847892,
+        "source_processing_sec": 0.24970283600123366,
+        "age_outside_processing_sec": 0.05809531120030442,
+        "capture_interval_sec": 1.19631028175354,
+        "consumed_interval_sec": 1.0994083881378174,
+        "source_valid_rate_hz": 2.3740730554580693,
+        "robot_state_read_sec": 1.7310994735453278e-05
+      },
+      "accepted": true,
+      "rejection_reasons": [],
+      "confidence": 0.9178560972213745,
+      "plane_rms_m": 0.0015309117359722122,
+      "base_to_button_position_m": [
+        0.5601931710696697,
+        0.13191367484729616,
+        0.3132470122493596
+      ],
+      "bbox_xyxy": [
+        189.4005584716797,
+        64.23712921142578,
+        222.36514282226562,
+        97.43856811523438
+      ]
+    },
+    {
+      "sequence": 815906,
+      "capture_time_unix_sec": 1792546683.5459714,
+      "sample_age_sec": 0.31795692443847656,
+      "timing": {
+        "request_roundtrip_sec": 0.004647930996725336,
+        "response_received_unix_sec": 1792546683.8636472,
+        "server_time_unix_sec": 1792546683.861066,
+        "source_processing_sec": 0.2525747049949132,
+        "age_outside_processing_sec": 0.06510112393880263,
+        "capture_interval_sec": 0.6664531230926514,
+        "consumed_interval_sec": 0.6763308048248291,
+        "source_valid_rate_hz": 2.0263518966847287,
+        "robot_state_read_sec": 2.742400101851672e-05
+      },
+      "accepted": true,
+      "rejection_reasons": [],
+      "confidence": 0.8277354836463928,
+      "plane_rms_m": 0.001528501114776304,
+      "base_to_button_position_m": [
+        0.5596920648353716,
+        0.13178602300031414,
+        0.3135113315719003
+      ],
+      "bbox_xyxy": [
+        189.4100799560547,
+        63.87815856933594,
+        222.31153869628906,
+        97.317138671875
+      ]
+    },
+    {
+      "sequence": 815921,
+      "capture_time_unix_sec": 1792546684.571561,
+      "sample_age_sec": 0.24495458602905273,
+      "timing": {
+        "request_roundtrip_sec": 0.014870991995849181,
+        "response_received_unix_sec": 1792546684.816285,
+        "server_time_unix_sec": 1792546684.8134003,
+        "source_processing_sec": 0.21684370200091507,
+        "age_outside_processing_sec": 0.02788009484356735,
+        "capture_interval_sec": 1.0255897045135498,
+        "consumed_interval_sec": 0.9526376724243164,
+        "source_valid_rate_hz": 1.5541213863023322,
+        "robot_state_read_sec": 2.803200186463073e-05
+      },
+      "accepted": true,
+      "rejection_reasons": [],
+      "confidence": 0.7929378151893616,
+      "plane_rms_m": 0.0013192091498155259,
+      "base_to_button_position_m": [
+        0.5604465589350253,
+        0.13175622055556233,
+        0.31334415380678315
+      ],
+      "bbox_xyxy": [
+        189.6695098876953,
+        64.05924224853516,
+        222.44482421875,
+        97.49110412597656
+      ],
+      "acquisition_summary": {
+        "status": "timeout",
+        "target_label": "down",
+        "policy": {
+          "frame_count": 4,
+          "input_max_age_sec": 0.35,
+          "latest_max_age_sec": 0.35,
+          "max_span_sec": 2.0,
+          "timeout_sec": 3.0,
+          "max_encoder_drift_rad": 0.003
+        },
+        "elapsed_sec": 3.0197373300034087,
+        "requests": 129,
+        "unchanged_reads": 125,
+        "empty_reads": 0,
+        "encoder_resets": 0,
+        "accepted_frames_total": 3,
+        "rejected_frames_total": 1,
+        "request_total_sec": 1.699248988981708,
+        "request_max_sec": 0.04246315499767661,
+        "robot_state_reads_total_sec": 0.0001238389959326014,
+        "source_processing_mean_sec": 0.24470000149813131,
+        "source_processing_max_sec": 0.25967876299546333,
+        "observed_accepted_rate_hz": 1.1820031782703029,
+        "source_valid_rate_hz": 1.5541213863023322,
+        "window_sample_count": 3,
+        "window_span_sec": 1.6920428276062012,
+        "window_reasons": [
+          "window 3/4",
+          "latest age 0.523s"
+        ],
+        "timing_scope": "source_processing combines detector and depth; age outside processing includes waiting and scheduling"
+      }
+    }
+  ],
+  "original_summary": {
+    "status": "timeout",
+    "target_label": "down",
+    "policy": {
+      "frame_count": 4,
+      "input_max_age_sec": 0.35,
+      "latest_max_age_sec": 0.35,
+      "max_span_sec": 2.0,
+      "timeout_sec": 3.0,
+      "max_encoder_drift_rad": 0.003
+    },
+    "elapsed_sec": 3.0197373300034087,
+    "requests": 129,
+    "unchanged_reads": 125,
+    "empty_reads": 0,
+    "encoder_resets": 0,
+    "accepted_frames_total": 3,
+    "rejected_frames_total": 1,
+    "request_total_sec": 1.699248988981708,
+    "request_max_sec": 0.04246315499767661,
+    "robot_state_reads_total_sec": 0.0001238389959326014,
+    "source_processing_mean_sec": 0.24470000149813131,
+    "source_processing_max_sec": 0.25967876299546333,
+    "observed_accepted_rate_hz": 1.1820031782703029,
+    "source_valid_rate_hz": 1.5541213863023322,
+    "window_sample_count": 3,
+    "window_span_sec": 1.6920428276062012,
+    "window_reasons": [
+      "window 3/4",
+      "latest age 0.523s"
+    ],
+    "timing_scope": "source_processing combines detector and depth; age outside processing includes waiting and scheduling"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "frames": [
+    {
+      "file": "attempt_1_before_press_frame_116737_full.jpg",
+      "sha256": "eb99aad69888577ada83238686e898870b9d770740ee5ec7c78a80f1bc68fe65",
+      "bbox": [
+        283.38671875,
+        129.01773071289062,
+        363.96258544921875,
+        211.05746459960938
+      ],
+      "sequence": 116737,
+      "previous_state": "OFF",
+      "source": "artifacts/runs/button_failure_records/20261028_164339/attempt_1_before_press_frame_116737_full.jpg"
+    },
+    {
+      "file": "attempt_1_before_press_frame_116740_full.jpg",
+      "sha256": "84694250502e2a8fb31aaf90684024c5cecdbd10703d713e0e369018de707ba7",
+      "bbox": [
+        283.44805908203125,
+        129.75570678710938,
+        363.995361328125,
+        210.78916931152344
+      ],
+      "sequence": 116740,
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_failure_records/20261028_164339/attempt_1_before_press_frame_116740_full.jpg"
+    }
+  ],
+  "note": "Archived first-press failure; human appearance and legacy OFF support reflection diagnosis, not independent hardware ground truth."
+}

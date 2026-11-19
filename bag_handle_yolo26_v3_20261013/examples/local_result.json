@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "source": "/home/fq/Documents/ChatGPT/优地/bag-handle-inspection/jetson_delivery/bag_handle_yolo26_v3_20261013/examples/input.jpg",
+  "image_size": {
+    "width": 225,
+    "height": 225
+  },
+  "coordinate_frame": "original_image_top_left",
+  "units": "pixels",
+  "depth_available": false,
+  "robot_motion_authorized": false,
+  "detections": [
+    {
+      "object_index": 1,
+      "class_id": 0,
+      "model_status": "valid",
+      "status": "valid",
+      "confidence": 0.9446411728858948,
+      "bbox_xyxy": [
+        135.23963928222656,
+        34.29194641113281,
+        216.72357177734375,
+        185.18544006347656
+      ],
+      "handle_center_xy": [
+        172.2886199951172,
+        39.38336944580078
+      ],
+      "keypoint_confidence": 0.9668022990226746,
+      "reason": null
+    },
+    {
+      "object_index": 2,
+      "class_id": 0,
+      "model_status": "valid",
+      "status": "valid",
+      "confidence": 0.9406176805496216,
+      "bbox_xyxy": [
+        85.48760223388672,
+        55.94036865234375,
+        147.86355590820312,
+        181.8115997314453
+      ],
+      "handle_center_xy": [
+        116.44001007080078,
+        60.862548828125
+      ],
+      "keypoint_confidence": 0.9805482625961304,
+      "reason": null
+    },
+    {
+      "object_index": 3,
+      "class_id": 0,
+      "model_status": "valid",
+      "status": "valid",
+      "confidence": 0.9034854769706726,
+      "bbox_xyxy": [
+        8.025246620178223,
+        26.130922317504883,
+        104.2469711303711,
+        194.4315185546875
+      ],
+      "handle_center_xy": [
+        53.43041229248047,
+        30.55179214477539
+      ],
+      "keypoint_confidence": 0.9704259037971497,
+      "reason": null
+    }
+  ]
+}

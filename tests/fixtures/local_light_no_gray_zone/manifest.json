@@ -1,0 +1,61 @@
+{
+  "scope": "Unmodified camera frames from 2026-10-15 real runs; OFF down never pressed, ON up/4 confirmed by the completed light cycle",
+  "fixtures": [
+    {
+      "file": "down_off_1229995.jpg",
+      "label": "down",
+      "bbox": [
+        290.8199157714844,
+        142.24354553222656,
+        364.53936767578125,
+        215.67581176757812
+      ],
+      "expected": "OFF",
+      "previous_state": "UNCERTAIN",
+      "source": "/home/qianjue/contral_test/artifacts/diagnostics/20261015_target2_down_reference_failure/images/20261015_175650_718598.jpg",
+      "sequence": 1229995
+    },
+    {
+      "file": "down_off_1229997.jpg",
+      "label": "down",
+      "bbox": [
+        290.9127197265625,
+        142.4413604736328,
+        364.4042663574219,
+        215.1007843017578
+      ],
+      "expected": "OFF",
+      "previous_state": "UNCERTAIN",
+      "source": "/home/qianjue/contral_test/artifacts/diagnostics/20261015_target2_down_reference_failure/images/20261015_175650_837506.jpg",
+      "sequence": 1229997
+    },
+    {
+      "file": "up_on_1219731.jpg",
+      "label": "up",
+      "bbox": [
+        295.5790710449219,
+        143.19970703125,
+        366.8125,
+        214.38096618652344
+      ],
+      "expected": "ON",
+      "previous_state": "ON",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_174503/paired_light_evidence/attempt_1_after_1219731_full.jpg",
+      "sequence": 1219731
+    },
+    {
+      "file": "4_on_1220605.jpg",
+      "label": "4",
+      "bbox": [
+        283.9194641113281,
+        154.0589141845703,
+        353.4288024902344,
+        224.20614624023438
+      ],
+      "expected": "ON",
+      "previous_state": "ON",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261015_174603/paired_light_evidence/attempt_1_after_1220605_full.jpg",
+      "sequence": 1220605
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="material.xacro" />
+
+    <!-- world -->
+    <link name="world" />
+    <joint name="fixed_base_joint" type="fixed">
+        <parent link="world" />
+        <child link="piper_base_link" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </joint>
+
+    <!-- M5A top cover -->
+    <link name="top_chassis_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.001" />
+            <inertia
+                ixx="0.001" ixy="0.0" ixz="0.0"
+                iyy="0.001" iyz="0.0"
+                izz="0.001" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/top_chassis.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <!-- The chassis slide is physically closed.  Its open-state
+                     extension is excluded from collision geometry. -->
+                <mesh filename="package://piper_description/meshes/top_chassis_closed.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='top_chassis'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="top_chassis_joint" type="fixed">
+        <origin xyz="-0.0649972 0 -0.7642475852" rpy="0 0 -1.5707963267948966" />
+        <parent link="piper_base_link" />
+        <child link="top_chassis_link" />
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <!-- arm -->
+    <link name="piper_base_link">
+        <inertial>
+            <origin xyz="-0.00473641164191482 2.56829134630247E-05 0.041451518036016" rpy="0 0 0" />
+            <mass value="1.02" />
+            <inertia
+                ixx="0.00267433" ixy="-0.00000073" ixz="-0.00017389"
+                iyy="0.00282612" iyz="0.0000004"
+                izz="0.00089624" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_base_link.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_base_link'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_joint1" type="revolute">
+        <origin xyz="0 0 0.123" rpy="0 0 0" />
+        <parent link="piper_base_link" />
+        <child link="piper_link1" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.618" upper="2.618" effort="100" velocity="1.5" />
+        <dynamics damping="0.0" friction="0.0" />
+    </joint>
+
+    <link name="piper_link1">
+        <inertial>
+            <origin xyz="0.000121504734057468 0.000104632162460536 -0.00438597309559853" rpy="0 0 0" />
+            <mass value="0.71" />
+            <inertia
+                ixx="0.00048916" ixy="-0.00000036" ixz="-0.00000224"
+                iyy="0.00040472" iyz="-0.00000242"
+                izz="0.00043982" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link1.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link1.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_link1'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_joint2" type="revolute">
+        <origin xyz="0 0 0" rpy="1.5708 -0.1359 -3.1416" />
+        <parent link="piper_link1" />
+        <child link="piper_link2" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="3.14" effort="200" velocity="1.0" />
+        <dynamics damping="0.0" friction="0.0" />
+    </joint>
+
+    <link name="piper_link2">
+        <inertial>
+            <origin xyz="0.198666145229743 -0.010926924140076 0.00142121714502687" rpy="0 0 0" />
+            <mass value="1.17" />
+            <inertia
+                ixx="0.00116918" ixy="-0.00180037" ixz="0.00025146"
+                iyy="0.06785384" iyz="-0.00000455"
+                izz="0.06774489" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link2.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link2.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_link2'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_joint3" type="revolute">
+        <origin xyz="0.28503 0 0" rpy="0 0 -1.7939" />
+        <parent link="piper_link2" />
+        <child link="piper_link3" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.967" upper="0.03490658503988659" effort="200" velocity="1.0" />
+        <dynamics damping="0.0" friction="0.0" />
+    </joint>
+
+    <link name="piper_link3">
+        <inertial>
+            <origin xyz="-0.0202737662122021 -0.133914995944595 -0.000458682652737356" rpy="0 0 0" />
+            <mass value="0.5" />
+            <inertia
+                ixx="0.01361711" ixy="0.00165794" ixz="-0.00000048"
+                iyy="0.00045024" iyz="-0.00000045"
+                izz="0.01380322" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link3.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link3.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_link3'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_joint4" type="revolute">
+        <origin xyz="-0.021984 -0.25075 0" rpy="1.5708 0 0" />
+        <parent link="piper_link3" />
+        <child link="piper_link4" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.745" upper="1.745" effort="200" velocity="1.0" />
+        <dynamics damping="0.0" friction="0.0" />
+    </joint>
+
+    <link name="piper_link4">
+        <inertial>
+            <origin xyz="-9.66635791618542E-05 0.000876064475651083 -0.00496880904640868"
+                rpy="0 0 0" />
+            <mass value="0.38" />
+            <inertia
+                ixx="0.00018501" ixy="0.00000054" ixz="0.00000120"
+                iyy="0.00018965" iyz="-0.00000841"
+                izz="0.00015484" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link4.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link4.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_link4'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_joint5" type="revolute">
+        <origin xyz="0 0 0" rpy="-1.5708 0 0" />
+        <parent link="piper_link4" />
+        <child link="piper_link5" />
+        <axis xyz="0 0 1" />
+        <limit lower="-1.22" upper="1.22" effort="100" velocity="1.0" />
+        <dynamics damping="0.0" friction="0.0" />
+    </joint>
+
+    <link name="piper_link5">
+        <inertial>
+            <origin xyz="-4.10554118924211E-05 -0.0566486692356075 -0.0037205791677906" rpy="0 0 0" />
+            <mass value="0.383" />
+            <inertia
+                ixx="0.00166169" ixy="0.00000006" ixz="-0.00000007"
+                iyy="0.00018510" iyz="0.00001026"
+                izz="0.00164321" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link5.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link5.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_link5'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_joint6" type="revolute">
+        <origin xyz="8.8259E-05 -0.091 0" rpy="1.5708 0.0 0" />
+        <parent link="piper_link5" />
+        <child link="piper_link6" />
+        <axis xyz="0 0 1" />
+        <limit lower="-2.0944" upper="2.0944" effort="100" velocity="4.5" />
+        <dynamics damping="0.0" friction="0.0" />
+    </joint>
+
+    <link name="piper_link6">
+        <inertial>
+            <origin xyz="-8.82590762930069E-05 9.0598378529832E-06 -0.002" rpy="0 0 0" />
+            <mass value="0.00699089613564366" />
+            <inertia
+                ixx="5.73015540542155E-07" ixy="-1.98305403089247E-22" ixz="-7.2791893904596E-23"
+                iyy="5.73015540542155E-07" iyz="-3.4146026640245E-24"
+                izz="1.06738869138926E-06" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link6.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_link6.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_link6'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_pressing_eef_joint" type="fixed">
+        <origin xyz="0 0 0.1458" rpy="0 0 0" />
+        <parent link="piper_link6" />
+        <child link="piper_pressing_eef" />
+        <axis xyz="0 0 1" />
+    </joint>
+
+    <link name="piper_pressing_eef">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.001" />
+            <inertia
+                ixx="0.001" ixy="0.0" ixz="0.0"
+                iyy="0.001" iyz="0.0"
+                izz="0.001" />
+        </inertial>
+    </link>
+
+</robot>

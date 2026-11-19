@@ -1,0 +1,11 @@
+[Unit]
+Description=Archive old Youxiaomei diagnostic caches while robot is idle
+
+[Service]
+Type=oneshot
+WorkingDirectory=/home/qianjue/contral_test
+ExecStart=/usr/bin/python3 /home/qianjue/contral_test/tools/maintain_diagnostic_logs.py --apply
+Nice=15
+IOSchedulingClass=idle
+UMask=0077
+TimeoutStartSec=120

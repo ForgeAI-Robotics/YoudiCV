@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- gripper -->
+    <joint name="piper_gripper_fix_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <parent link="piper_link6" />
+        <child link="piper_gripper_base_link" />
+    </joint>
+
+    <link name="piper_gripper_base_link">
+        <inertial>
+            <origin xyz="-0.000183807162235591 8.05033155577911E-05 0.0321436689908876" rpy="0 0 0" />
+            <mass value="0.45" />
+            <inertia
+                ixx="0.00092934" ixy="0.00000034" ixz="-0.00000738"
+                iyy="0.00071447" iyz="0.00000005"
+                izz="0.00039442" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_gripper_base_link.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_gripper_base_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_gripper_base_link'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_gripper_motor_joint" type="revolute">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <parent link="piper_gripper_base_link" />
+        <child link="piper_gripper_motor_link" />
+        <limit lower="0" upper="1.396" effort="5" velocity="1" />
+    </joint>
+
+    <link name="piper_gripper_motor_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.001" />
+            <inertia
+                ixx="0.001" ixy="0.0" ixz="0.0"
+                iyy="0.001" iyz="0.0"
+                izz="0.001" />
+        </inertial>
+    </link>
+
+    <joint name="piper_gripper_finger_joint1" type="prismatic">
+        <origin xyz="0 0 0.1458" rpy="1.5708 0 0" />
+        <parent link="piper_gripper_base_link" />
+        <child link="piper_gripper_finger_link1" />
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="0.05" effort="10" velocity="1" />
+    </joint>
+
+    <link name="piper_gripper_finger_link1">
+        <inertial>
+            <origin xyz="0.00065123185041968 -0.0491929869131989 0.00972258769184025" rpy="0 0 0" />
+            <mass value="0.025" />
+            <inertia
+                ixx="0.00007371" ixy="-0.00000113" ixz="0.00000021"
+                iyy="0.00000781" iyz="-0.00001372"
+                izz="0.0000747" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_gripper_finger_link.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_gripper_finger_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_gripper_finger_link1'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+    <joint name="piper_gripper_finger_joint2" type="prismatic">
+        <origin xyz="0 0 0.1458" rpy="1.5708 0 -3.1416" />
+        <parent link="piper_gripper_base_link" />
+        <child link="piper_gripper_finger_link2" />
+        <axis xyz="0 0 -1" />
+        <limit lower="-0.05" upper="0" effort="10" velocity="1" />
+    </joint>
+
+    <link name="piper_gripper_finger_link2">
+        <inertial>
+            <origin xyz="0.000651231850419722 -0.0491929869131991 0.00972258769184024" rpy="0 0 0" />
+            <mass value="0.025" />
+            <inertia
+                ixx="0.00007371" ixy="-0.00000113" ixz="0.00000021"
+                iyy="0.00000781" iyz="-0.00001372"
+                izz="0.0000747" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_gripper_finger_link.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_gripper_finger_link.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <gazebo reference='piper_gripper_finger_link2'>
+        <material>
+            Gazebo/White
+        </material>
+    </gazebo>
+
+</robot>

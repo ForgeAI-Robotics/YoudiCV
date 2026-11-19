@@ -1,0 +1,36 @@
+最新参数试验：法向连续800ms、侧向连续400ms，0.60N侧向力门槛不变。实际是否切换见artifacts/development/active_press_windows_800_400.json；不是模型修复或实机成功率保证。
+
+接触判定预防改进与离线回放（2026-10-29）
+
+当前部署策略
+用户于2026-10-29明确要求“使用最新方案”，本次将按压桥默认观察器切为candidate，GUI/语音/导航/循环共用这一路径；仍可显式--contact-observer legacy切回原算法。实际部署状态见active_contact_prevention_enabled.json。本次不发送实机动作，尚未实机验证新方案的按压效果，不能承诺提高成功率。已部署的按前5秒基线保留；800ms法向/400ms侧向、8mm启用、10mm/s、22mm上限、近距25秒、视觉、碰撞及原归位规则保持。
+
+候选方案
+1. 电流采样或判定时刻断档超过原30ms上限时，清除连续接触证据；不能把空档累计为400ms。
+2. 接触启用依据真实编码器推算的向面板位移，不用目标关节替代失效实测反馈。计划与实测位移均受原22mm保护。
+3. 在接触前用实际关节位置和电流识别沿本段路径的一维局部姿态关系；接触阶段停止学习，但预测随实测姿态变化。修正幅度以现有各轴contact_delta_a限制，超出辨识路径支持返回原参考。它不是完整的重力/惯性/摩擦辨识模型，不能声称已解决所有误判。
+
+已做的测试
+完整保留并校验1407份真实电流轨迹，不补造任何中间样本，做了5628次四分支离线对照。
+旧日志每约10次判定只保留一条，保存间隔中位约50ms。原算法直接读这些稀疏输入也仅25项在2mm内重现原来的停止原因；85份按后OFF轨迹均未在稀疏原算法中重现原停止。
+因此不能把候选在原停止点继续当成成功，不能由该结果估计实机成功率。严格连续候选不接受稀疏记录，也不能把保存间隔误当成现场传感器断流。
+本次启用前127项无运动测试通过，涵盖真实连续采样/断档/陈旧反馈/重复时间/位移上限、局部模型冻结与边界、原算法保持、完整数值包的逐条原判定复现及现有力控/基线/回撤接口。另在OrangePi Python3.8上用纯数值输入验证接触、断档、编码器过期及位移上限；四份完整包在AGX逐条精确重放。候选记录包含原观察器和候选源码指纹及实际功能开关，不能把不同观察器的偶然相同结果标成精确复现。
+
+全量数值记录
+OrangePi每次按压进入原观察器的全部采样，写入预分配的数值缓冲。运动过程中不逐帧创建JSON或写磁盘，结束后保存：
+/home/orangepi/mobile_arm_demo/guarded_press_traces/<按压桥task_id>.jsonl.fullrate.npz
+原JSONL与.retract.json保留。返回结果中的full_rate_numeric_trace给出路径、采样数、是否溢出；有丢帧的包不被精确回放器接受。
+包内含原基线、原配置、纯观察器源码指纹、候选源码指纹及实际功能开关、实际采样时间、判定时间、原始电流、实测与计划关节，避免AGX/OrangePi客户端包装代码不同造成误拒绝。
+OrangePi1000帧无运动模拟的记录开销中位约18微秒、P95约37微秒，仅为缓冲写入开销，不是实机最坏时序保证。
+
+后续验证方式
+用户下一批实测由新方案控制，并收集.fullrate.npz。无需再次运动即可将该包复制到AGX并执行：
+/home/qianjue/anaconda3/envs/piper-handeye/bin/python tools/replay_guarded_press.py --bundle 完整数值包.npz --output artifacts/diagnostics/本次回放目录 --variants candidate_full_rate original_full_rate
+回放工具禁止创建网络socket，不调用ROS或机器人。先检查candidate_full_rate每条判定是否能重现，再与原算法作对比。旧original完整包使用--variants original_full_rate candidate_strict_continuity；被记录算法停止之后没有真实数据时，另一算法后续效果必须记为未知。
+
+版本及记录
+修改前快照：version_snapshots/20261029_103718_before_contact_prevention_offline，准确时间2026-10-29 10:37:18 +08:00。
+离线结果：artifacts/diagnostics/20261029_103718_contact_prevention_offline/replay_all/summary.json
+启用前快照：version_snapshots/20261029_105844_before_enable_contact_prevention，准确时间2026-10-29T10:58:44.401246+08:00，1677份源文件及5份OrangePi实际源码。
+最新版本状态：artifacts/development/active_contact_prevention_enabled.json；旧离线阶段记录保留。
+GUI重新打开后新建小批组采集。历史组及原CSV不改写，不能把原组不同版本数据混算成同一版本。

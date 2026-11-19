@@ -1,0 +1,11 @@
+[Unit]
+Description=Periodic idle diagnostic cache maintenance
+
+[Timer]
+OnBootSec=15min
+OnUnitActiveSec=30min
+AccuracySec=1min
+Unit=youxiaomei-diagnostic-retention.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,3 @@
+ultralytics==8.4.123
+# Reference only. Do not pip-install desktop CUDA torch on Jetson.
+# Reuse Jetson-compatible torch/torchvision/OpenCV already installed.

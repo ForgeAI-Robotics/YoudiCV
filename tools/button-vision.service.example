@@ -1,0 +1,16 @@
+[Unit]
+Description=Persistent Orbbec and YOLO elevator-button vision service
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/qianjue/contral_test
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/home/qianjue/anaconda3/envs/elevator-yolo26/bin/python /home/qianjue/contral_test/run_button_vision_server.py --bind 0.0.0.0 --port 5020 --token SET_LOCAL_TOKEN --target-label 4
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=8
+
+[Install]
+WantedBy=default.target
+

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- camera -->
+    <joint name="piper_camera_fix_joint1" type="fixed">
+        <origin xyz="-0.073684 0.000035 0.014728" rpy="-0.092291 0.001522 -1.568015" />
+        <parent link="piper_gripper_base_link" />
+        <child link="piper_camera_base_link" />
+    </joint>
+
+    <link name="piper_camera_base_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="0.001" />
+            <inertia
+                ixx="0.001" ixy="0.0" ixz="0.0"
+                iyy="0.001" iyz="0.0"
+                izz="0.001" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_camera.STL" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://piper_description/meshes/piper_camera.STL" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="piper_camera_fix_joint2" type="fixed">
+        <origin xyz="-0.02 0 0" rpy="0 -1.568015 1.568015" />
+        <parent link="piper_camera_base_link" />
+        <child link="piper_camera_link" />
+    </joint>
+
+    <link name="piper_camera_link" />
+
+</robot>

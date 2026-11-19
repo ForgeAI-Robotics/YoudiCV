@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=纸袋实时检测
+Comment=实时摄像头画面、v2纸袋检测与提手中心
+Exec=/home/qianjue/contral_test/tools/launch_bag_detection_gui.sh
+Icon=camera-video
+Terminal=false
+Categories=Utility;
+StartupNotify=true

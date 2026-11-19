@@ -1,0 +1,17 @@
+[Unit]
+Description=Watchdog guarded MoveIt-checked DualSense joint bridge for Piper arm
+After=network-online.target piper-ros-bringup.service
+Wants=network-online.target piper-ros-bringup.service
+
+[Service]
+Type=simple
+Environment=ROS_IP=192.168.168.120
+Environment=ROS_MASTER_URI=http://192.168.168.120:11311
+ExecStart=/bin/bash -lc 'source /opt/ros/noetic/setup.bash && source /home/orangepi/mobile_arm_demo/install/setup.bash && exec python3 /home/orangepi/mobile_arm_demo/tools/orangepi_gamepad_servo_bridge.py --bind-ip 192.168.168.120 --port 5015 --allowed-client 192.168.168.130 --token SET_LOCAL_TOKEN --command-timeout 0.20 --disable-timeout 0.60 --joint-update-hz 20 --max-joint-speed 0.35 --joint-limit-margin 0.02 --collision-max-step 0.015'
+Restart=always
+RestartSec=2
+TimeoutStopSec=10
+KillMode=control-group
+
+[Install]
+WantedBy=default.target

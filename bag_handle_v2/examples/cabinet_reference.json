@@ -1,0 +1,21 @@
+{
+  "truth": [],
+  "local_batch_predictions": [
+    {
+      "class_id": 0,
+      "confidence": 0.7486894130706787,
+      "bbox": [
+        19.59789276123047,
+        3.6248626708984375,
+        233.86334228515625,
+        294.7050476074219
+      ],
+      "keypoint": [
+        138.86683654785156,
+        9.897850036621094,
+        0.2809812128543854
+      ]
+    }
+  ],
+  "note": "Local batch=8 reference only. Different batch padding/runtime may change detections. Not Jetson runtime verification."
+}

@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "source": "/home/fq/Documents/ChatGPT/优地/bag-handle-inspection/jetson_delivery/bag_handle_v3/examples/cabinet.jpg",
+  "image_size": {
+    "width": 240,
+    "height": 320
+  },
+  "coordinate_frame": "original_image_top_left",
+  "units": "pixels",
+  "depth_available": false,
+  "robot_motion_authorized": false,
+  "detections": []
+}

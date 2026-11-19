@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "source": "/home/fq/Documents/ChatGPT/优地/bag-handle-inspection/jetson_delivery/bag_handle_v3/examples/input.jpg",
+  "image_size": {
+    "width": 225,
+    "height": 225
+  },
+  "coordinate_frame": "original_image_top_left",
+  "units": "pixels",
+  "depth_available": false,
+  "robot_motion_authorized": false,
+  "detections": [
+    {
+      "object_index": 1,
+      "class_id": 0,
+      "model_status": "valid",
+      "status": "valid",
+      "confidence": 0.8310301899909973,
+      "bbox_xyxy": [
+        74.7442398071289,
+        33.10122299194336,
+        166.59927368164062,
+        199.55154418945312
+      ],
+      "handle_center_xy": [
+        121.00751495361328,
+        36.192108154296875
+      ],
+      "grasp_ready_2d": true,
+      "keypoint_confidence": 0.9938530921936035,
+      "reason": null
+    }
+  ]
+}

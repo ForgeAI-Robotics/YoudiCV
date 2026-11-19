@@ -1,0 +1,25 @@
+{
+  "source": "20261021_101326 initial DOWN observation failure",
+  "note": "Original saved RGB/detections. Tests synthesize new sequence/time and reference geometry; this is not full historical RGB-D/IK replay.",
+  "recorded_sequence": 847831,
+  "image_size": [
+    640,
+    360
+  ],
+  "detections": [
+    {
+      "label": "up",
+      "confidence": 0.9709194302558899,
+      "bbox_xyxy": [
+        191.22415161132812,
+        0.0,
+        225.63327026367188,
+        32.36180877685547
+      ]
+    }
+  ],
+  "sha256": {
+    "failed_847831.jpg": "b15f46688442c58f6bea8489e8d98a87cf35890b1652adc0f0d2a8c0cf81ae90",
+    "preceding_847826.jpg": "372bc77f504d7bfd331981fb4a1bffb1b86894268fc40e84950b2567995cdb50"
+  }
+}

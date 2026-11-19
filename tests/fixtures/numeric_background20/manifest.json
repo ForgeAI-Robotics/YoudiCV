@@ -1,0 +1,186 @@
+{
+  "source_run": "20261026_174137",
+  "description": "Exact 64x64 patches extracted with production extract_patch from frozen before/after evidence. No inference, relabeling, enhancement or scene synthesis. Absolute light state comes from the logged recognizer, not final paired result.",
+  "npz_sha256": "384aea7e6e9201e8c838f09a6fa9cbb0198f92aa6eab7428e40eb92f54dfb21d",
+  "frames": [
+    {
+      "sequence": 251873,
+      "captured": 1793007715.515925,
+      "box": [
+        292.371826171875,
+        145.86935424804688,
+        357.8256530761719,
+        209.66653442382812
+      ],
+      "phase": "before_press",
+      "absolute_state": "OFF",
+      "legacy_state": "OFF",
+      "local_regions": [],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_before_251873_full.jpg",
+      "source_sha256": "fe8339e7eb8b10f266b0cb6f17d38a3a1bfb8a04eeba9e38bb0937f1142311ec"
+    },
+    {
+      "sequence": 251876,
+      "captured": 1793007715.7152102,
+      "box": [
+        292.21795654296875,
+        145.78675842285156,
+        357.8247375488281,
+        209.60877990722656
+      ],
+      "phase": "before_press",
+      "absolute_state": "OFF",
+      "legacy_state": "OFF",
+      "local_regions": [],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_before_251876_full.jpg",
+      "source_sha256": "b7923c01131c57ff54b7d678e0454d8fc8c8946f1faf4c473081d16d28ccef42"
+    },
+    {
+      "sequence": 251995,
+      "captured": 1793007723.6549897,
+      "box": [
+        291.5802307128906,
+        145.47010803222656,
+        355.7364807128906,
+        209.0716552734375
+      ],
+      "phase": "near",
+      "absolute_state": "ON",
+      "legacy_state": "ON",
+      "local_regions": [
+        {
+          "area_px": 374,
+          "fraction": 0.4447086801426873,
+          "mean_gray": 225.16844919786095,
+          "contrast": 164.16844919786095
+        }
+      ],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_after_251995_full.jpg",
+      "source_sha256": "12a6a878af2b84a8b69dde05c00d329ff6e4ddc8e4ba7caab89ebad8d67072ab"
+    },
+    {
+      "sequence": 251998,
+      "captured": 1793007723.8509357,
+      "box": [
+        291.4356689453125,
+        147.16282653808594,
+        355.5163879394531,
+        211.00086975097656
+      ],
+      "phase": "near",
+      "absolute_state": "ON",
+      "legacy_state": "ON",
+      "local_regions": [
+        {
+          "area_px": 364,
+          "fraction": 0.41839080459770117,
+          "mean_gray": 228.37362637362637,
+          "contrast": 164.37362637362637
+        }
+      ],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_after_251998_full.jpg",
+      "source_sha256": "cc28aa55b228ecd1f50ef20b0bbf08950d9950b591e28e7866e7374fc438f50a"
+    },
+    {
+      "sequence": 252001,
+      "captured": 1793007724.0455196,
+      "box": [
+        290.598876953125,
+        147.34738159179688,
+        355.03466796875,
+        211.12802124023438
+      ],
+      "phase": "near",
+      "absolute_state": "ON",
+      "legacy_state": "ON",
+      "local_regions": [
+        {
+          "area_px": 377,
+          "fraction": 0.4482758620689655,
+          "mean_gray": 222.81697612732094,
+          "contrast": 161.81697612732094
+        }
+      ],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_after_252001_full.jpg",
+      "source_sha256": "42a18fb59316ddd0ac1ad96c56431046410623ea07254c4764293829d2f1e2eb"
+    },
+    {
+      "sequence": 252011,
+      "captured": 1793007724.7112927,
+      "box": [
+        291.0608215332031,
+        146.11892700195312,
+        355.57049560546875,
+        210.08560180664062
+      ],
+      "phase": "near_recheck",
+      "absolute_state": "ON",
+      "legacy_state": "ON",
+      "local_regions": [
+        {
+          "area_px": 367,
+          "fraction": 0.4218390804597701,
+          "mean_gray": 226.06539509536785,
+          "contrast": 161.06539509536785
+        }
+      ],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_after_252011_full.jpg",
+      "source_sha256": "925a4b050f4a25475c821aefdad0bca6f860967e93758c6cb560532cf505bee4"
+    },
+    {
+      "sequence": 252014,
+      "captured": 1793007724.9121041,
+      "box": [
+        290.86187744140625,
+        146.25802612304688,
+        354.9388122558594,
+        210.41802978515625
+      ],
+      "phase": "near_recheck",
+      "absolute_state": "ON",
+      "legacy_state": "ON",
+      "local_regions": [
+        {
+          "area_px": 383,
+          "fraction": 0.45541022592152197,
+          "mean_gray": 221.78851174934726,
+          "contrast": 161.78851174934726
+        }
+      ],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_after_252014_full.jpg",
+      "source_sha256": "12a3e7b7ddfea5697d0914f37e5c26f40e65eadc52d9f89606d76df2885933f9"
+    },
+    {
+      "sequence": 252016,
+      "captured": 1793007725.0567627,
+      "box": [
+        290.6669921875,
+        145.1461944580078,
+        355.3250427246094,
+        208.37564086914062
+      ],
+      "phase": "near_recheck",
+      "absolute_state": "OFF",
+      "legacy_state": "OFF",
+      "local_regions": [],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_after_252016_full.jpg",
+      "source_sha256": "78107bd1973c6a13f5d64317fd98acc5043fa1c47d574ef005c292085c0e4da2"
+    },
+    {
+      "sequence": 252019,
+      "captured": 1793007725.2457778,
+      "box": [
+        290.9234313964844,
+        145.45462036132812,
+        355.2511901855469,
+        208.53274536132812
+      ],
+      "phase": "near_recheck",
+      "absolute_state": "OFF",
+      "legacy_state": "OFF",
+      "local_regions": [],
+      "source_image": "artifacts/runs/button_light_closed_loop_runs/20261026_174137/paired_light_evidence/attempt_1_after_252019_full.jpg",
+      "source_sha256": "93c4cc14dcd828e7deb9ef1b5b8dbfbfa812141f228c6efdf80b00baf74be873"
+    }
+  ]
+}

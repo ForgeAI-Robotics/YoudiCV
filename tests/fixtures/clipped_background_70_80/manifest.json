@@ -1,0 +1,910 @@
+{
+  "scope": "Unmodified original before_press images and original same-frame boxes from numeric2 fixed5cm reference failure at17:37 on2026-10-20. Ten frames were classifiedOFF; two were rejected as stale. Not a complete physical mission replay.",
+  "source_run": "20261020_173732",
+  "frames": [
+    {
+      "file": "before_1308123.jpg",
+      "sequence": 1308123,
+      "captured": 1792489065.902911,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          279.881103515625,
+          148.5048828125,
+          352.10614013671875,
+          221.51158142089844
+        ],
+        "confidence": 0.954728901386261,
+        "frame_sequence": 1308123
+      },
+      "recognition": {
+        "id": 4,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 140,
+            "fraction": 0.13257575757575757,
+            "mean_gray": 127.82142857142857,
+            "contrast": 67.82142857142857
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 60.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          279.881103515625,
+          148.5048828125,
+          352.10614013671875,
+          221.51158142089844
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -37.931899350649346,
+        "center_bright_fraction": 0.16287878787878787,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.020615538000129163
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308123,
+        "detection_frame_sequence": 1308123,
+        "confidence": 0.954728901386261,
+        "bbox_xyxy": [
+          279.881103515625,
+          148.5048828125,
+          352.10614013671875,
+          221.51158142089844
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173746_154903.jpg",
+      "sha256": "5a11ed4596572d0b563bbc9846ea7b9e25f756f1c4f2850e3f6030ee0d322064"
+    },
+    {
+      "file": "before_1308126.jpg",
+      "sequence": 1308126,
+      "captured": 1792489066.0953052,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          280.0292053222656,
+          148.63204956054688,
+          352.0708312988281,
+          221.83355712890625
+        ],
+        "confidence": 0.9595543146133423,
+        "frame_sequence": 1308126
+      },
+      "recognition": {
+        "id": 5,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 152,
+            "fraction": 0.14393939393939395,
+            "mean_gray": 125.21710526315789,
+            "contrast": 65.21710526315789
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 60.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          280.0292053222656,
+          148.63204956054688,
+          352.0708312988281,
+          221.83355712890625
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -37.9652380952381,
+        "center_bright_fraction": 0.16477272727272727,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.006046929978765547
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308126,
+        "detection_frame_sequence": 1308126,
+        "confidence": 0.9595543146133423,
+        "bbox_xyxy": [
+          280.0292053222656,
+          148.63204956054688,
+          352.0708312988281,
+          221.83355712890625
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173746_312331.jpg",
+      "sha256": "72d10e434fea24214f8c71976041322a11e8ae704a5f404d5a202b95e297a08b"
+    },
+    {
+      "file": "before_1308128.jpg",
+      "sequence": 1308128,
+      "captured": 1792489066.235609,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          279.8928527832031,
+          148.56210327148438,
+          351.9561462402344,
+          222.01564025878906
+        ],
+        "confidence": 0.9648711085319519,
+        "frame_sequence": 1308128
+      },
+      "recognition": {
+        "id": 6,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 159,
+            "fraction": 0.15056818181818182,
+            "mean_gray": 123.06918238993711,
+            "contrast": 63.06918238993711
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 60.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          279.8928527832031,
+          148.56210327148438,
+          351.9561462402344,
+          222.01564025878906
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -38.05911255411256,
+        "center_bright_fraction": 0.17045454545454544,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.007004753017099574
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308128,
+        "detection_frame_sequence": 1308128,
+        "confidence": 0.9648711085319519,
+        "bbox_xyxy": [
+          279.8928527832031,
+          148.56210327148438,
+          351.9561462402344,
+          222.01564025878906
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173746_519316.jpg",
+      "sha256": "76b0d8fa1e49bfc4e286649527e627c63b582975f7e94dc407c49e13e681662b"
+    },
+    {
+      "file": "before_1308132.jpg",
+      "sequence": 1308132,
+      "captured": 1792489066.5027595,
+      "state": "UNCERTAIN",
+      "target_detection": null,
+      "recognition": {
+        "state": "UNCERTAIN",
+        "recognizer": "skipped_unsafe_target_crop",
+        "visibility": {
+          "fresh": true,
+          "frame_sequence": 1308132,
+          "detection_frame_sequence": 1308132,
+          "confidence": 0.7392503619194031,
+          "bbox_xyxy": [
+            279.83074951171875,
+            148.40728759765625,
+            352.1831970214844,
+            221.79678344726562
+          ],
+          "image_size": [
+            640,
+            360
+          ],
+          "checks": {
+            "fresh_rgb": true,
+            "recent_detection": true,
+            "confidence_ok": true,
+            "finite_geometry": true,
+            "box_large_enough": true,
+            "inside_frame": true,
+            "not_camera_filling": true,
+            "recent_rgb_time": false,
+            "recent_detection_for_lamp": true
+          },
+          "visible": false
+        }
+      },
+      "visibility": null,
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173746_894410.jpg",
+      "sha256": "c6176f7ebe92d5070b412f84e3d8b34a7017086bddf62a07b49ff6dcad540e89"
+    },
+    {
+      "file": "before_1308137.jpg",
+      "sequence": 1308137,
+      "captured": 1792489066.8317275,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          279.8209533691406,
+          148.62579345703125,
+          352.0181884765625,
+          221.8252716064453
+        ],
+        "confidence": 0.9587470293045044,
+        "frame_sequence": 1308137
+      },
+      "recognition": {
+        "id": 7,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 154,
+            "fraction": 0.14583333333333334,
+            "mean_gray": 124.46103896103897,
+            "contrast": 65.46103896103897
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 59.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          279.8209533691406,
+          148.62579345703125,
+          352.0181884765625,
+          221.8252716064453
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -38.03915584415584,
+        "center_bright_fraction": 0.17045454545454544,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.007017552008619532
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308137,
+        "detection_frame_sequence": 1308137,
+        "confidence": 0.9587470293045044,
+        "bbox_xyxy": [
+          279.8209533691406,
+          148.62579345703125,
+          352.0181884765625,
+          221.8252716064453
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173747_112158.jpg",
+      "sha256": "b09078b9f457de2067cc271ea22d8bfc3cc196ef4ac564050540c03ae9f1feca"
+    },
+    {
+      "file": "before_1308140.jpg",
+      "sequence": 1308140,
+      "captured": 1792489067.031426,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          279.8898010253906,
+          148.6411895751953,
+          351.9333801269531,
+          221.6266326904297
+        ],
+        "confidence": 0.9459064602851868,
+        "frame_sequence": 1308140
+      },
+      "recognition": {
+        "id": 8,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 161,
+            "fraction": 0.15246212121212122,
+            "mean_gray": 123.27950310559007,
+            "contrast": 64.77950310559007
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 58.5,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          279.8898010253906,
+          148.6411895751953,
+          351.9333801269531,
+          221.6266326904297
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -37.851347402597405,
+        "center_bright_fraction": 0.18371212121212122,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.006963663996430114
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308140,
+        "detection_frame_sequence": 1308140,
+        "confidence": 0.9459064602851868,
+        "bbox_xyxy": [
+          279.8898010253906,
+          148.6411895751953,
+          351.9333801269531,
+          221.6266326904297
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173747_337677.jpg",
+      "sha256": "67955635720de8973b1c7ab6cee33bb7d331afe231dffb1928fc22c424812d56"
+    },
+    {
+      "file": "before_1308144.jpg",
+      "sequence": 1308144,
+      "captured": 1792489067.2988799,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          279.7410583496094,
+          149.22149658203125,
+          351.3236083984375,
+          221.75546264648438
+        ],
+        "confidence": 0.9680744409561157,
+        "frame_sequence": 1308144
+      },
+      "recognition": {
+        "id": 9,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 209,
+            "fraction": 0.2041015625,
+            "mean_gray": 115.61722488038278,
+            "contrast": 59.61722488038278
+          }
+        ],
+        "local_min_area_px": 31,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 56.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          279.7410583496094,
+          149.22149658203125,
+          351.3236083984375,
+          221.75546264648438
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -35.67417845711108,
+        "center_bright_fraction": 0.2060546875,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.007201103988336399
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308144,
+        "detection_frame_sequence": 1308144,
+        "confidence": 0.9680744409561157,
+        "bbox_xyxy": [
+          279.7410583496094,
+          149.22149658203125,
+          351.3236083984375,
+          221.75546264648438
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173747_601393.jpg",
+      "sha256": "c61a81f4282278a36acdfc966086553b027b44e177eb991c3ce274aee8d4e3ba"
+    },
+    {
+      "file": "before_1308148.jpg",
+      "sequence": 1308148,
+      "captured": 1792489067.5679705,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          280.09588623046875,
+          148.59292602539062,
+          351.8169250488281,
+          221.6025848388672
+        ],
+        "confidence": 0.9503437280654907,
+        "frame_sequence": 1308148
+      },
+      "recognition": {
+        "id": 10,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 157,
+            "fraction": 0.14867424242424243,
+            "mean_gray": 124.36942675159236,
+            "contrast": 64.36942675159236
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 60.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          280.09588623046875,
+          148.59292602539062,
+          351.8169250488281,
+          221.6025848388672
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -37.833993506493506,
+        "center_bright_fraction": 0.17140151515151514,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.00789819099009037
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308148,
+        "detection_frame_sequence": 1308148,
+        "confidence": 0.9503437280654907,
+        "bbox_xyxy": [
+          280.09588623046875,
+          148.59292602539062,
+          351.8169250488281,
+          221.6025848388672
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173747_823024.jpg",
+      "sha256": "2a35ad408c75e4fc538921470ad7b86a998e3ee82fa1c980018231a10b57847e"
+    },
+    {
+      "file": "before_1308151.jpg",
+      "sequence": 1308151,
+      "captured": 1792489067.7619393,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          279.8791198730469,
+          148.6273956298828,
+          351.6977844238281,
+          221.75115966796875
+        ],
+        "confidence": 0.9498048424720764,
+        "frame_sequence": 1308151
+      },
+      "recognition": {
+        "id": 11,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 158,
+            "fraction": 0.14962121212121213,
+            "mean_gray": 123.74683544303798,
+            "contrast": 65.74683544303798
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 58.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          279.8791198730469,
+          148.6273956298828,
+          351.6977844238281,
+          221.75115966796875
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -37.7584145021645,
+        "center_bright_fraction": 0.17803030303030304,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.00764103900291957
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308151,
+        "detection_frame_sequence": 1308151,
+        "confidence": 0.9498048424720764,
+        "bbox_xyxy": [
+          279.8791198730469,
+          148.6273956298828,
+          351.6977844238281,
+          221.75115966796875
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173747_965111.jpg",
+      "sha256": "77494c46395bdee417d4a6e8abb23808060dbd90990cf1787c36ac3bf16f1602"
+    },
+    {
+      "file": "before_1308153.jpg",
+      "sequence": 1308153,
+      "captured": 1792489067.8999195,
+      "state": "UNCERTAIN",
+      "target_detection": null,
+      "recognition": {
+        "state": "UNCERTAIN",
+        "recognizer": "skipped_unsafe_target_crop",
+        "visibility": {
+          "fresh": true,
+          "frame_sequence": 1308153,
+          "detection_frame_sequence": 1308153,
+          "confidence": 0.9210981726646423,
+          "bbox_xyxy": [
+            279.6379089355469,
+            148.82948303222656,
+            351.5169982910156,
+            221.82540893554688
+          ],
+          "image_size": [
+            640,
+            360
+          ],
+          "checks": {
+            "fresh_rgb": true,
+            "recent_detection": true,
+            "confidence_ok": true,
+            "finite_geometry": true,
+            "box_large_enough": true,
+            "inside_frame": true,
+            "not_camera_filling": true,
+            "recent_rgb_time": false,
+            "recent_detection_for_lamp": true
+          },
+          "visible": false
+        }
+      },
+      "visibility": null,
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173748_366987.jpg",
+      "sha256": "2a965a15b5cfd9eb383e2ff5ecf672e5c794884432541c4db19d256700d54d76"
+    },
+    {
+      "file": "before_1308159.jpg",
+      "sequence": 1308159,
+      "captured": 1792489068.2986727,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          279.71954345703125,
+          148.7540283203125,
+          351.8863525390625,
+          221.61329650878906
+        ],
+        "confidence": 0.8985642790794373,
+        "frame_sequence": 1308159
+      },
+      "recognition": {
+        "id": 12,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 142,
+            "fraction": 0.13446969696969696,
+            "mean_gray": 126.66197183098592,
+            "contrast": 68.66197183098592
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 58.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          279.71954345703125,
+          148.7540283203125,
+          351.8863525390625,
+          221.61329650878906
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -37.68557900432901,
+        "center_bright_fraction": 0.17708333333333334,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.008536364999599755
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308159,
+        "detection_frame_sequence": 1308159,
+        "confidence": 0.8985642790794373,
+        "bbox_xyxy": [
+          279.71954345703125,
+          148.7540283203125,
+          351.8863525390625,
+          221.61329650878906
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173748_618802.jpg",
+      "sha256": "45584be978c4f2d505600a28fabe2ac806a1de0aabb27591bb3dd9e44658b5a2"
+    },
+    {
+      "file": "before_1308163.jpg",
+      "sequence": 1308163,
+      "captured": 1792489068.564659,
+      "state": "OFF",
+      "target_detection": {
+        "label": "2",
+        "bbox_xyxy": [
+          279.7503662109375,
+          148.5162811279297,
+          351.89788818359375,
+          221.87762451171875
+        ],
+        "confidence": 0.9532657265663147,
+        "frame_sequence": 1308163
+      },
+      "recognition": {
+        "id": 13,
+        "ok": true,
+        "legacy_state": "OFF",
+        "algorithm": "local_regions_v1",
+        "local_regions": [
+          {
+            "area_px": 157,
+            "fraction": 0.14867424242424243,
+            "mean_gray": 124.07643312101911,
+            "contrast": 65.07643312101911
+          }
+        ],
+        "local_min_area_px": 32,
+        "local_min_fraction": 0.03,
+        "local_on_contrast_threshold": 85.0,
+        "local_uncertainty_enabled": false,
+        "local_decision_policy": "on_at_85_else_legacy",
+        "ring_median_gray": 59.0,
+        "state": "OFF",
+        "target": "2",
+        "bbox": [
+          279.7503662109375,
+          148.5162811279297,
+          351.89788818359375,
+          221.87762451171875
+        ],
+        "detection_source": "vision_service",
+        "center_ring_contrast": -37.79628787878788,
+        "center_bright_fraction": 0.17329545454545456,
+        "contrast_on_threshold": 15.0,
+        "bright_fraction_on_threshold": 0.25,
+        "recognizer": "opencv_self_contrast",
+        "total_sec": 0.007453550992067903
+      },
+      "visibility": {
+        "fresh": true,
+        "frame_sequence": 1308163,
+        "detection_frame_sequence": 1308163,
+        "confidence": 0.9532657265663147,
+        "bbox_xyxy": [
+          279.7503662109375,
+          148.5162811279297,
+          351.89788818359375,
+          221.87762451171875
+        ],
+        "image_size": [
+          640,
+          360
+        ],
+        "checks": {
+          "fresh_rgb": true,
+          "recent_detection": true,
+          "confidence_ok": true,
+          "finite_geometry": true,
+          "box_large_enough": true,
+          "inside_frame": true,
+          "not_camera_filling": true,
+          "recent_rgb_time": true,
+          "recent_detection_for_lamp": true
+        },
+        "visible": true
+      },
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_173732/before_press_failure_evidence/20261020_173748_834991.jpg",
+      "sha256": "f7aa084ebbf306255c5d827a4f2ce8b4d6ed25058e28525cb99aa6bacd8fbb38"
+    }
+  ]
+}

@@ -1,0 +1,166 @@
+robot:
+  controller_ip: 192.168.168.120
+  controller_port: 5001
+  local_ip: 192.168.168.162
+  result_port: 5002
+  state_port: 5004
+  topic: bt_control
+  header_mode: ascii
+  task_timeout_sec: 30
+  state_timeout_sec: 6
+depth:
+  capture_executable: ./tools/orbbec_v1_capture
+  stream_executable: ./tools/orbbec_v1_stream
+  sdk_work_directory: ./third_party/orbbec_sdk_v1/OrbbecSDK_C_C++_v1.10.27_20250925_0549823_linux_arm64_release/OrbbecSDK_v1.10.27/Example/bin
+  capture_size:
+  - 640
+  - 360
+external_call_wait:
+  post_press_off_timeout_sec: 30.0
+calibration:
+  handeye_yaml: ./ik_handeye_refine_output/handeye.yaml
+  rgb_calibration_size:
+  - 1920
+  - 1080
+detector:
+  model_path: ../button_recognition/models/elevator_button_yolo26m_best.pt
+  target_label: '3'
+  inference_confidence: 0.15
+  target_confidence: 0.7
+  enhancement_fallback_enabled: true
+  iou: 0.5
+  imgsz: 640
+  device: auto
+  acquisition_frames: 12
+  min_accepted_frames: 6
+numeric_layout_localization:
+  task_fallback_enabled: true
+  yolo_consistency_enabled: true
+  mode: shadow
+  profile_path: ./config/numeric_panel_layout_current.json
+  profile_sha256: 0b05338a667dd4e34255b16dd545ad7f1c0f3dd9cb1a72cb5e7ae97f54688e7d
+  target_labels:
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  max_frame_age_sec: 0.35
+button_geometry:
+  outer_scale: 1.8
+  inner_scale: 1.05
+  min_depth_m: 0.08
+  max_depth_m: 2.0
+  min_plane_pixels: 120
+  plane_distance_threshold_m: 0.004
+  max_plane_rms_m: 0.006
+  button_surface_offset_m: 0.0
+  min_panel_support_detections: 0
+output:
+  directory: ./button_pose_runs
+vision_service:
+  host: 192.168.168.130
+  port: 5020
+  token: SET_LOCAL_TOKEN
+visual_safety:
+  near_rgb_change_detection_enabled: false
+  roi_scale: 3.2
+  center_exclusion_scale: 1.15
+  foreground_margin_m: 0.06
+  min_foreground_pixels: 120
+  min_foreground_fraction: 0.04
+  blocked_frames: 3
+  clear_frames: 15
+  reference_max_age_sec: 0.4
+  reference_blind_grace_sec: 8.0
+  camera_pose_max_age_sec: 0.35
+  matrix_min_coverage_fraction: 0.35
+  matrix_splat_radius: 2
+  matrix_border_ignore_px: 20
+  matrix_alignment_tolerance_px: 10
+  matrix_tool_ignore_dilation_px: 3
+  matrix_predicted_edge_ignore_dilation_px: 16
+  matrix_fixed_tool_roi_normalized:
+  - 0.46
+  - 0.8
+  - 0.61
+  - 0.95
+  matrix_panel_plane_tolerance_m: 0.03
+  matrix_reaction_max_depth_m: 0.3
+  matrix_downsample_factor: 2
+  matrix_min_component_pixels: 120
+  matrix_blocked_frames: 3
+  hazard_snapshot_directory: ./depth_hazard_snapshots
+  matrix_unavailable_frames: 3
+  frame_max_age_sec: 0.25
+timed_trajectory:
+  host: 192.168.168.120
+  port: 5010
+  token: SET_LOCAL_TOKEN
+  contact_speed_m_s: 0.05
+  hard_cartesian_speed_limit_m_s: 0.15
+  joint_velocity_scale: 0.25
+  point_period_sec: 0.05
+guarded_press:
+  host: 192.168.168.120
+  port: 5014
+  token: SET_LOCAL_TOKEN
+  max_forward_travel_m: 0.022
+  current_guard:
+    contact_estimator: cartesian_normal_force_kalman
+    relative_current_hard_stop_enabled: false
+    absolute_current_hard_stop_enabled: false
+    normal_force_threshold_n: 0.5
+    normal_force_total_floor_n: 0.5
+    normal_force_sigma_multiplier: 4.0
+    normal_force_min_alignment: 0.2
+    force_process_noise_n2_per_sec: 80.0
+    tangential_force_threshold_n: 0.6
+    tangential_force_sigma_multiplier: 4.0
+    tangential_force_persistence_sec: 0.4
+    contact_delta_a:
+    - 0.05
+    - 0.1
+    - 0.1
+    - 0.05
+    - 0.08
+    - 0.06
+    contact_joint_indices:
+    - 1
+    - 2
+    - 3
+    - 4
+    hard_relative_joint_indices:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    hard_delta_a:
+    - 0.25
+    - 0.35
+    - 0.35
+    - 0.25
+    - 0.35
+    - 0.3
+    absolute_current_limit_a:
+    - 1.0
+    - 2.5
+    - 2.5
+    - 1.0
+    - 2.5
+    - 1.0
+    noise_sigma_multiplier: 5.0
+    hard_noise_sigma_multiplier: 8.0
+    median_window: 5
+    persistence_samples: 5
+    persistence_sec: 0.8
+    dynamic_reference_window_samples: 40
+    contact_arm_travel_m: 0.008
+    max_press_time_sec: 5.0
+    max_sample_age_sec: 0.03
+safety_stop:
+  host: 192.168.168.120
+  port: 5013
+  token: SET_LOCAL_TOKEN

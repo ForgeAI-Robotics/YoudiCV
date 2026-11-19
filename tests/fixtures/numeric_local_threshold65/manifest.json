@@ -1,0 +1,455 @@
+{
+  "scope": "Unmodified RGB frames and original same-frame boxes: unlit prepress numeral highlights, user-confirmed unlit initial button2 in 20261020_165238, and verified physically pressed lit button2. Current threshold85 regression; not a population accuracy dataset or complete physical mission replay.",
+  "fixtures": [
+    {
+      "file": "2_unlit_1236357.jpg",
+      "target": "2",
+      "bbox": [
+        282.620849609375,
+        145.92884826660156,
+        354.7072448730469,
+        217.4280242919922
+      ],
+      "sequence": 1236357,
+      "capture_time_unix_sec": 1792484283.0225089,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161803_320681.jpg"
+    },
+    {
+      "file": "2_unlit_1236361.jpg",
+      "target": "2",
+      "bbox": [
+        282.46771240234375,
+        145.910888671875,
+        354.5517578125,
+        217.6341094970703
+      ],
+      "sequence": 1236361,
+      "capture_time_unix_sec": 1792484283.283347,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161803_504377.jpg"
+    },
+    {
+      "file": "2_unlit_1236364.jpg",
+      "target": "2",
+      "bbox": [
+        282.42327880859375,
+        145.71209716796875,
+        354.6288146972656,
+        217.4638214111328
+      ],
+      "sequence": 1236364,
+      "capture_time_unix_sec": 1792484283.488363,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161803_820387.jpg"
+    },
+    {
+      "file": "2_unlit_1236376.jpg",
+      "target": "2",
+      "bbox": [
+        282.4270935058594,
+        146.11373901367188,
+        354.3599548339844,
+        217.5147247314453
+      ],
+      "sequence": 1236376,
+      "capture_time_unix_sec": 1792484284.2830753,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161804_533772.jpg"
+    },
+    {
+      "file": "2_unlit_1236379.jpg",
+      "target": "2",
+      "bbox": [
+        282.6129150390625,
+        145.84132385253906,
+        354.1517333984375,
+        217.6443634033203
+      ],
+      "sequence": 1236379,
+      "capture_time_unix_sec": 1792484284.5003588,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161804_725927.jpg"
+    },
+    {
+      "file": "2_unlit_1236382.jpg",
+      "target": "2",
+      "bbox": [
+        282.9056091308594,
+        145.95547485351562,
+        354.4706726074219,
+        217.64553833007812
+      ],
+      "sequence": 1236382,
+      "capture_time_unix_sec": 1792484284.6863964,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161804_995507.jpg"
+    },
+    {
+      "file": "2_unlit_1236386.jpg",
+      "target": "2",
+      "bbox": [
+        282.81732177734375,
+        146.18008422851562,
+        354.22216796875,
+        217.83645629882812
+      ],
+      "sequence": 1236386,
+      "capture_time_unix_sec": 1792484284.9494898,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161805_264952.jpg"
+    },
+    {
+      "file": "2_unlit_1236389.jpg",
+      "target": "2",
+      "bbox": [
+        282.6449890136719,
+        145.64825439453125,
+        354.19873046875,
+        217.80747985839844
+      ],
+      "sequence": 1236389,
+      "capture_time_unix_sec": 1792484285.154302,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161805_480978.jpg"
+    },
+    {
+      "file": "2_unlit_1236393.jpg",
+      "target": "2",
+      "bbox": [
+        282.83251953125,
+        146.01211547851562,
+        354.61376953125,
+        217.75376892089844
+      ],
+      "sequence": 1236393,
+      "capture_time_unix_sec": 1792484285.4201589,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161805_756058.jpg"
+    },
+    {
+      "file": "2_unlit_1236397.jpg",
+      "target": "2",
+      "bbox": [
+        282.54925537109375,
+        145.842529296875,
+        354.8426513671875,
+        217.63604736328125
+      ],
+      "sequence": 1236397,
+      "capture_time_unix_sec": 1792484285.6931007,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "source": "artifacts/runs/button_light_closed_loop_runs/20261020_161750/before_press_failure_evidence/20261020_161805_961470.jpg"
+    },
+    {
+      "file": "2_lit_1171956.jpg",
+      "target": "2",
+      "bbox": [
+        283.9542236328125,
+        144.116943359375,
+        355.744873046875,
+        214.82199096679688
+      ],
+      "sequence": 1171956,
+      "capture_time_unix_sec": 1792479991.14409,
+      "expected": "ON",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261020_150609/paired_light_evidence/attempt_1_after_1171956_full.jpg"
+    },
+    {
+      "file": "2_lit_1171960.jpg",
+      "target": "2",
+      "bbox": [
+        283.50592041015625,
+        145.9851531982422,
+        355.3072814941406,
+        215.86514282226562
+      ],
+      "sequence": 1171960,
+      "capture_time_unix_sec": 1792479991.4158623,
+      "expected": "ON",
+      "source": "/home/qianjue/contral_test/button_light_closed_loop_runs/20261020_150609/paired_light_evidence/attempt_1_after_1171960_full.jpg"
+    },
+    {
+      "file": "2_initial_unlit_1267543.jpg",
+      "target": "2",
+      "bbox": [
+        308.57122802734375,
+        76.97294616699219,
+        333.25726318359375,
+        102.64579010009766
+      ],
+      "sequence": 1267543,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165241_622790.jpg",
+      "sha256": "1313acff924cdc615286db29ac8f2b10a3ffd8c4f5c3b8e2a13648312ebf9ba2"
+    },
+    {
+      "file": "2_initial_unlit_1267549.jpg",
+      "target": "2",
+      "bbox": [
+        308.70416259765625,
+        77.07742309570312,
+        333.283447265625,
+        102.62452697753906
+      ],
+      "sequence": 1267549,
+      "expected": "OFF",
+      "previous_state": "OFF",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165242_041241.jpg",
+      "sha256": "13cb9a64edc2fd111d13bb1cb00a39f5dbb3b06aa67054de94c4db0042b7489c"
+    },
+    {
+      "file": "2_initial_unlit_1267552.jpg",
+      "target": "2",
+      "bbox": [
+        308.3535461425781,
+        77.12102508544922,
+        333.1421813964844,
+        102.696044921875
+      ],
+      "sequence": 1267552,
+      "expected": "OFF",
+      "previous_state": "OFF",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165242_323338.jpg",
+      "sha256": "12ab61b4e24abe03fbadbabb778384cc3a7ec82e10419b942aa911a169fb873d"
+    },
+    {
+      "file": "2_initial_unlit_1267556.jpg",
+      "target": "2",
+      "bbox": [
+        308.5953369140625,
+        77.30879211425781,
+        333.3525390625,
+        102.4720458984375
+      ],
+      "sequence": 1267556,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165242_530125.jpg",
+      "sha256": "656bdc8a98652563a08b4384a7a792ca7c4a6ebb8b993458aa6573684babcb65"
+    },
+    {
+      "file": "2_initial_unlit_1267559.jpg",
+      "target": "2",
+      "bbox": [
+        308.5332336425781,
+        77.22900390625,
+        333.35736083984375,
+        102.5988540649414
+      ],
+      "sequence": 1267559,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165242_682160.jpg",
+      "sha256": "765d1a4fbd22d70e09797c4833d73cad87f02b70435b0437709639a7a5339add"
+    },
+    {
+      "file": "2_initial_unlit_1267562.jpg",
+      "target": "2",
+      "bbox": [
+        308.5247497558594,
+        76.71875,
+        333.14599609375,
+        102.73668670654297
+      ],
+      "sequence": 1267562,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165242_891306.jpg",
+      "sha256": "ddcc2e4862ae57188d5b9bb485d94355cf776d191bd1d08869a1b590680efc95"
+    },
+    {
+      "file": "2_initial_unlit_1267565.jpg",
+      "target": "2",
+      "bbox": [
+        308.6505126953125,
+        77.39268493652344,
+        333.1673278808594,
+        102.42182159423828
+      ],
+      "sequence": 1267565,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165243_047218.jpg",
+      "sha256": "1e297b07949cfe41e5a5170db55b79ce7632dbcc9aa57adf62e9138e5aff43ac"
+    },
+    {
+      "file": "2_initial_unlit_1267567.jpg",
+      "target": "2",
+      "bbox": [
+        308.50335693359375,
+        77.09827423095703,
+        333.2349548339844,
+        102.42538452148438
+      ],
+      "sequence": 1267567,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165243_335762.jpg",
+      "sha256": "64ed8701907aabd31416a1548bce7f90e573473115ec71d3d6294ba0f6a56c35"
+    },
+    {
+      "file": "2_initial_unlit_1267571.jpg",
+      "target": "2",
+      "bbox": [
+        308.5475769042969,
+        76.88018035888672,
+        333.1173095703125,
+        102.61990356445312
+      ],
+      "sequence": 1267571,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165243_496308.jpg",
+      "sha256": "c67e322d0b424bbc1795c5606dd04069420ae642e8db1fae1af38030f441e837"
+    },
+    {
+      "file": "2_initial_unlit_1267574.jpg",
+      "target": "2",
+      "bbox": [
+        308.50537109375,
+        77.16654205322266,
+        333.183837890625,
+        102.52803039550781
+      ],
+      "sequence": 1267574,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165243_699784.jpg",
+      "sha256": "f9993058a3774fd8c1c0a01461410fba505d844d0c6b5033cdbd6aaf18235137"
+    },
+    {
+      "file": "2_initial_unlit_1267577.jpg",
+      "target": "2",
+      "bbox": [
+        308.4935607910156,
+        77.30670166015625,
+        333.2715148925781,
+        102.5200424194336
+      ],
+      "sequence": 1267577,
+      "expected": "OFF",
+      "previous_state": "OFF",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165243_862124.jpg",
+      "sha256": "fe852ff1b8e277a779cdb81f6967691302f33b8ec049f05275f5f2ad103f0b9c"
+    },
+    {
+      "file": "2_initial_unlit_1267579.jpg",
+      "target": "2",
+      "bbox": [
+        308.61474609375,
+        76.96259307861328,
+        333.4390563964844,
+        102.60615539550781
+      ],
+      "sequence": 1267579,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165244_085637.jpg",
+      "sha256": "5c72d7f9fe35602e6214caeb5db397a540e2527143d7acbb2aeee21adc97790a"
+    },
+    {
+      "file": "2_initial_unlit_1267582.jpg",
+      "target": "2",
+      "bbox": [
+        308.62451171875,
+        76.82699584960938,
+        333.1515808105469,
+        102.72377014160156
+      ],
+      "sequence": 1267582,
+      "expected": "OFF",
+      "previous_state": "ON",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165244_308585.jpg",
+      "sha256": "b4a86df0d9a258fa096faea710864083c242dc8a166216bfbf6af0d7e0398082"
+    },
+    {
+      "file": "2_initial_unlit_1267586.jpg",
+      "target": "2",
+      "bbox": [
+        308.3846740722656,
+        77.07510375976562,
+        333.3770446777344,
+        102.49665832519531
+      ],
+      "sequence": 1267586,
+      "expected": "OFF",
+      "previous_state": "OFF",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165244_537900.jpg",
+      "sha256": "23513176f5281101799188ebbc3ade79505ea123186e4ae8234c25b967c6a839"
+    },
+    {
+      "file": "2_initial_unlit_1267589.jpg",
+      "target": "2",
+      "bbox": [
+        308.41192626953125,
+        76.74919128417969,
+        333.2139587402344,
+        102.59843444824219
+      ],
+      "sequence": 1267589,
+      "expected": "OFF",
+      "previous_state": "OFF",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165244_755343.jpg",
+      "sha256": "cc84f4af8150b855c1297e0310b87f058228c277d9795ce65f5c48398933d9d1"
+    },
+    {
+      "file": "2_initial_unlit_1267593.jpg",
+      "target": "2",
+      "bbox": [
+        308.40850830078125,
+        77.16761779785156,
+        333.3344421386719,
+        102.50032806396484
+      ],
+      "sequence": 1267593,
+      "expected": "OFF",
+      "previous_state": "OFF",
+      "previous_local_threshold": 65.0,
+      "group": "user_confirmed_initial_unlit_20261020_165238",
+      "source": "/home/qianjue/contral_test/artifacts/runs/button_light_closed_loop_runs/20261020_165238/initial_state_review/20261020_165244_957463.jpg",
+      "sha256": "83d313bb4d9c6bf2b8ff3171c9a5e95b2ef674c48a0a299cf0b45caf7daba75a"
+    }
+  ]
+}

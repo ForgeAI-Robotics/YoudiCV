@@ -1,0 +1,12 @@
+name: piper-handeye
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - numpy
+  - scipy
+  - pyyaml
+  - opencv=4.12
+  - pip
+  - pip:
+      - sherpa-onnx==1.13.8

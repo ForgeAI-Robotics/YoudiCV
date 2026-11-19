@@ -1,0 +1,71 @@
+piper_arm:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 500
+
+  # Position Controllers --------------------------------------
+  joint_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    # Protective cancellation ramps into a hold instead of commanding an
+    # instantaneous position stop. Loaded when the controller is restarted.
+    stop_trajectory_duration: 0.25
+    joints:
+      - piper_joint1
+      - piper_joint2
+      - piper_joint3
+      - piper_joint4
+      - piper_joint5
+      - piper_joint6
+    constraints:
+      goal_time: 0.6
+      # vel_tolerance is 0 for due to the movegroup/follow_joint_trajectory/goal tolerance is empty
+      stopped_velocity_tolerance: 0.02
+      piper_joint1: { trajectory: 0.2, goal: 0.1 }
+      piper_joint2: { trajectory: 0.2, goal: 0.1 }
+      piper_joint3: { trajectory: 0.2, goal: 0.1 }
+      piper_joint4: { trajectory: 0.2, goal: 0.1 }
+      piper_joint5: { trajectory: 0.2, goal: 0.1 }
+      piper_joint6: { trajectory: 0.2, goal: 0.1 }
+
+  joint_group_position_controller:
+    update_rate: 500
+    type: position_controllers/JointGroupPositionController
+    joints:
+      - piper_joint1
+      - piper_joint2
+      - piper_joint3
+      - piper_joint4
+      - piper_joint5
+      - piper_joint6
+    constraints:
+      goal_time: 0.6
+      # vel_tolerance is 0 for due to the movegroup/follow_joint_trajectory/goal tolerance is empty
+      stopped_velocity_tolerance: 0.02
+      piper_joint1: { trajectory: 0.2, goal: 0.1 }
+      piper_joint2: { trajectory: 0.2, goal: 0.1 }
+      piper_joint3: { trajectory: 0.2, goal: 0.1 }
+      piper_joint4: { trajectory: 0.2, goal: 0.1 }
+      piper_joint5: { trajectory: 0.2, goal: 0.1 }
+      piper_joint6: { trajectory: 0.2, goal: 0.1 }
+
+  # Gripper Position Controller
+  piper_gripper_trajectory_controller:
+    type: position_controllers/JointTrajectoryController
+    joints:
+      - piper_gripper_motor_joint
+    constraints:
+      goal_time: 0.6
+      stopped_velocity_tolerance: 0.02
+      piper_gripper_motor_joint: { trajectory: 0.2, goal: 0.1}
+
+  # GripperCommand controller
+  piper_gripper_motor_position_controller:
+    type: position_controllers/GripperActionController
+    joint: piper_gripper_motor_joint
+    goal_tolerance: 0.03
+    # Hardware feedback does not provide reliable gripper velocity.
+    # Keep stall detection disabled to avoid false ABORTED results.
+    stall_velocity_threshold: 0.0
+    stall_timeout: 2.0
+    action_monitor_rate: 20

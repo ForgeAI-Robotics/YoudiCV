@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "scenario": "fixed_scene_no_elevator_door",
+  "startup_delay_sec": 10,
+  "button_off_is_floor_arrival": true,
+  "points": {
+    "initial": {
+      "point_id": null,
+      "map_id": "jxb_105",
+      "x": null,
+      "y": null,
+      "qz": null,
+      "qw": null,
+      "verified": false
+    },
+    "call_panel": {
+      "point_id": null,
+      "map_id": "jxb_105",
+      "x": null,
+      "y": null,
+      "qz": null,
+      "qw": null,
+      "verified": false
+    },
+    "floor_panel": {
+      "point_id": null,
+      "map_id": "jxb_105",
+      "x": null,
+      "y": null,
+      "qz": null,
+      "qw": null,
+      "verified": false
+    },
+    "arrival": {
+      "point_id": null,
+      "map_id": "jxb_105",
+      "x": null,
+      "y": null,
+      "qz": null,
+      "qw": null,
+      "verified": false
+    }
+  },
+  "note": "点位需要从甲方当前点位表绑定。Desktop/sdcard/pubsub/ArmPose.txt 是历史导出，不能自动视为现场当前值。",
+  "role_binding": {
+    "mode": "ordered_business_goals",
+    "initial": "任务起点",
+    "destinations": [
+      "call_panel",
+      "floor_panel",
+      "arrival"
+    ],
+    "source": "甲方导航系统提供的有序业务目标",
+    "exclude": "路径中间节点及重复到点回报",
+    "user_confirmed_role_order": true
+  }
+}

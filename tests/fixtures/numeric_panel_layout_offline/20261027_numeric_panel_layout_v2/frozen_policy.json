@@ -1,0 +1,14 @@
+{
+  "frozen_at": "2026-10-27T12:18:14.576219+08:00",
+  "source": "tools/offline_numeric_panel_layout_v2.py",
+  "source_sha256": "62ff8a6be834eb63805005508d27793a036d1ff7c18c62bdd9c456ecf17334db",
+  "development": "Previously inspected 28 cases; not independent validation.",
+  "holdout_tasks": [
+    "20261026_184915",
+    "20261026_184948",
+    "20261026_185025",
+    "20261026_185104",
+    "20261023_155141"
+  ],
+  "policy": "No parameter changes after looking at holdout outcomes. Rim evidence is compulsory even with five+ anchors; four anchors need two columns, shape/scale and affine disagreement checks."
+}

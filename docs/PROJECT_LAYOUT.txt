@@ -1,0 +1,13 @@
+项目目录与日志缓存归零说明｜2026-10-30
+
+1. 当前源码、生产入口、视觉/力控/导航参数不变。
+2. 根目录44份使用说明和历史文档已归入docs/guides及docs/history/日期；原路径保留兼容软链接，Git和文件管理器不显示旧入口。
+3. .gitignore排除日志、缓存、历史压缩包、模型权重、SDK安装目录、本机认证配置、实机标定与私有项目记忆。config/examples保留去掉认证令牌的示例，不替换实际配置。
+4. 日志缓存重置覆盖artifacts/runs、captures、trials、recordings，项目Python/pytest缓存、pip下载缓存、本机ROS日志及根目录旧日志。新任务从空日志目录开始；原数据先完整ZIP并CRC/SHA校验，未通过则不清空。
+5. 备份位于/home/qianjue/robot_project_backups/20261030_日志缓存归零前。manifest.json保存原路径及每文件SHA256；result.json在实际完成后才生成。没有result.json或未记载核验通过时，不认定重置已完成。
+6. 文档、入口和配置的整理前备份位于/home/qianjue/robot_project_backups/20261030_目录整理前；document_moves.json记录文档新旧位置。
+7. 模型、标定、相机SDK、Conda环境、系统图形及远程桌面缓存、网络设置与硬件安全锁不属于本次日志归零范围。Conda已解包pkgs目录可能被环境依赖，不按临时日志处理。
+8. artifacts/datasets、diagnostics、exports仍保留评测数据、固定回归素材和必要证据。后续依赖检查确认39份旧工作副本、旧backups、development及delivery重复资料没有当前运行依赖，已补充归档至桌面后清除；development/delivery与原归档目录只保留必要的空壳，便于原工具后续创建输出。已有循环结果、原图和录像在归零ZIP中可恢复。
+9. 本次只准备本地仓库，不向任何远端上传。
+10. 项目内archives、version_snapshots重复ZIP及索引已与桌面备份逐SHA核对后清除。备份位置、补充归档与恢复方法见docs/ARCHIVE_LOCATIONS.txt；不要把历史工作副本重新当作生产入口。
+11. 固定回归数据与运行日志分离：3组布局试验的38份必要原图/冻结JSON已从归零前备份逐SHA还原到tests/fixtures/numeric_panel_layout_offline，4个测试改用该位置；原图、标注、算法及断言均未改变。224项相关无运动回归通过，RGB-D离线交接回放通过。

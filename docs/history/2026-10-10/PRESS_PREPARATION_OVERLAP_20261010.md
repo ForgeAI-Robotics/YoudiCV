@@ -1,0 +1,19 @@
+# 按压前停顿优化
+
+已有三个任务在接近完成到guarded_press请求发出之间分别停等1.248、1.090、1.484秒。其中接近完成到第一条计划校验请求约0.215、0.149、0.246秒，其余主要为逐段预检和按压入口准备。以上是客户端请求边界，不等于实际电机开始前进时间；OrangePi仍有模式确认、整段复检及0.30秒静止电流基线。
+
+备份：version_snapshots/20261010_170724_before_press_preparation_overlap。
+
+修改：
+1. execute_receding_prepress在最终replacement已成功prepare/schedule后，调用replacement_ready回调。该回调仅在线程里用本次已确定的目标与prepress关节计算按压、5cm观察和回撤计划。不会发布运动指令、切换控制器、更新视觉安全目标或采集力基线。使用current_override=solved.joints，避免把尚在移动的实时关节误当成终点；视觉目标及拼接末端均为同一次已确定的解。
+2. 主线程继续监督接近任务。确认replacement_complete、硬件与实际末端误差后，才获取背景计划、确认实际prepress位置并加载/预检。背景失败直接传播；不沿用上一份计划或盲按。若纯计算尚未完成仍等待，不假称消除全部停顿。
+3. load_plan(already_at_prepress=True)只去掉已经不再执行的approach_to_observation和observation_to_prepress校验；press_cycle、retreat_to_observation、observation_to_waiting、prepress_to_waiting（存在时）及guarded_press_forward仍验证。此标志先要求hardware_ok与实际末端误差≤既有0.03rad。首次完整接近已由prepared splice独立验证；重试入口仍默认full校验。
+4. 实际发送某段前要求该段名存在于validations，防止拿预按压专用计划调用未经检查的接近。load_plan开头清空旧计划与验证结果，新的预检失败不能残留旧计划可执行状态。_require_plan按具体必需段检查，不用验证条目总数代替内容。
+5. 新日志post_approach_plan_prepared记录build_sec/post_approach_wait_sec；motion_plan_validated记录validation_scope、skipped_unused_segments、各段validation_seconds与总load_plan_sec。
+
+按压速度10mm/s、400ms持续接触窗口、力估计、0.30秒静止电流基线、碰撞/深度安全与按压后的灯态监控均未修改。MoveIt完整预检仍在开始力反馈按压前完成，不与200Hz力采样并行。
+
+165项测试通过，包括背景错误传播、当前末端不一致拒绝、预检失败旧计划失效、专用计划禁止未验证接近、专用计划仍调用guarded press，以及按钮状态机、分段运动、力反馈、拼接停止、轨迹和TCP兼容。仅AGX源文件更新，无服务重启，无实机运动。当前任务锁空闲；下一次新任务会加载新程序，实际减少时间须由新日志核实。
+
+证据：artifacts/diagnostics/20261010_press_preparation_overlap/baseline_gaps.json。
+回退：恢复备份的run_button_light_closed_loop.py和piper_handeye/button_light_hardware.py；新增press_preparation.py不再被旧入口使用，可保留。桌面/GUI/远程桌面均未修改。

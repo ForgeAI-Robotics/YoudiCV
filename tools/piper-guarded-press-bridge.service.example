@@ -1,0 +1,15 @@
+[Unit]
+Description=Motor-current guarded press bridge for Piper arm
+After=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -lc 'source /opt/ros/noetic/setup.bash && source /home/orangepi/mobile_arm_demo/install/setup.bash && exec python3 /home/orangepi/mobile_arm_demo/tools/orangepi_guarded_press_bridge.py --bind-ip 192.168.168.120 --port 5014 --allowed-client 192.168.168.130 --token SET_LOCAL_TOKEN --can-interface can0'
+Restart=always
+RestartSec=2
+TimeoutStopSec=10
+StandardOutput=append:/home/orangepi/mobile_arm_demo/guarded-press-bridge.log
+StandardError=append:/home/orangepi/mobile_arm_demo/guarded-press-bridge.log
+
+[Install]
+WantedBy=default.target

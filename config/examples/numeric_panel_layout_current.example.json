@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "mock_inner_panel_two_columns_20261027",
+  "coordinates": {
+    "1": [
+      0,
+      0
+    ],
+    "2": [
+      0,
+      -1
+    ],
+    "3": [
+      0,
+      -2
+    ],
+    "4": [
+      0,
+      -3
+    ],
+    "5": [
+      0,
+      -4
+    ],
+    "6": [
+      0,
+      -5
+    ],
+    "7": [
+      0,
+      -6
+    ],
+    "8": [
+      0,
+      -7
+    ],
+    "9": [
+      1,
+      -1
+    ],
+    "10": [
+      1,
+      -2
+    ],
+    "11": [
+      1,
+      -3
+    ],
+    "12": [
+      1,
+      -4
+    ],
+    "13": [
+      1,
+      -5
+    ],
+    "14": [
+      1,
+      -6
+    ],
+    "15": [
+      1,
+      -7
+    ],
+    "16": [
+      1,
+      -8
+    ]
+  },
+  "scope": "Known current inner panel only; relative units, not metric calibration. Used in shadow mode only.",
+  "observed_pairs": [
+    "2/9",
+    "3/10",
+    "4/11",
+    "5/12",
+    "6/13",
+    "7/14",
+    "8/15"
+  ],
+  "annotation": "16 above 15; no assumed partner next to 1; B1/open/close excluded."
+}

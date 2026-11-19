@@ -1,0 +1,86 @@
+{
+  "source_run": "20261019_110328",
+  "task_id": "81b0ceb5-4460-4e94-8cc3-2f2355e33d42",
+  "target_label": "down",
+  "current_floor": 8,
+  "failure_message": "no stable fresh button target before motion",
+  "failure_stage": "initial_light_recheck_post_motion_target",
+  "numpy_margin": 64.62174224853516,
+  "origin_return": {
+    "motion_required": true,
+    "execution": {
+      "task_id": "button-light-origin-execute-1792379027250803159",
+      "status": "complete",
+      "point_count": 7,
+      "start_error_rad": 0.00042380384736027954,
+      "end_error_rad": 0.0030194196059543793,
+      "safety_resume_count": 0,
+      "safety_resumes": [],
+      "piper_mode": {
+        "transition": "already_in_actuation_mode",
+        "changed": false,
+        "controller_states": {
+          "joint_group_position_controller": "stopped",
+          "joint_state_controller": "running",
+          "joint_trajectory_controller": "running",
+          "piper_gripper_trajectory_controller": "running"
+        },
+        "ctrl_mode_feedback": [
+          1,
+          1,
+          1
+        ],
+        "start_error_rad": 0.00042380384736027954
+      },
+      "collision_validation": {
+        "moveit_collision_validated": true,
+        "moveit_collision_samples": 7,
+        "moveit_max_interpolation_step_rad": 0.03,
+        "moveit_padded_link": "top_chassis_link",
+        "moveit_link_padding_m": 0.001,
+        "moveit_required_collision_pairs": [
+          [
+            "piper_link1",
+            "top_chassis_link"
+          ],
+          [
+            "piper_link2",
+            "top_chassis_link"
+          ]
+        ]
+      },
+      "wire_payload_bytes": 2332,
+      "wire_decimal_places": 14,
+      "wire_transport": "udp",
+      "wire_point_count": 7
+    },
+    "verified": true,
+    "hardware_ok": 1,
+    "encoder_error_rad": 0.003174277339105802,
+    "tolerance_rad": 0.03,
+    "joints_rad": [
+      -0.033,
+      0.107,
+      0.0,
+      0.0,
+      0.112,
+      0.099
+    ]
+  },
+  "motion_press_attempts": 0,
+  "stationary_failure": {
+    "accepted_samples": 5,
+    "window_reasons": [
+      "window span 1.677s"
+    ],
+    "sample_age_sec": [
+      0.28087878227233887,
+      0.33805346488952637,
+      0.26915812492370605,
+      0.25610804557800293,
+      0.29740214347839355
+    ],
+    "position_extent_m": 0.000747545664919401,
+    "reported_effective_sample_rate_hz": 1.6981231314417076
+  }
+}

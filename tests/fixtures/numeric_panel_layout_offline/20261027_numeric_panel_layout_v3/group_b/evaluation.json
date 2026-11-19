@@ -1,0 +1,1457 @@
+{
+  "scope": "Development replay of previously inspected images. No new independent accuracy or physical press claims; inferred positions are not detections.",
+  "source_sha256": "6af29c1d2d93055f02ba5735a395e4b6159c6b2c4c9b3bae20a0ba5695906c6f",
+  "summary": {
+    "raw_yolo_cpu_jpeg": {
+      "cases": 13,
+      "accepted": 9,
+      "rejected": 4,
+      "accepted_outside_tolerance": 0,
+      "mean_error_px": 2.3555366649880187,
+      "max_error_px": 4.714860685295145,
+      "geometry_median_ms": 6.726559993694536,
+      "geometry_p95_ms": 7.820303601329214,
+      "rejection_reasons": {
+        "anchor_size_geometry_conflict": 2,
+        "sparse_mode_requires_three_or_four": 2
+      },
+      "by_target": {
+        "1": {
+          "cases": 2,
+          "accepted": 0
+        },
+        "2": {
+          "cases": 3,
+          "accepted": 1
+        },
+        "3": {
+          "cases": 3,
+          "accepted": 3
+        },
+        "4": {
+          "cases": 3,
+          "accepted": 3
+        },
+        "5": {
+          "cases": 2,
+          "accepted": 2
+        }
+      }
+    },
+    "verified_manual_anchors": {
+      "cases": 13,
+      "accepted": 11,
+      "rejected": 2,
+      "accepted_outside_tolerance": 1,
+      "mean_error_px": 2.4854704895722324,
+      "max_error_px": 5.57693904062873,
+      "geometry_median_ms": 7.395908003672957,
+      "geometry_p95_ms": 20.02803979848974,
+      "rejection_reasons": {
+        "sparse_mode_requires_three_or_four": 2
+      },
+      "by_target": {
+        "1": {
+          "cases": 2,
+          "accepted": 1
+        },
+        "2": {
+          "cases": 3,
+          "accepted": 2
+        },
+        "3": {
+          "cases": 3,
+          "accepted": 3
+        },
+        "4": {
+          "cases": 3,
+          "accepted": 3
+        },
+        "5": {
+          "cases": 2,
+          "accepted": 2
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "method": "layout_plus_complete_rim_v2",
+      "anchors": [
+        "2",
+        "3",
+        "9",
+        "10"
+      ],
+      "max_anchor_error_px": 8.038873388460929e-14,
+      "anchor_size_scale_mismatch": 0.032567326107151295,
+      "affine_projective_disagreement_px": 8.575132636300133,
+      "leave_one_anchor_target_spread_px": 0.0,
+      "center": [
+        322.07992007992,
+        266.32767232767236
+      ],
+      "estimated_diameter_px": 62.85864735375418,
+      "reason": "geometry_accepted_without_complete_rim",
+      "four_anchor_mode": true,
+      "previous_reason": "fewer_than_five_anchors",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        322.07992007992,
+        266.32767232767236
+      ],
+      "rim_verification": {
+        "accepted": false,
+        "reason": "no_complete_button_rim"
+      },
+      "frame": "holdout_2",
+      "task": "20261026_184915",
+      "target": "1",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 33.710645002429374,
+      "manual_center": [
+        320,
+        265
+      ],
+      "diameter": 69,
+      "error_px": 2.467545612247382,
+      "error_diameters": 0.0357615306122809,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "method": "layout_plus_complete_rim_v2",
+      "anchors": [
+        "1",
+        "3",
+        "9",
+        "10"
+      ],
+      "max_anchor_error_px": 1.1718571004216928e-13,
+      "anchor_size_scale_mismatch": 0.08804740850925263,
+      "affine_projective_disagreement_px": 2.9237854449102496,
+      "leave_one_anchor_target_spread_px": 0.0,
+      "center": [
+        321.9471092224121,
+        178.0233383178711
+      ],
+      "estimated_diameter_px": 66.47935924052787,
+      "reason": "geometry_with_optional_rim_refinement",
+      "four_anchor_mode": true,
+      "previous_reason": "fewer_than_five_anchors",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        321.9361073825503,
+        176.42308724832225
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          321.9471092224121,
+          178.0233383178711
+        ],
+        "matching_contours": 1,
+        "rim": {
+          "center": [
+            321.9471092224121,
+            178.0233383178711
+          ],
+          "axes": [
+            61.78898239135742,
+            62.66244125366211
+          ],
+          "angle": 110.96395111083984,
+          "fit_p90": 0.01876093846553495,
+          "angular_bins": 36,
+          "area_fraction": 0.9983746209491886
+        },
+        "correction_px": 1.6002888883175352
+      },
+      "frame": "holdout_2",
+      "task": "20261026_184915",
+      "target": "2",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 7.631650994881056,
+      "manual_center": [
+        323,
+        178
+      ],
+      "diameter": 69,
+      "error_px": 1.0531494037460616,
+      "error_diameters": 0.015263034836899444,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "method": "layout_plus_complete_rim_v2",
+      "anchors": [
+        "1",
+        "2",
+        "9",
+        "10"
+      ],
+      "max_anchor_error_px": 8.038873388460929e-14,
+      "anchor_size_scale_mismatch": 0.07474585047350435,
+      "affine_projective_disagreement_px": 3.5931772197148555,
+      "leave_one_anchor_target_spread_px": 0.0,
+      "center": [
+        326.1326530612245,
+        87.15306122448963
+      ],
+      "estimated_diameter_px": 68.50624696812301,
+      "reason": "geometry_accepted_without_complete_rim",
+      "four_anchor_mode": true,
+      "previous_reason": "fewer_than_five_anchors",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        326.1326530612245,
+        87.15306122448963
+      ],
+      "rim_verification": {
+        "accepted": false,
+        "reason": "no_complete_button_rim"
+      },
+      "frame": "holdout_2",
+      "task": "20261026_184915",
+      "target": "3",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 8.283208997454494,
+      "manual_center": [
+        324,
+        82
+      ],
+      "diameter": 69,
+      "error_px": 5.57693904062873,
+      "error_diameters": 0.0808252034873729,
+      "within_provisional_2d_tolerance": false
+    },
+    {
+      "accepted": false,
+      "purpose": "offline_inferred_2d_only",
+      "target_detected": false,
+      "method": "sparse_geometry",
+      "anchors": [
+        "9",
+        "2",
+        "10",
+        "8"
+      ],
+      "anchor_size_scale_mismatch": 0.889886166064138,
+      "reason": "anchor_size_geometry_conflict",
+      "previous_reason": "fewer_than_five_anchors",
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "frame": "holdout_2",
+      "task": "20261026_184915",
+      "target": "1",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 2.6038329961011186,
+      "manual_center": [
+        320,
+        265
+      ],
+      "diameter": 69
+    },
+    {
+      "accepted": false,
+      "purpose": "offline_inferred_2d_only",
+      "target_detected": false,
+      "method": "sparse_geometry",
+      "anchors": [
+        "9",
+        "1",
+        "10",
+        "8"
+      ],
+      "anchor_size_scale_mismatch": 0.7466340939983374,
+      "reason": "anchor_size_geometry_conflict",
+      "previous_reason": "fewer_than_five_anchors",
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "frame": "holdout_2",
+      "task": "20261026_184915",
+      "target": "2",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 2.1914740063948557,
+      "manual_center": [
+        323,
+        178
+      ],
+      "diameter": 69
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "method": "layout_plus_complete_rim_v2",
+      "anchors": [
+        "9",
+        "1",
+        "2",
+        "10"
+      ],
+      "max_anchor_error_px": 1.705984488801417e-05,
+      "anchor_size_scale_mismatch": 0.02208928470736482,
+      "affine_projective_disagreement_px": 3.07785727221953,
+      "leave_one_anchor_target_spread_px": 0.0,
+      "center": [
+        326.033219985044,
+        83.39141020765837
+      ],
+      "estimated_diameter_px": 77.4637525372585,
+      "reason": "geometry_accepted_without_complete_rim",
+      "four_anchor_mode": true,
+      "previous_reason": "fewer_than_five_anchors",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        326.033219985044,
+        83.39141020765837
+      ],
+      "rim_verification": {
+        "accepted": false,
+        "reason": "no_complete_button_rim"
+      },
+      "frame": "holdout_2",
+      "task": "20261026_184915",
+      "target": "3",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 6.137137999758124,
+      "manual_center": [
+        324,
+        82
+      ],
+      "diameter": 69,
+      "error_px": 2.4637381909525775,
+      "error_diameters": 0.035706350593515616,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "3",
+        "4",
+        "9",
+        "10",
+        "11"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.774743400800326,
+      "rms_anchor_error_px": 0.43421511469698315,
+      "max_leave_one_out_px": 3.5327880855212297,
+      "center": [
+        320.4916172027588,
+        268.4712791442871
+      ],
+      "estimated_diameter_px": 67.0,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        321.45909421318436,
+        268.80889830656525
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          320.4916172027588,
+          268.4712791442871
+        ],
+        "matching_contours": 4,
+        "rim": {
+          "center": [
+            320.2851753234863,
+            269.15107345581055
+          ],
+          "axes": [
+            57.96900177001953,
+            59.867610931396484
+          ],
+          "angle": 107.6223373413086,
+          "fit_p90": 0.01641592647492922,
+          "angular_bins": 36,
+          "area_fraction": 0.9984600847262723
+        },
+        "correction_px": 1.0246943273188311
+      },
+      "frame": "holdout_3",
+      "task": "20261026_184948",
+      "target": "2",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 7.6933070085942745,
+      "manual_center": [
+        320,
+        270
+      ],
+      "diameter": 67,
+      "error_px": 1.6058253107794536,
+      "error_diameters": 0.023967541951932143,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "2",
+        "4",
+        "9",
+        "10",
+        "11"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.8830448376307184,
+      "rms_anchor_error_px": 0.5076567520177842,
+      "max_leave_one_out_px": 4.2409789912884115,
+      "center": [
+        321.4722886257675,
+        181.2224846949328
+      ],
+      "estimated_diameter_px": 67.0,
+      "reason": "geometry_accepted_without_complete_rim",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        321.4722886257675,
+        181.2224846949328
+      ],
+      "rim_verification": {
+        "accepted": false,
+        "reason": "no_complete_button_rim"
+      },
+      "frame": "holdout_3",
+      "task": "20261026_184948",
+      "target": "3",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 7.240217004437,
+      "manual_center": [
+        322,
+        181
+      ],
+      "diameter": 67,
+      "error_px": 0.5726942761838304,
+      "error_diameters": 0.008547675763937767,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "2",
+        "3",
+        "9",
+        "10",
+        "11"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.8788296120777505,
+      "rms_anchor_error_px": 0.5425407597120986,
+      "max_leave_one_out_px": 5.027336437875012,
+      "center": [
+        322.63438415527344,
+        86.6144905090332
+      ],
+      "estimated_diameter_px": 67.0,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        322.9808728759466,
+        87.49097419681401
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          322.63438415527344,
+          86.6144905090332
+        ],
+        "matching_contours": 3,
+        "rim": {
+          "center": [
+            322.7535400390625,
+            86.6144905090332
+          ],
+          "axes": [
+            62.712589263916016,
+            64.38087463378906
+          ],
+          "angle": 16.265405654907227,
+          "fit_p90": 0.01683209816719311,
+          "angular_bins": 36,
+          "area_fraction": 0.9987265089279797
+        },
+        "correction_px": 0.9424850600935625
+      },
+      "frame": "holdout_3",
+      "task": "20261026_184948",
+      "target": "4",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 7.10253999568522,
+      "manual_center": [
+        323,
+        88
+      ],
+      "diameter": 67,
+      "error_px": 1.4329380640747145,
+      "error_diameters": 0.02138713528469723,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "9",
+        "3",
+        "4",
+        "10",
+        "11"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.37861437626263666,
+      "rms_anchor_error_px": 0.3012864791348619,
+      "max_leave_one_out_px": 2.5229556231308066,
+      "center": [
+        320.49161529541016,
+        268.4712829589844
+      ],
+      "estimated_diameter_px": 75.74323272705078,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        320.3801025453837,
+        266.6418043726159
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          320.49161529541016,
+          268.4712829589844
+        ],
+        "matching_contours": 4,
+        "rim": {
+          "center": [
+            320.28517150878906,
+            269.1510772705078
+          ],
+          "axes": [
+            57.96900177001953,
+            59.867610931396484
+          ],
+          "angle": 107.6223373413086,
+          "fit_p90": 0.01641593079925114,
+          "angular_bins": 36,
+          "area_fraction": 0.9984600847262723
+        },
+        "correction_px": 1.8328739704079973
+      },
+      "frame": "holdout_3",
+      "task": "20261026_184948",
+      "target": "2",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 8.135294003295712,
+      "manual_center": [
+        320,
+        270
+      ],
+      "diameter": 67,
+      "error_px": 1.6058210953193957,
+      "error_diameters": 0.023967479034617847,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "9",
+        "2",
+        "4",
+        "10",
+        "11"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.4734039976199767,
+      "rms_anchor_error_px": 0.31196730879515233,
+      "max_leave_one_out_px": 2.14279924001461,
+      "center": [
+        321.64751102421354,
+        179.9937029803312
+      ],
+      "estimated_diameter_px": 75.74323272705078,
+      "reason": "geometry_accepted_without_complete_rim",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        321.64751102421354,
+        179.9937029803312
+      ],
+      "rim_verification": {
+        "accepted": false,
+        "reason": "no_complete_button_rim"
+      },
+      "frame": "holdout_3",
+      "task": "20261026_184948",
+      "target": "3",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 6.726559993694536,
+      "manual_center": [
+        322,
+        181
+      ],
+      "diameter": 67,
+      "error_px": 1.0662467678006387,
+      "error_diameters": 0.0159141308626961,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "9",
+        "2",
+        "3",
+        "10",
+        "11"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.26500815284617185,
+      "rms_anchor_error_px": 0.21318204855170983,
+      "max_leave_one_out_px": 1.7713515626432244,
+      "center": [
+        322.63438415527344,
+        86.6144905090332
+      ],
+      "estimated_diameter_px": 72.81244659423828,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        323.6021851157831,
+        87.56838213676589
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          322.63438415527344,
+          86.6144905090332
+        ],
+        "matching_contours": 3,
+        "rim": {
+          "center": [
+            322.7535400390625,
+            86.6144905090332
+          ],
+          "axes": [
+            62.712589263916016,
+            64.38087463378906
+          ],
+          "angle": 16.265405654907227,
+          "fit_p90": 0.01683209816719311,
+          "angular_bins": 36,
+          "area_fraction": 0.9987265089279797
+        },
+        "correction_px": 1.3588774546006304
+      },
+      "frame": "holdout_3",
+      "task": "20261026_184948",
+      "target": "4",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 7.41568100056611,
+      "manual_center": [
+        323,
+        88
+      ],
+      "diameter": 67,
+      "error_px": 1.4329380640747145,
+      "error_diameters": 0.02138713528469723,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "4",
+        "5",
+        "10",
+        "11",
+        "12"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 1.0644074238213617,
+      "rms_anchor_error_px": 0.6039500173651621,
+      "max_leave_one_out_px": 5.47548823861805,
+      "center": [
+        311.6827640533447,
+        267.8208427429199
+      ],
+      "estimated_diameter_px": 67.0,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        308.4876194514388,
+        269.528211659158
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          311.6827640533447,
+          267.8208427429199
+        ],
+        "matching_contours": 2,
+        "rim": {
+          "center": [
+            311.5411605834961,
+            268.3420219421387
+          ],
+          "axes": [
+            60.420684814453125,
+            60.816307067871094
+          ],
+          "angle": 119.67643737792969,
+          "fit_p90": 0.015966665311056283,
+          "angular_bins": 36,
+          "area_fraction": 0.9987889897864075
+        },
+        "correction_px": 3.6227141266217373
+      },
+      "frame": "holdout_4",
+      "task": "20261026_185025",
+      "target": "3",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 5.80707099288702,
+      "manual_center": [
+        310,
+        269
+      ],
+      "diameter": 67,
+      "error_px": 2.0547765562595335,
+      "error_diameters": 0.03066830680984378,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "3",
+        "5",
+        "10",
+        "11",
+        "12"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 1.1633612458816769,
+      "rms_anchor_error_px": 0.6700892333159348,
+      "max_leave_one_out_px": 6.115699393224576,
+      "center": [
+        318.70758628845215,
+        178.43413543701172
+      ],
+      "estimated_diameter_px": 67.0,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        318.39082955866303,
+        180.09691573710916
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          318.70758628845215,
+          178.43413543701172
+        ],
+        "matching_contours": 2,
+        "rim": {
+          "center": [
+            318.7045097351074,
+            178.4420394897461
+          ],
+          "axes": [
+            61.086097717285156,
+            61.189971923828125
+          ],
+          "angle": 22.720701217651367,
+          "fit_p90": 0.01678596426728155,
+          "angular_bins": 36,
+          "area_fraction": 0.9987377099784861
+        },
+        "correction_px": 1.6926822360557885
+      },
+      "frame": "holdout_4",
+      "task": "20261026_185025",
+      "target": "4",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 6.841199996415526,
+      "manual_center": [
+        318,
+        180
+      ],
+      "diameter": 67,
+      "error_px": 1.718316090021847,
+      "error_diameters": 0.025646508806296226,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "3",
+        "4",
+        "10",
+        "11",
+        "12"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 1.1311364691530106,
+      "rms_anchor_error_px": 0.6804621617757084,
+      "max_leave_one_out_px": 6.766401193879533,
+      "center": [
+        327.4936752319336,
+        85.09116744995117
+      ],
+      "estimated_diameter_px": 67.0,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        327.3732631849256,
+        89.13911727411568
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          327.4936752319336,
+          85.09116744995117
+        ],
+        "matching_contours": 1,
+        "rim": {
+          "center": [
+            327.4936752319336,
+            85.09116744995117
+          ],
+          "axes": [
+            62.84223175048828,
+            64.90339660644531
+          ],
+          "angle": 38.941654205322266,
+          "fit_p90": 0.058223702422371314,
+          "angular_bins": 36,
+          "area_fraction": 0.9610151875028984
+        },
+        "correction_px": 4.0497403422958005
+      },
+      "frame": "holdout_4",
+      "task": "20261026_185025",
+      "target": "5",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 7.395908003672957,
+      "manual_center": [
+        327,
+        89
+      ],
+      "diameter": 67,
+      "error_px": 3.9398841529854547,
+      "error_diameters": 0.058804241089335144,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "4",
+        "5",
+        "12",
+        "11",
+        "10"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.1053023090396517,
+      "rms_anchor_error_px": 0.07987475445020523,
+      "max_leave_one_out_px": 0.6884685507294813,
+      "center": [
+        311.6827640533447,
+        267.82083892822266
+      ],
+      "estimated_diameter_px": 73.52758026123047,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        311.9440839983952,
+        264.960409546397
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          311.6827640533447,
+          267.82083892822266
+        ],
+        "matching_contours": 2,
+        "rim": {
+          "center": [
+            311.5411605834961,
+            268.3420181274414
+          ],
+          "axes": [
+            60.420684814453125,
+            60.816307067871094
+          ],
+          "angle": 119.67643737792969,
+          "fit_p90": 0.015966552758676644,
+          "angular_bins": 36,
+          "area_fraction": 0.9987889897864075
+        },
+        "correction_px": 2.872341268389385
+      },
+      "frame": "holdout_4",
+      "task": "20261026_185025",
+      "target": "3",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 7.610310000018217,
+      "manual_center": [
+        310,
+        269
+      ],
+      "diameter": 67,
+      "error_px": 2.0547787453699895,
+      "error_diameters": 0.03066833948313417,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "3",
+        "5",
+        "12",
+        "11",
+        "10"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.27640285025010153,
+      "rms_anchor_error_px": 0.1805638406296713,
+      "max_leave_one_out_px": 1.226549440009235,
+      "center": [
+        318.70758628845215,
+        178.43413543701172
+      ],
+      "estimated_diameter_px": 73.08403015136719,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        319.8376978046238,
+        178.4395442822903
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          318.70758628845215,
+          178.43413543701172
+        ],
+        "matching_contours": 2,
+        "rim": {
+          "center": [
+            318.7045097351074,
+            178.4420394897461
+          ],
+          "axes": [
+            61.086097717285156,
+            61.189971923828125
+          ],
+          "angle": 22.720701217651367,
+          "fit_p90": 0.01678596426728155,
+          "angular_bins": 36,
+          "area_fraction": 0.9987377099784861
+        },
+        "correction_px": 1.1301244597791302
+      },
+      "frame": "holdout_4",
+      "task": "20261026_185025",
+      "target": "4",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 6.758267991244793,
+      "manual_center": [
+        318,
+        180
+      ],
+      "diameter": 67,
+      "error_px": 1.718316090021847,
+      "error_diameters": 0.025646508806296226,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "4",
+        "3",
+        "12",
+        "11",
+        "10"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.28137183788960046,
+      "rms_anchor_error_px": 0.2204005456792567,
+      "max_leave_one_out_px": 1.743817083494875,
+      "center": [
+        327.4936752319336,
+        85.09116744995117
+      ],
+      "estimated_diameter_px": 73.08403015136719,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        327.41268064815495,
+        84.17301768808355
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          327.4936752319336,
+          85.09116744995117
+        ],
+        "matching_contours": 1,
+        "rim": {
+          "center": [
+            327.4936752319336,
+            85.09116744995117
+          ],
+          "axes": [
+            62.84223175048828,
+            64.90339660644531
+          ],
+          "angle": 38.941654205322266,
+          "fit_p90": 0.058223702422371314,
+          "angular_bins": 36,
+          "area_fraction": 0.9610151875028984
+        },
+        "correction_px": 0.9217153073585423
+      },
+      "frame": "holdout_4",
+      "task": "20261026_185025",
+      "target": "5",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 7.438813991029747,
+      "manual_center": [
+        327,
+        89
+      ],
+      "diameter": 67,
+      "error_px": 3.9398841529854547,
+      "error_diameters": 0.058804241089335144,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "5",
+        "6",
+        "7",
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 1.3330633139821244,
+      "rms_anchor_error_px": 0.9407569773831946,
+      "max_leave_one_out_px": 6.2058050412938695,
+      "center": [
+        322.00241470336914,
+        265.03799629211426
+      ],
+      "estimated_diameter_px": 62.0,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        324.02068615028173,
+        272.50588006776246
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          322.00241470336914,
+          265.03799629211426
+        ],
+        "matching_contours": 2,
+        "rim": {
+          "center": [
+            321.7792854309082,
+            265.26815032958984
+          ],
+          "axes": [
+            59.30603790283203,
+            61.00904846191406
+          ],
+          "angle": 11.407885551452637,
+          "fit_p90": 0.020122652903948702,
+          "angular_bins": 36,
+          "area_fraction": 1.0016780209221134
+        },
+        "correction_px": 7.735806856431482
+      },
+      "frame": "holdout_5",
+      "task": "20261026_185104",
+      "target": "4",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 8.884630995453335,
+      "manual_center": [
+        321,
+        267
+      ],
+      "diameter": 62,
+      "error_px": 2.2032461930724043,
+      "error_diameters": 0.03553622892052265,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "4",
+        "6",
+        "7",
+        "11",
+        "12",
+        "13",
+        "14"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 1.5566858576967644,
+      "rms_anchor_error_px": 1.1281929254753176,
+      "max_leave_one_out_px": 6.339385436196492,
+      "center": [
+        323.58005142211914,
+        177.3038787841797
+      ],
+      "estimated_diameter_px": 62.0,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        323.5496895582987,
+        178.32790184015323
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          323.58005142211914,
+          177.3038787841797
+        ],
+        "matching_contours": 1,
+        "rim": {
+          "center": [
+            323.58005142211914,
+            177.3038787841797
+          ],
+          "axes": [
+            56.00230026245117,
+            58.04698181152344
+          ],
+          "angle": 72.22959899902344,
+          "fit_p90": 0.06292368258230607,
+          "angular_bins": 36,
+          "area_fraction": 0.9697845255075985
+        },
+        "correction_px": 1.0244730655024783
+      },
+      "frame": "holdout_5",
+      "task": "20261026_185104",
+      "target": "5",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 10.90630299586337,
+      "manual_center": [
+        324,
+        182
+      ],
+      "diameter": 62,
+      "error_px": 4.714860685295145,
+      "error_diameters": 0.07604614008540557,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "13",
+        "5",
+        "6",
+        "11",
+        "12"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.6039840157952883,
+      "rms_anchor_error_px": 0.33314141155338056,
+      "max_leave_one_out_px": 2.366381114994132,
+      "center": [
+        322.00241470336914,
+        265.03799629211426
+      ],
+      "estimated_diameter_px": 66.96117401123047,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        320.9014792579892,
+        266.8149185477791
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          322.00241470336914,
+          265.03799629211426
+        ],
+        "matching_contours": 2,
+        "rim": {
+          "center": [
+            321.7792854309082,
+            265.26815032958984
+          ],
+          "axes": [
+            59.30603790283203,
+            61.00904846191406
+          ],
+          "angle": 11.407885551452637,
+          "fit_p90": 0.020122652903948702,
+          "angular_bins": 36,
+          "area_fraction": 1.0016780209221134
+        },
+        "correction_px": 2.090337665921686
+      },
+      "frame": "holdout_5",
+      "task": "20261026_185104",
+      "target": "4",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 6.617487000767142,
+      "manual_center": [
+        321,
+        267
+      ],
+      "diameter": 62,
+      "error_px": 2.2032461930724043,
+      "error_diameters": 0.03553622892052265,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": true,
+      "purpose": "offline_inferred_2d_only",
+      "anchors": [
+        "13",
+        "6",
+        "11",
+        "4",
+        "12"
+      ],
+      "ransac_outlier_labels": [],
+      "max_anchor_error_px": 0.5980520388872914,
+      "rms_anchor_error_px": 0.32741539428269106,
+      "max_leave_one_out_px": 2.3506836617383295,
+      "center": [
+        323.58005142211914,
+        177.3038787841797
+      ],
+      "estimated_diameter_px": 69.56891632080078,
+      "reason": "geometry_with_optional_rim_refinement",
+      "method": "existing_five_plus_geometry",
+      "target_detected": false,
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "layout_center": [
+        323.0604971257733,
+        178.94467271035364
+      ],
+      "rim_verification": {
+        "accepted": true,
+        "reason": "complete_rim_verified",
+        "center": [
+          323.58005142211914,
+          177.3038787841797
+        ],
+        "matching_contours": 1,
+        "rim": {
+          "center": [
+            323.58005142211914,
+            177.3038787841797
+          ],
+          "axes": [
+            56.00230026245117,
+            58.04698181152344
+          ],
+          "angle": 72.22959899902344,
+          "fit_p90": 0.06292368258230607,
+          "angular_bins": 36,
+          "area_fraction": 0.9697845255075985
+        },
+        "correction_px": 1.7210872653705813
+      },
+      "frame": "holdout_5",
+      "task": "20261026_185104",
+      "target": "5",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 6.856653999420814,
+      "manual_center": [
+        324,
+        182
+      ],
+      "diameter": 62,
+      "error_px": 4.714860685295145,
+      "error_diameters": 0.07604614008540557,
+      "within_provisional_2d_tolerance": true
+    },
+    {
+      "accepted": false,
+      "purpose": "offline_inferred_2d_only",
+      "target_detected": false,
+      "method": "sparse_geometry",
+      "anchors": [
+        "2",
+        "9"
+      ],
+      "reason": "sparse_mode_requires_three_or_four",
+      "previous_reason": "fewer_than_five_anchors",
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "frame": "holdout_1",
+      "task": "20261023_155141",
+      "target": "1",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 0.10261000716127455,
+      "manual_center": [
+        323,
+        178
+      ],
+      "diameter": 74
+    },
+    {
+      "accepted": false,
+      "purpose": "offline_inferred_2d_only",
+      "target_detected": false,
+      "method": "sparse_geometry",
+      "anchors": [
+        "1",
+        "9"
+      ],
+      "reason": "sparse_mode_requires_three_or_four",
+      "previous_reason": "fewer_than_five_anchors",
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "frame": "holdout_1",
+      "task": "20261023_155141",
+      "target": "2",
+      "mode": "verified_manual_anchors",
+      "geometry_ms": 0.027707996196113527,
+      "manual_center": [
+        327,
+        76
+      ],
+      "diameter": 74
+    },
+    {
+      "accepted": false,
+      "purpose": "offline_inferred_2d_only",
+      "target_detected": false,
+      "method": "sparse_geometry",
+      "anchors": [
+        "9",
+        "2"
+      ],
+      "reason": "sparse_mode_requires_three_or_four",
+      "previous_reason": "fewer_than_five_anchors",
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "frame": "holdout_1",
+      "task": "20261023_155141",
+      "target": "1",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 0.026780006010085344,
+      "manual_center": [
+        323,
+        178
+      ],
+      "diameter": 74
+    },
+    {
+      "accepted": false,
+      "purpose": "offline_inferred_2d_only",
+      "target_detected": false,
+      "method": "sparse_geometry",
+      "anchors": [
+        "9",
+        "1"
+      ],
+      "reason": "sparse_mode_requires_three_or_four",
+      "previous_reason": "fewer_than_five_anchors",
+      "light_state": "not_evaluated",
+      "requires_live_depth_and_motion_validation": true,
+      "frame": "holdout_1",
+      "task": "20261023_155141",
+      "target": "2",
+      "mode": "raw_yolo_cpu_jpeg",
+      "geometry_ms": 0.02137299452442676,
+      "manual_center": [
+        327,
+        76
+      ],
+      "diameter": 74
+    }
+  ]
+}

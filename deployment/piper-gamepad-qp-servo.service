@@ -1,0 +1,17 @@
+[Unit]
+Description=Orientation-preserving QP servo node for DualSense arm control
+After=piper-ros-bringup.service
+Wants=piper-ros-bringup.service
+
+[Service]
+Type=simple
+Environment=ROS_IP=192.168.168.120
+Environment=ROS_MASTER_URI=http://192.168.168.120:11311
+ExecStart=/bin/bash -lc 'source /opt/ros/noetic/setup.bash && source /home/orangepi/mobile_arm_demo/install/setup.bash && rosparam load /home/orangepi/mobile_arm_demo/config/piper_gamepad_servo_config.yaml /piper_gamepad_qp_servo && exec rosrun piper_qp_servo servo_action_server /joint_states:=/piper_arm/joint_states __name:=piper_gamepad_qp_servo'
+Restart=always
+RestartSec=2
+TimeoutStopSec=10
+KillMode=control-group
+
+[Install]
+WantedBy=default.target
